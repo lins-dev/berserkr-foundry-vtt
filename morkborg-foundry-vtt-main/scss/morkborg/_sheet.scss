@@ -1,0 +1,175 @@
+.morkborg.sheet.actor,
+.morkborg.sheet.item {
+  margin-top: 0;
+
+  .window-content {
+    overflow-y: hidden;
+    padding: 5px;
+
+    /* inherited background is parchment img bg */
+    background: var(--window-background);
+    font-size: 13px;
+    color: var(--foreground-color);
+    border-bottom: 1px solid var(--window-border-color);
+    border-left: 1px solid var(--window-border-color);
+    border-right: 1px solid var(--window-border-color);
+
+    form {
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+
+  .editable .rollable:hover {
+    color: var(--highlight-foreground-color);
+    text-shadow: 0 0 10px var(--highlight-background-color);
+    cursor: pointer;
+  }
+
+  input {
+    &[type="text"],
+    &[type="number"],
+    &[type="password"],
+    &[type="date"] {
+      color: var(--foreground-color);
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid var(--highlight-background-color);
+    }
+
+    &[type="text"]:focus,
+    &[type="number"]:focus,
+    &[type="password"]:focus,
+    &[type="date"]:focus,
+    &[type="time"]:focus,
+    &[type="text"]:hover,
+    &[type="number"]:hover,
+    &[type="password"]:hover,
+    &[type="date"]:hover,
+    &[type="time"]:hover {
+      box-shadow: 0 0 5px var(--highlight-background-color);
+    }
+  }
+
+  select:focus {
+    box-shadow: 0 0 5px var(--highlight-background-color);
+  }
+
+  button {
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 5px var(--highlight-background-color);
+    }
+  }
+
+  a:hover {
+    text-shadow: 0 0 8px var(--highlight-background-color);
+  }
+
+  textarea {
+    border: 1px solid #7a7971;
+    border-radius: 0;
+    color: var(--foreground-color);
+    font-family: var(--item-font);
+    font-size: 14px;
+    resize: none;
+
+    &:hover {
+      box-shadow: 0 0 5px var(--highlight-background-color);
+    }
+
+    &:focus {
+      box-shadow: 0 0 5px var(--highlight-background-color);
+      outline: none;
+    }
+  }
+
+  .profile-img {
+    border: none;
+  }
+
+  .editor {
+    color: var(--foreground-color);
+    font-family: var(--journal-font);
+    font-size: var(--journal-font-size);
+    padding: 0 8px;
+  }
+
+  .tox.tox-tinymce .tox-edit-area__iframe {
+    background: var(--background-color);
+  }
+
+  .sheet-tabs {
+    flex: 0 0 30px;
+    margin-bottom: 0px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    /* TODO: track down the border-top and border-bottom getting inherited on these */
+    border-top: none;
+    border-bottom: none;
+
+    .item {
+      font-family: var(--h2-font);
+      font-size: 22px;
+      height: 32px;
+      padding: 0;
+      padding-bottom: 4px;
+      flex: 1;
+      border-radius: 2px 2px 0px 0px;
+      border-bottom: 1px solid var(--foreground-color);
+
+      &:not(.active) {
+        &:hover {
+          color: var(--highlight-foreground-color);
+          text-shadow: 0 0 10px var(--highlight-background-color);
+        }
+      }
+
+      &.active {
+        border-left: 1px solid var(--foreground-color);
+        border-right: 1px solid var(--foreground-color);
+        border-top: 1px solid var(--foreground-color);
+        border-bottom: none;
+        text-shadow: none;
+        color: var(--foreground-color);
+      }
+    }
+  }
+
+  .sheet-body {
+    overflow: hidden;
+
+    .tab {
+      height: 100%;
+      overflow-y: auto;
+      border-left: 1px solid var(--foreground-color);
+      border-right: 1px solid var(--foreground-color);
+      border-bottom: 1px solid var(--foreground-color);
+      padding: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 8px;
+
+      label {
+        font-family: var(--h2-font);
+        font-size: 20px;
+        text-align: right;
+        margin-right: 10px;
+      }
+
+      input,
+      select {
+        font-family: var(--item-font);
+        font-size: 14px;
+        text-align: center;
+      }
+
+      &.special {
+        flex: 1;
+      }
+    }
+  }
+}
