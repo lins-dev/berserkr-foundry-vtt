@@ -1,0 +1,47 @@
+{
+  "id": "berserkr",
+  "title": "Berserkr",
+  "description": "A brutal Norse RPG based on Mörk Borg.",
+  "version": "0.1.0",
+  "library": false,
+  "manifestPlusVersion": "1.2.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12",
+    "maximum": "13"
+  },
+  "authors": [
+    {
+      "name": "Lucas Lins",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "src/module/berserkr.ts"
+  ],
+  "styles": [
+    "src/styles/berserkr.scss"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "pt-br",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-br.json"
+    }
+  ],
+  "initiative": "1d6",
+  "grid": {
+    "type": 1,
+    "distance": 5,
+    "units": "ft"
+  },
+  "primaryTokenAttribute": "hp",
+  "url": "",
+  "manifest": "",
+  "download": ""
+}

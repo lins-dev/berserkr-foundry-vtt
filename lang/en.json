@@ -1,0 +1,11 @@
+{
+  "BERSERKR": {
+    "AbilityFortitude": "Fortitude",
+    "AbilityMight": "Might",
+    "AbilityGuile": "Guile",
+    "AbilitySwift": "Swift",
+    "AbilityWits": "Wits",
+    "Health": "Hit Points",
+    "Fates": "Fates"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "BERSERKR": {
+    "AbilityFortitude": "Fortitude",
+    "AbilityMight": "Poder (Might)",
+    "AbilityGuile": "Astúcia (Guile)",
+    "AbilitySwift": "Celeridade (Swift)",
+    "AbilityWits": "Sapiência (Wits)",
+    "Health": "Pontos de Vida",
+    "Fates": "Fados (Fates)"
+  }
+}
