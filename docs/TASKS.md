@@ -13,6 +13,8 @@
 - [x] Configurar `tsconfig.json`.
 - [x] Configurar `vite.config.ts`.
 - [x] Criar `system.json` inicial.
+- [x] Criar `Dockerfile` com suporte a NVM.
+- [x] Configurar `docker-compose.yml` para o ambiente de desenvolvimento.
 
 ### [ ] Task 3: Core Data Models
 - [x] Implementar `BerserkrActorData` (Attributes: Fortitude, Might, Guile, Swift, Wits).
