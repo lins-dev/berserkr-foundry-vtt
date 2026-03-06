@@ -6,6 +6,8 @@ export class BerserkrCharacterData extends foundry.abstract.DataModel {
     const fields = foundry.data.fields;
     return {
       description: new fields.HTMLField(),
+      class: new fields.StringField({ initial: "" }),
+      background: new fields.HTMLField(),
       abilities: new fields.SchemaField({
         fortitude: new fields.SchemaField({ value: new fields.NumberField({ initial: 0, integer: true }) }),
         might: new fields.SchemaField({ value: new fields.NumberField({ initial: 0, integer: true }) }),

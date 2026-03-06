@@ -1,0 +1,55 @@
+{
+  "Actor": {
+    "types": ["character"],
+    "templates": {
+      "base": {
+        "description": "",
+        "hp": { "value": 1, "max": 1 },
+        "silver": 0
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "abilities": {
+        "fortitude": { "value": 0 },
+        "might": { "value": 0 },
+        "guile": { "value": 0 },
+        "swift": { "value": 0 },
+        "wits": { "value": 0 }
+      },
+      "fates": { "value": 0, "max": 0 }
+    }
+  },
+  "Item": {
+    "types": ["weapon", "armor", "rune", "gear"],
+    "templates": {
+      "base": {
+        "description": "",
+        "quantity": 1,
+        "weight": 0,
+        "cost": 0
+      }
+    },
+    "weapon": {
+      "templates": ["base"],
+      "damage": "d4",
+      "damageType": "physical",
+      "isRanged": false,
+      "range": 0
+    },
+    "armor": {
+      "templates": ["base"],
+      "tier": 1,
+      "reduction": "0",
+      "isShield": false
+    },
+    "rune": {
+      "templates": ["base"],
+      "uses": { "value": 0, "max": 0 },
+      "set": 1
+    },
+    "gear": {
+      "templates": ["base"]
+    }
+  }
+}

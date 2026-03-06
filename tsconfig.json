@@ -15,7 +15,7 @@
       "@module/*": ["src/module/*"],
       "@svelte/*": ["src/svelte/*"]
     },
-    "types": ["@foundryvtt/types"]
+    "types": ["@league-of-foundry-developers/foundry-vtt-types"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.svelte"],
   "references": [{ "path": "./tsconfig.node.json" }]

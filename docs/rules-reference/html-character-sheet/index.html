@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berserkr · Character Sheet</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Page Nav -->
+  <nav class="page-nav">
+    <a href="index.html" class="active">Sheet</a>
+    <a href="sagas.html">Sagas</a>
+  </nav>
+
+  <div class="sheet">
+
+    <!-- ====== HEADER ====== -->
+    <div class="sheet-header">
+
+      <!-- Portrait -->
+      <div class="portrait-area">
+        <div class="portrait-container">
+          <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- Hooded figure silhouette -->
+            <path d="M50 5 C25 5 10 25 10 50 L10 80 C10 85 12 88 15 90 L25 95 L25 115 L75 115 L75 95 L85 90 C88 88 90 85 90 80 L90 50 C90 25 75 5 50 5 Z" fill="white"/>
+            <!-- Face opening -->
+            <path d="M35 45 C35 35 40 28 50 28 C60 28 65 35 65 45 L65 65 C65 75 60 82 50 82 C40 82 35 75 35 65 Z" fill="#1a1a2e"/>
+            <!-- Eyes -->
+            <ellipse cx="42" cy="52" rx="5" ry="6" fill="white"/>
+            <ellipse cx="58" cy="52" rx="5" ry="6" fill="white"/>
+            <!-- Eye pupils -->
+            <ellipse cx="43" cy="53" rx="2.5" ry="3" fill="#1a1a2e"/>
+            <ellipse cx="59" cy="53" rx="2.5" ry="3" fill="#1a1a2e"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Character Info -->
+      <div class="char-info">
+        <input type="text" class="char-name-input" placeholder="Character Name" data-field="name">
+
+        <div class="char-class-row">
+          <label>Class:</label>
+          <input type="text" class="char-class-input" placeholder="Enter class..." data-field="class">
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-field">
+            <label>HP:</label>
+            <input type="text" class="stat-input" value="1" data-field="hp_current">
+            <span class="stat-separator">/</span>
+            <input type="text" class="stat-input" value="1" data-field="hp_max">
+          </div>
+          <div class="stat-field">
+            <label>Omens:</label>
+            <input type="text" class="stat-input" value="0" data-field="omens">
+          </div>
+          <div class="stat-field">
+            <label>Powers:</label>
+            <input type="text" class="stat-input" value="0" data-field="powers">
+          </div>
+          <div class="stat-field">
+            <label>Silver:</label>
+            <input type="text" class="stat-input" value="0" data-field="silver">
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn" id="btn-broken">BROKEN</button>
+          <button class="btn" id="btn-rest">REST</button>
+          <button class="btn" id="btn-get-better">GET BETTER</button>
+          <button class="btn" id="btn-reroll">REROLL</button>
+        </div>
+      </div>
+
+      <!-- Attributes -->
+      <div class="attributes-sidebar">
+        <div class="attr-item">
+          <input type="text" class="attr-value-input" value="+0" data-field="str">
+          <span class="attr-label">STR</span>
+        </div>
+        <div class="attr-item">
+          <input type="text" class="attr-value-input" value="+0" data-field="agi">
+          <span class="attr-label">AGI</span>
+        </div>
+        <div class="attr-item">
+          <input type="text" class="attr-value-input" value="+0" data-field="pre">
+          <span class="attr-label">PRE</span>
+        </div>
+        <div class="attr-item">
+          <input type="text" class="attr-value-input" value="+0" data-field="tou">
+          <span class="attr-label">TOU</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====== TABS ====== -->
+    <div class="tabs-bar">
+      <button class="tab-btn active" data-tab="background">Background</button>
+      <button class="tab-btn" data-tab="equipment">Equipment</button>
+      <button class="tab-btn" data-tab="violence">Violence</button>
+      <button class="tab-btn" data-tab="special">Special</button>
+    </div>
+
+    <!-- ====== TAB: BACKGROUND ====== -->
+    <div class="tab-content active" id="tab-background">
+      <textarea class="background-textarea" placeholder="Character background, description, history..." data-field="background"></textarea>
+    </div>
+
+    <!-- ====== TAB: EQUIPMENT ====== -->
+    <div class="tab-content" id="tab-equipment">
+      <div class="carrying-row">
+        <div>
+          <span class="carrying-label">Carrying:</span>
+          <span class="carrying-count" id="carrying-count">0/8</span>
+        </div>
+        <span class="carrying-note">STR+8 carried items or DR+2 on AGI/STR tests.</span>
+      </div>
+
+      <button class="add-btn" id="add-equipment">Add <span class="plus-icon">+</span></button>
+
+      <ul class="item-list" id="equipment-list">
+        <!-- Items added dynamically -->
+      </ul>
+    </div>
+
+    <!-- ====== TAB: VIOLENCE ====== -->
+    <div class="tab-content" id="tab-violence">
+      <div class="initiative-row">
+        <span>Roll Initiative:</span>
+        <button class="btn" id="btn-party">PARTY</button>
+        <button class="btn" id="btn-individual">INDIVIDUAL</button>
+      </div>
+
+      <h2 class="section-title">Weapons</h2>
+      <p class="empty-placeholder" id="weapons-empty">Equip a weapon to attack.</p>
+      <ul class="item-list" id="weapons-list">
+        <!-- Weapons added dynamically -->
+      </ul>
+
+      <hr class="section-divider">
+
+      <h2 class="section-title">Armor</h2>
+      <p class="empty-placeholder" id="armor-empty">Equip armor to absorb damage.</p>
+      <ul class="item-list" id="armor-list">
+        <!-- Armor added dynamically -->
+      </ul>
+
+      <button class="btn defend-btn" id="btn-defend">DEFEND</button>
+
+      <p class="combat-note">Crit: Gain free attack. Fumble: Take x2 damage, armor reduced one tier.</p>
+    </div>
+
+    <!-- ====== TAB: SPECIAL ====== -->
+    <div class="tab-content" id="tab-special">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2 class="section-title">Feats</h2>
+        <button class="add-btn" id="add-feat">Add <span class="plus-icon">+</span></button>
+      </div>
+      <p class="empty-placeholder" id="feats-empty">You have no Feats</p>
+      <ul class="item-list" id="feats-list">
+        <!-- Feats added dynamically -->
+      </ul>
+
+      <hr class="section-divider">
+
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2 class="section-title">Powers</h2>
+        <button class="add-btn" id="add-power">Add <span class="plus-icon">+</span></button>
+      </div>
+      <p class="empty-placeholder" id="powers-empty">You have no Scrolls</p>
+      <ul class="item-list" id="powers-list">
+        <!-- Powers added dynamically -->
+      </ul>
+    </div>
+
+  </div>
+
+  <script>
+    /* ====== TABS ====== */
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active from all
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        // Activate clicked tab
+        btn.classList.add('active');
+        const tabId = btn.dataset.tab;
+        document.getElementById(`tab-${tabId}`).classList.add('active');
+
+        saveData();
+      });
+    });
+
+    /* ====== ADD ITEMS ====== */
+    function createItemRow(text, listId, emptyId) {
+      const list = document.getElementById(listId);
+      const empty = document.getElementById(emptyId);
+
+      if (empty) empty.style.display = 'none';
+
+      const li = document.createElement('li');
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = text || '';
+      input.placeholder = 'Enter name...';
+      input.style.cssText = 'flex:1; background:transparent; border:none; border-bottom:1px solid #333356; color:#e0e0e0; font-size:0.85rem; padding:2px 4px; outline:none; font-family:var(--font-ui);';
+      input.addEventListener('input', saveData);
+
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = '✕';
+      removeBtn.style.cssText = 'background:transparent; border:none; color:#666; cursor:pointer; font-size:0.9rem; padding:2px 6px;';
+      removeBtn.addEventListener('click', () => {
+        li.remove();
+        updateCarryingCount();
+        checkEmpty(listId, emptyId);
+        saveData();
+      });
+
+      li.appendChild(input);
+      li.appendChild(removeBtn);
+      list.appendChild(li);
+
+      input.focus();
+      updateCarryingCount();
+      saveData();
+    }
+
+    function checkEmpty(listId, emptyId) {
+      const list = document.getElementById(listId);
+      const empty = document.getElementById(emptyId);
+      if (empty) {
+        empty.style.display = list.children.length === 0 ? 'block' : 'none';
+      }
+    }
+
+    function updateCarryingCount() {
+      const list = document.getElementById('equipment-list');
+      const count = list ? list.children.length : 0;
+      const el = document.getElementById('carrying-count');
+      if (el) el.textContent = `${count}/8`;
+    }
+
+    // Add button handlers
+    document.getElementById('add-equipment')?.addEventListener('click', () => {
+      createItemRow('', 'equipment-list', null);
+    });
+
+    document.getElementById('add-feat')?.addEventListener('click', () => {
+      createItemRow('', 'feats-list', 'feats-empty');
+    });
+
+    document.getElementById('add-power')?.addEventListener('click', () => {
+      createItemRow('', 'powers-list', 'powers-empty');
+    });
+
+    /* ====== SAVE / LOAD ====== */
+    const STORAGE_KEY = 'berserkr-sheet-v2';
+
+    function saveData() {
+      const data = {};
+
+      // Save field inputs
+      document.querySelectorAll('[data-field]').forEach(el => {
+        if (el.tagName === 'TEXTAREA') {
+          data[el.dataset.field] = el.value;
+        } else if (el.tagName === 'INPUT') {
+          data[el.dataset.field] = el.value;
+        }
+      });
+
+      // Save active tab
+      const activeTab = document.querySelector('.tab-btn.active');
+      if (activeTab) data._activeTab = activeTab.dataset.tab;
+
+      // Save lists
+      ['equipment-list', 'feats-list', 'powers-list'].forEach(listId => {
+        const list = document.getElementById(listId);
+        if (list) {
+          data[listId] = Array.from(list.children).map(li => {
+            const input = li.querySelector('input');
+            return input ? input.value : '';
+          });
+        }
+      });
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    function loadData() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+
+      try {
+        const data = JSON.parse(raw);
+
+        // Restore field inputs
+        document.querySelectorAll('[data-field]').forEach(el => {
+          if (data[el.dataset.field] !== undefined) {
+            el.value = data[el.dataset.field];
+          }
+        });
+
+        // Restore active tab
+        if (data._activeTab) {
+          tabButtons.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+
+          const targetBtn = document.querySelector(`.tab-btn[data-tab="${data._activeTab}"]`);
+          const targetContent = document.getElementById(`tab-${data._activeTab}`);
+          if (targetBtn) targetBtn.classList.add('active');
+          if (targetContent) targetContent.classList.add('active');
+        }
+
+        // Restore lists
+        const listConfig = [
+          { id: 'equipment-list', emptyId: null },
+          { id: 'feats-list', emptyId: 'feats-empty' },
+          { id: 'powers-list', emptyId: 'powers-empty' },
+        ];
+
+        listConfig.forEach(({ id, emptyId }) => {
+          if (data[id] && Array.isArray(data[id])) {
+            data[id].forEach(text => createItemRow(text, id, emptyId));
+          }
+        });
+
+      } catch (e) {
+        console.warn('Failed to load:', e);
+      }
+    }
+
+    // Auto-save on input
+    document.addEventListener('input', () => {
+      clearTimeout(window._st);
+      window._st = setTimeout(saveData, 400);
+    });
+
+    // Load on ready
+    document.addEventListener('DOMContentLoaded', loadData);
+  </script>
+
+</body>
+</html>

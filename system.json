@@ -7,7 +7,7 @@
   "manifestPlusVersion": "1.2.0",
   "compatibility": {
     "minimum": "12",
-    "verified": "12",
+    "verified": "13",
     "maximum": "13"
   },
   "authors": [
@@ -17,10 +17,10 @@
     }
   ],
   "esmodules": [
-    "src/module/berserkr.ts"
+    "dist/berserkr.js"
   ],
   "styles": [
-    "src/styles/berserkr.scss"
+    "dist/berserkr.css"
   ],
   "languages": [
     {

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berserkr · ficha extraída</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #2b2b2b;
+            font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .sheet {
+            max-width: 900px;
+            width: 100%;
+            background: #f5eedc;
+            color: #1e1a16;
+            padding: 2rem 2rem 2.2rem;
+            border-radius: 28px 28px 24px 24px;
+            box-shadow: 12px 14px 0 #4a3f35;
+            border: 2px solid #30281e;
+        }
+
+        /* tipografia do documento original */
+        .berserker-flag {
+            font-family: 'Courier New', 'Courier', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px double #8b2c1d;
+            padding-bottom: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        .header-row h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #391f12;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 1;
+        }
+        .header-row small {
+            font-size: 0.8rem;
+            color: #5e4b38;
+            max-width: 300px;
+            text-align: right;
+            font-style: italic;
+        }
+
+        /* grelha principal */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem 1.8rem;
+        }
+        @media (max-width: 650px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* cartões */
+        .stat-panel {
+            background: #e9ddcc;
+            border: 2px solid #5f4c39;
+            border-radius: 20px;
+            padding: 1.4rem 1.2rem;
+            box-shadow: inset 0 0 0 1px #faf3e6, 4px 5px 0 #332d24;
+        }
+        .panel-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2f1d0e;
+            background: #cbb295;
+            display: inline-block;
+            padding: 0.25rem 1.2rem;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            border: 1px solid #4d351f;
+            text-transform: uppercase;
+        }
+
+        /* name / description / features */
+        .identity-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+        .field {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            border-bottom: 2px dashed #9b846b;
+            padding-bottom: 0.4rem;
+        }
+        .field-label {
+            width: 100px;
+            font-weight: 600;
+            color: #4a2e1b;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        .field-value {
+            flex: 1;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e1510;
+            word-break: break-word;
+            min-height: 1.8rem;
+            background: transparent;
+            border: none;
+            padding: 0 0.2rem;
+        }
+        .field-value[contenteditable="true"]:hover {
+            background: rgba(115, 70, 38, 0.1);
+        }
+
+        /* dados estranhos: -0 -d2 -d4 -d6 e números */
+        .dice-line {
+            display: flex;
+            gap: 0.5rem 1.2rem;
+            flex-wrap: wrap;
+            align-items: center;
+            background: #b9a187;
+            padding: 0.6rem 1rem;
+            border-radius: 36px;
+            margin: 0.8rem 0 1.2rem;
+            border: 2px solid #37291c;
+            font-weight: bold;
+            color: #281a10;
+        }
+        .dice-item {
+            background: #f3e5d3;
+            padding: 0.2rem 0.9rem;
+            border-radius: 24px;
+            font-size: 1.4rem;
+            line-height: 1;
+            border: 1px solid #3d2b1b;
+            box-shadow: inset -1px -1px 0 #5f4c39;
+            font-family: 'Courier New', monospace;
+        }
+        .dice-small {
+            font-size: 1rem;
+            background: #cfbaa0;
+        }
+
+        /* equipamento, water capacity, etc */
+        .equip-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background: #cab89f;
+            padding: 0.6rem 1rem;
+            border-radius: 16px;
+            margin: 0.6rem 0;
+            font-weight: 500;
+        }
+        .bold-script {
+            font-weight: 700;
+            color: #3f270f;
+        }
+
+        .weapon-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 0.6rem;
+        }
+        .weapon-card {
+            background: #cdb69b;
+            border-radius: 14px;
+            padding: 0.8rem;
+            border: 2px solid #684f33;
+        }
+        .weapon-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            background: #2d1d0e;
+            color: #ebd9c4;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .dmg-row {
+            font-family: 'Courier New', monospace;
+            background: #2b4623;
+            color: #e0f0c8;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+        .ability-tag {
+            font-size: 0.85rem;
+            background: #3f3020;
+            color: #f0dcc8;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.3rem 0 0 0;
+        }
+
+        /* condições, hit points, max damage, etc */
+        .cond-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            background: #947b62;
+            color: #f0e0ce;
+            padding: 0.6rem 1rem;
+            border-radius: 40px;
+            margin: 0.5rem 0;
+        }
+        .hp-block {
+            display: flex;
+            gap: 1.5rem;
+            background: #704e31;
+            color: #ffeecd;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            justify-content: center;
+        }
+        .tiny-badge {
+            background: #482818;
+            padding: 0.15rem 0.6rem;
+            border-radius: 40px;
+            color: #fad6b3;
+            font-size: 0.8rem;
+            font-weight: 400;
+        }
+
+        /* trinkets, water, food row */
+        .bottom-access {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr;
+            gap: 1rem;
+            align-items: end;
+            background: #b7a082;
+            border-radius: 40px 40px 20px 20px;
+            padding: 1rem 1.5rem;
+            border: 2px solid #3c2e1d;
+        }
+        .big-text {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+            font-family: 'Courier New', monospace;
+        }
+        .rotate-note {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            background: #4d321b;
+            color: #ebcbaa;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+        }
+
+        /* licensa / rodapé */
+        .license-note {
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            text-align: center;
+            border-top: 1px dotted #5e4a33;
+            padding-top: 1rem;
+            color: #5f4f3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="sheet">
+        <!-- cabeçalho: título e condições gerais -->
+        <div class="header-row">
+            <h1>BERSERKR</h1>
+            <small>⚡ MÖRK BORG Third Party License · Slightly Reckless Games</small>
+        </div>
+
+        <!-- linha com dados de dado - extraído: 1 -0 -d2 -d4 -d6 2 3 4 -->
+        <div class="dice-line">
+            <span class="dice-item">1</span>
+            <span class="dice-item">-0</span>
+            <span class="dice-item">-d2</span>
+            <span class="dice-item">-d4</span>
+            <span class="dice-item">-d6</span>
+            <span class="dice-item">2</span>
+            <span class="dice-item">3</span>
+            <span class="dice-item">4</span>
+        </div>
+
+        <!-- grelha principal esquerda / direita -->
+        <div class="main-grid">
+            <!-- COLUNA 1: nome, descrição, equipamento, classe, trinkets etc -->
+            <div>
+                <!-- Nome / descrição / features (texto puro) -->
+                <div class="stat-panel">
+                    <div class="panel-title">✧ IDENTITY ✧</div>
+                    <div class="identity-grid">
+                        <div class="field"><span class="field-label">NAME</span><span class="field-value" contenteditable="true">n a m e</span></div>
+                        <div class="field"><span class="field-label">DESCRIPTION</span><span class="field-value" contenteditable="true">description</span></div>
+                        <div class="field"><span class="field-label">FEATURES</span><span class="field-value" contenteditable="true">features</span></div>
+                        <div class="field"><span class="field-label">CLASS</span><span class="field-value" contenteditable="true">c l a s s</span></div>
+                    </div>
+                </div>
+
+                <!-- equipamento: Might+8 ... DR+2 on Might/Swift Tests -->
+                <div class="stat-panel" style="margin-top: 0.8rem;">
+                    <div class="panel-title">⚙️ EQUIPMENT</div>
+                    <div class="equip-row"><span class="bold-script">Might+8 normal size items</span> <span class="tiny-badge">or DR+2 on Might/Swift Tests</span></div>
+                    <!-- as frases soltas de penalidade aparecem também aqui no pdf original, mas vamos colocá-las numa linha extra -->
+                    <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:0.7rem;">
+                        <span class="tiny-badge" style="background:#5f4e39;">+2 DR penalty on Swift Tests</span>
+                        <span class="tiny-badge" style="background:#5f4e39;">Defence is DR+2</span>
+                        <span class="tiny-badge" style="background:#5f4e39;">+4 DR penalty on Swift Tests</span>
+                        <span class="tiny-badge" style="background:#5f4e39;">Defence is DR+2</span>
+                    </div>
+                    <!-- water capacity / carrying / every dawn etc -->
+                </div>
+
+                <!-- trinkets, water capacity, carrying, food -->
+                <div style="margin-top: 1rem; background: #e2cfb3; border-radius: 24px; padding: 1rem; border:2px solid #745d40;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <div><span class="panel-title" style="margin-bottom:0;">TRINKETS</span></div>
+                        <div><span class="panel-title" style="margin-bottom:0;">WATER</span></div>
+                        <div class="big-text" style="font-size:1.8rem;">T R I N K E T S</div>
+                        <div class="big-text" style="font-size:1.8rem;">W A t E R</div>
+                        <div style="grid-column: span 2; display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                            <span><strong>C a p a c I t Y</strong> <span class="dice-item" style="font-size:1rem;">C a r r y i n g</span></span>
+                        </div>
+                    </div>
+                    <!-- every dawn roll guile +d4 food -->
+                    <div style="display: flex; gap: 1rem; justify-content: space-between; background: #8f7656; color: #f2e0c7; border-radius: 30px; padding: 0.5rem 1rem; margin-top: 1rem;">
+                        <span>🌅 Every d a w n , r o l l  G ui l e +d4</span>
+                        <span class="bold-script" style="color:#211510;">s food</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUNA 2: Weapon, DMG, ability, conditions, hit points e linha de max damage/allied reroll etc -->
+            <div>
+                <!-- weapon primária/secundária? O pdf repete "WEAPON DMG: DMG: ability: ability:" -->
+                <div class="stat-panel">
+                    <div class="panel-title">🗡️ WEAPON</div>
+                    <div class="weapon-block">
+                        <div class="weapon-card">
+                            <span class="weapon-name">WEAPON</span>
+                            <div><span style="font-weight:bold;">DMG:</span> <span class="dmg-row">–d6</span></div>
+                            <div><span style="font-weight:bold;">DMG:</span> <span class="dmg-row">–d4</span></div>
+                            <div class="ability-tag">ability: [—]</div>
+                            <div class="ability-tag">ability: [—]</div>
+                        </div>
+                        <div class="weapon-card">
+                            <span class="weapon-name">⚔️ SEC.</span>
+                            <div><span style="font-weight:bold;">DMG:</span> <span class="dmg-row">–d2</span></div>
+                            <div><span style="font-weight:bold;">DMG:</span> <span class="dmg-row">–0</span></div>
+                            <div class="ability-tag">ability: conditons</div>
+                            <div class="ability-tag">ability: —</div>
+                        </div>
+                    </div>
+                    <!-- conditions text avulso -->
+                    <div style="margin: 0.5rem 0 0 0.3rem;">
+                        <span class="tiny-badge" style="background:#402f1f;">conditions</span>
+                    </div>
+                </div>
+
+                <!-- hit points current / max + max damage / allied reroll e outros modificadores -->
+                <div class="stat-panel" style="margin-top: 0.8rem;">
+                    <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 1rem;">
+                        <span class="panel-title">❤️ HIT POINTS</span>
+                        <span class="hp-block"><span>current: ███</span> <span>max: ███</span></span>
+                    </div>
+
+                    <!-- max damage / allied reroll / –d6 damage / lower dr –4 / no crit / fumble die -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem; margin-top: 1rem; background: #ab8f72; border-radius: 40px; padding: 0.8rem 1.2rem;">
+                        <span><strong>max damage</strong> 🎲</span>
+                        <span><strong>allied reroll</strong> ⟳</span>
+                        <span><strong>–d6 damage</strong></span>
+                        <span><strong>lower dr –4</strong></span>
+                        <span><strong>no crit / fumble die</strong></span>
+                    </div>
+
+                    <!-- linha die: e os círculos -->
+                    <div style="margin-top: 0.8rem; display: flex; align-items: center; gap: 0.8rem; background: #c4ab8b; border-radius: 30px; padding: 0.3rem 1rem;">
+                        <span style="font-weight:800;">die:</span>
+                        <span class="dice-item" style="font-size:1.2rem;">T</span>
+                        <span class="dice-item" style="font-size:1.2rem;">R</span>
+                        <span class="dice-item" style="font-size:1.2rem;">I</span>
+                        <span class="dice-item" style="font-size:1.2rem;">N</span>
+                        <span class="dice-item" style="font-size:1.2rem;">K</span>
+                        <span class="dice-item" style="font-size:1.2rem;">E</span>
+                        <span class="dice-item" style="font-size:1.2rem;">T</span>
+                        <span class="dice-item" style="font-size:1.2rem;">S</span>
+                    </div>
+                    <!-- água / capacidade repetida? mas já colocamos no bloco inferior -->
+                </div>
+
+                <!-- pequeno extra: a frase "Berserkr is an independent production..." vai no rodapé global -->
+            </div>
+        </div>
+
+        <!-- bloco inferior inspirado na parte de baixo da página 1: W a t E R / C a p a c I t Y etc (já abordado) mas vamos replicar um resumo com itens que faltam -->
+        <div class="bottom-access">
+            <div><span class="rotate-note">C a r r y i n g</span> <span style="font-size: 1.5rem;">⬛⬛⬛</span></div>
+            <div><span class="rotate-note">Every dawn</span> <span style="font-size:1.3rem;">guile+d4</span></div>
+            <div style="display: flex; gap: 0.4rem;"><span class="rotate-note">food</span> <span>🍞🍞</span></div>
+        </div>
+
+        <!-- linha legal e condições originais -->
+        <div class="license-note">
+            Berserkr is an independent production by Slightly Reckless Games and is not affiliated with Ockult Örtästare Games or Stockholm Kartell. It is published under the MÖRK BORG Third Party License. ©Slightly Reckless Games. All Rights Reserved.<br>
+            <span style="font-family: 'Courier New';">+2 DR penalty on Swift Tests. Defence is DR+2.   +4 DR penalty on Swift Tests. Defence is DR+2.</span>
+        </div>
+
+        <!-- Nota: conteúdo textual da página 2 está vazio, mas preservamos o contexto -->
+        <div style="height: 0.5rem;"></div>
+        <!-- pequena marca "Page 2" quase invisível, mas apenas para referência -->
+        <div style="text-align: right; font-size:0.6rem; color:#7a6b59; border-top: 1px dashed #ae9b84; padding-top:0.3rem;">page 2 (blank) · extracted structure</div>
+    </div>
+</body>
+</html>

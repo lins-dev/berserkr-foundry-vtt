@@ -16,6 +16,40 @@
 - [x] Criar `Dockerfile` com suporte a NVM.
 - [x] Configurar `docker-compose.yml` para o ambiente de desenvolvimento.
 
-### [ ] Task 3: Core Data Models
+### [x] Task 3: Core Data Models
 - [x] Implementar `BerserkrActorData` (Attributes: Fortitude, Might, Guile, Swift, Wits).
-- [ ] Implementar `BerserkrItemData` base.
+- [x] Implementar `BerserkrItemData` base.
+
+# Sprint 2: Documents & Logic
+
+## Status: ✅ Complete
+
+### [x] Task 1: Document Extensions
+- [x] Implementar `BerserkrActor` (extends `Actor`).
+- [x] Implementar `BerserkrItem` (extends `Item`).
+- [x] Implementar lógica de cálculo de HP e Fates no `prepareDerivedData`.
+
+### [x] Task 2: Dice Engine
+- [x] Criar `src/module/logic/dice.ts`.
+- [x] Implementar função de teste base (d20 + mod vs DR).
+- [x] Implementar lógica de Crítico (Nat 20) e Fumble (Nat 1).
+
+### [x] Task 3: Svelte Sheets (Base)
+- [x] Configurar `ApplicationV2` para Actor.
+- [x] Criar componente base `CharacterSheet.svelte`.
+
+# Sprint 3: Items & UI Polish
+
+## Status: 📅 Planned
+
+### [ ] Task 1: Item Sheets
+- [ ] Implementar `BerserkrItemSheet` (ApplicationV2 + Svelte).
+- [ ] Criar componentes Svelte para Arma, Armadura e Runa.
+
+### [ ] Task 2: Interactive Features
+- [ ] Adicionar botões de rolagem de atributo na ficha do personagem.
+- [ ] Integrar `performTest` com a UI (chat messages).
+
+### [ ] Task 3: Styling & Assets
+- [ ] Aplicar temas visuais (fontes, cores, backgrounds) baseados no Mörk Borg.
+- [ ] Configurar assets de UI (parchment, denim).

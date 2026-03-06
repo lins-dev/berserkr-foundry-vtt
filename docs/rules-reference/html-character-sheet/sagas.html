@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berserkr · Sagas</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .sagas-container {
+      flex: 1;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sagas-header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .sagas-title {
+      font-family: var(--font-gothic);
+      font-size: 2.8rem;
+      color: var(--black);
+      letter-spacing: 3px;
+      text-shadow: 1px 1px 0 rgba(0,184,200,0.2);
+    }
+
+    .sagas-textarea {
+      flex: 1;
+      width: 100%;
+      min-height: 600px;
+      background: rgba(255,255,255,0.4);
+      border: 2px solid rgba(0,0,0,0.15);
+      border-radius: 4px;
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      padding: 1rem 1.2rem;
+      resize: vertical;
+      outline: none;
+      line-height: 2;
+      background-image: repeating-linear-gradient(
+        transparent,
+        transparent 29px,
+        rgba(0,150,167,0.15) 29px,
+        rgba(0,150,167,0.15) 30px
+      );
+      background-position: 0 9px;
+    }
+
+    .sagas-textarea:focus {
+      border-color: var(--accent-dark);
+      background: rgba(255,255,255,0.55);
+    }
+
+    .sagas-textarea::placeholder {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page Nav -->
+  <nav class="page-nav">
+    <a href="index.html">Sheet</a>
+    <a href="sagas.html" class="active">Sagas</a>
+  </nav>
+
+  <div class="sheet">
+    <div class="sagas-container">
+      <div class="sagas-header">
+        <h1 class="sagas-title">Sagas</h1>
+      </div>
+      <textarea class="sagas-textarea" placeholder="Write your saga here..."></textarea>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'berserkr-sagas-v2';
+
+    function saveData() {
+      const textarea = document.querySelector('.sagas-textarea');
+      localStorage.setItem(STORAGE_KEY, textarea.value);
+    }
+
+    function loadData() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) document.querySelector('.sagas-textarea').value = saved;
+    }
+
+    document.addEventListener('input', () => {
+      clearTimeout(window._st);
+      window._st = setTimeout(saveData, 400);
+    });
+
+    document.addEventListener('DOMContentLoaded', loadData);
+  </script>
+
+</body>
+</html>

@@ -4,6 +4,11 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [svelte()],
+  server: {
+    port: 51733,
+    host: true,
+    strictPort: true
+  },
   build: {
     outDir: 'dist',
     emptyOutDir: true,
