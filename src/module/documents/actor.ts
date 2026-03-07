@@ -11,6 +11,29 @@ export class BerserkrActor extends Actor {
     for (let abl of Object.values(system.abilities)) {
       (abl as any).mod = this._getModifier((abl as any).value);
     }
+
+    // Initialize derived data
+    system.derived = {
+      swiftPenalty: 0,
+      defenseDR: 12,
+      armorReduction: "0",
+    };
+
+    // Calculate Armor Penalties and Reductions
+    const equippedArmor = this.items.find(i => i.type === "armor" && (i.system as any).equipped);
+    if (equippedArmor) {
+      const armorSys = equippedArmor.system as any;
+      
+      // Swift Penalty
+      if (armorSys.tier === 3) system.derived.swiftPenalty = 2;
+      if (armorSys.tier === 4) system.derived.swiftPenalty = 4;
+
+      // Defense DR (Tier 3 and 4 make Defense DR+2)
+      if (armorSys.tier >= 3) system.derived.defenseDR = 14;
+
+      // Armor Reduction String (for UI display)
+      system.derived.armorReduction = `${armorSys.reduction.dieCount}${armorSys.reduction.dieType}`;
+    }
   }
 
   /**

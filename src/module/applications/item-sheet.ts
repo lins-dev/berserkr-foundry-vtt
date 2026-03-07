@@ -1,21 +1,21 @@
-import { BerserkrActor } from "../documents/actor";
-import CharacterSheet from "../../svelte/sheets/CharacterSheet.svelte";
+import { BerserkrItem } from "../documents/item";
+import ItemSheet from "../../svelte/sheets/ItemSheet.svelte";
 import { mount, unmount } from "svelte";
 
 /**
- * Custom Actor Sheet for Berserkr
+ * Custom Item Sheet for Berserkr
  * Uses Svelte for the UI
  */
 // @ts-ignore
-export class BerserkrActorSheet extends (foundry.applications.sheets?.ActorSheetV2 ?? foundry.applications.api.ActorSheetV2) {
+export class BerserkrItemSheet extends (foundry.applications.sheets?.ItemSheetV2 ?? foundry.applications.api.ItemSheetV2) {
   /** @override */
   static DEFAULT_OPTIONS = {
-    classes: ["berserkr", "berserkr-sheet"],
+    classes: ["berserkr", "berserkr-item-sheet"],
     tag: "form",
     window: {
       resizable: true,
       minimizable: true,
-      title: "Berserkr Character Sheet",
+      title: "Berserkr Item Sheet",
     },
     actions: {},
     forms: {
@@ -36,24 +36,21 @@ export class BerserkrActorSheet extends (foundry.applications.sheets?.ActorSheet
 
   /** @override */
   async _renderHTML(context: any, options: any) {
-    // Retornamos um elemento vazio ou básico; o Svelte o preencherá.
     return document.createElement("div");
   }
 
   /** @override */
   _replaceHTML(result: HTMLElement, content: HTMLElement, options: any) {
-    // Limpar e inserir o conteúdo base
     content.innerHTML = "";
     content.appendChild(result);
 
-    // Montar o Svelte no elemento resultante
     if (this.#svelteApp) unmount(this.#svelteApp);
     
-    this.#svelteApp = mount(CharacterSheet, {
+    this.#svelteApp = mount(ItemSheet, {
       target: result,
       props: {
-        actor: this.document as BerserkrActor,
-        context: this.context, // Contexto da ficha
+        item: this.document as BerserkrItem,
+        context: this.context,
       },
     });
   }

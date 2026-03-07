@@ -22,17 +22,14 @@
 </script>
 
 <div class="berserkr-sheet-v2">
-  <!-- ====== HEADER ====== -->
   <header class="sheet-header">
     <div class="header-main">
-      <!-- Portrait -->
       <div class="portrait-area">
         <div class="portrait-container" onclick={() => (actor as any).sheet.editImage()}>
           <img src={actor.img} alt={actor.name} title={actor.name} />
         </div>
       </div>
 
-      <!-- Character Info -->
       <div class="char-info">
         <input 
           type="text" 
@@ -78,7 +75,6 @@
       </div>
     </div>
 
-    <!-- Attributes Horizontal Row -->
     <div class="attributes-row">
       {#each Object.entries(system.abilities) as [key, abl]}
         <div class="attr-item">
@@ -97,7 +93,6 @@
     </div>
   </header>
 
-  <!-- ====== TABS ====== -->
   <nav class="tabs-bar">
     {#each tabs as tab}
       <button 
@@ -110,7 +105,6 @@
     {/each}
   </nav>
 
-  <!-- ====== TAB CONTENT ====== -->
   <section class="tab-content">
     {#if activeTab === "background"}
       <textarea 
