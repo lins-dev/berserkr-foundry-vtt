@@ -27,33 +27,56 @@ export class BerserkrActorSheet extends (foundry.applications.sheets?.ActorSheet
   /** @override */
   static PARTS = {
     main: {
-      template: "", // Not used with Svelte
+      template: "",
     },
   };
 
   /** @type {any} */
   #svelteApp: any;
 
+  /**
+   * Armazena a aba ativa na instância da classe
+   */
+  currentTab = "violence";
+
+  /**
+   * Cache do contexto para garantir persistência no Svelte
+   */
+  #renderContext: any;
+
+  /** @override */
+  async _prepareContext(options: any) {
+    const context = await super._prepareContext(options);
+    context.activeTab = this.currentTab;
+    this.#renderContext = context;
+    return context;
+  }
+
+  /**
+   * Altera a aba ativa e salva na instância
+   */
+  setTab(tabId: string) {
+    this.currentTab = tabId;
+  }
+
   /** @override */
   async _renderHTML(context: any, options: any) {
-    // Retornamos um elemento vazio ou básico; o Svelte o preencherá.
+    this.#renderContext = context;
     return document.createElement("div");
   }
 
   /** @override */
   _replaceHTML(result: HTMLElement, content: HTMLElement, options: any) {
-    // Limpar e inserir o conteúdo base
     content.innerHTML = "";
     content.appendChild(result);
 
-    // Montar o Svelte no elemento resultante
     if (this.#svelteApp) unmount(this.#svelteApp);
     
     this.#svelteApp = mount(CharacterSheet, {
       target: result,
       props: {
         actor: this.document as BerserkrActor,
-        context: this.context, // Contexto da ficha
+        context: this.#renderContext,
       },
     });
   }

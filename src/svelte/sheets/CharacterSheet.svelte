@@ -8,7 +8,18 @@
 
   let system = $derived(actor.system as any);
   let weapons = $derived(actor.items.filter(i => i.type === "weapon"));
-  let activeTab = $state("violence");
+  let armors = $derived(actor.items.filter(i => i.type === "armor"));
+  let runes = $derived(actor.items.filter(i => i.type === "rune"));
+  let gear = $derived(actor.items.filter(i => i.type === "gear"));
+
+  let inventoryLimit = $derived(system.abilities.might.mod + 8);
+  let currentLoad = $derived(actor.items.reduce((acc, i) => {
+    const itemSys = i.system as any;
+    return acc + ((itemSys.quantity || 1) * (itemSys.weight || 0));
+  }, 0));
+  let isOverloaded = $derived(currentLoad > inventoryLimit);
+
+  let activeTab = $state(context?.activeTab || "violence");
 
   const tabs = [
     { id: "violence", label: "Violence" },
@@ -17,18 +28,53 @@
     { id: "background", label: "Background" }
   ];
 
+  const setTab = (id: string) => {
+    activeTab = id;
+    const sheet = (actor as any).sheet;
+    if (sheet && typeof sheet.setTab === "function") {
+      sheet.setTab(id);
+    }
+  };
+
   const updateField = (path: string, value: any) => {
     actor.update({ [path]: value });
   };
 
-  /**
-   * Executa a rolagem de teste de um atributo
-   */
+  const toggleEquip = async (item: any) => {
+    const isShield = (item.system as any).isShield;
+    const isEquipping = !(item.system as any).equipped;
+
+    if (isEquipping) {
+      const conflicts = actor.items.filter(i => 
+        i.type === "armor" && 
+        (i.system as any).isShield === isShield && 
+        (i.system as any).equipped &&
+        i.id !== item.id
+      );
+
+      if (conflicts.length > 0) {
+        const updates = conflicts.map(i => ({ _id: i.id, "system.equipped": false }));
+        // @ts-ignore
+        await actor.updateEmbeddedDocuments("Item", updates);
+      }
+    }
+
+    await item.update({ "system.equipped": isEquipping });
+  };
+
   const rollAttribute = async (attributeName: string) => {
     const mod = system.abilities[attributeName].mod;
-    const penalty = attributeName === "swift" ? system.derived.swiftPenalty : 0;
+    let penalty = 0;
+    let penaltySource = "";
 
-    // Compatibilidade V12/V13
+    if (attributeName === "swift") {
+      penalty = system.derived.swiftPenalty;
+      penaltySource = "Armor/Overload";
+    } else if (attributeName === "might") {
+      penalty = system.derived.mightPenalty;
+      penaltySource = "Overload";
+    }
+
     // @ts-ignore
     const RollClass = foundry.dice?.Roll ?? Roll;
     // @ts-ignore
@@ -45,7 +91,7 @@
     const isFumble = d20 === 1;
 
     let flavor = `Test: ${attributeName.toUpperCase()}`;
-    if (penalty > 0) flavor += ` (+${penalty} DR from Armor)`;
+    if (penalty > 0) flavor += ` (+${penalty} DR from ${penaltySource})`;
 
     const templateData = {
       actorId: actor.id,
@@ -70,15 +116,11 @@
     });
   };
 
-  /**
-   * Executa a rolagem de ataque de uma arma
-   */
   const rollAttack = async (weapon: any) => {
     const isRanged = weapon.system.isRanged;
     const attribute = isRanged ? "guile" : "might";
     const mod = system.abilities[attribute].mod;
     
-    // Compatibilidade V12/V13
     // @ts-ignore
     const RollClass = foundry.dice?.Roll ?? Roll;
     // @ts-ignore
@@ -118,14 +160,10 @@
     });
   };
 
-  /**
-   * Executa a rolagem de dano de uma arma
-   */
   const rollDamage = async (weapon: any) => {
     const damages = weapon.system.damages;
     if (!damages || damages.length === 0) return;
 
-    // Compatibilidade V12/V13
     // @ts-ignore
     const RollClass = foundry.dice?.Roll ?? Roll;
     // @ts-ignore
@@ -175,10 +213,8 @@
 </script>
 
 <div class="berserkr-sheet-v2">
-  <!-- ====== HEADER ====== -->
   <header class="sheet-header">
     <div class="header-main">
-      <!-- Portrait -->
       <div class="portrait-area">
         <button 
           type="button"
@@ -190,7 +226,6 @@
         </button>
       </div>
 
-      <!-- Character Info -->
       <div class="char-info">
         <input 
           type="text" 
@@ -238,7 +273,6 @@
       </div>
     </div>
 
-    <!-- Attributes Horizontal Row -->
     <div class="attributes-row">
       {#each Object.entries(system.abilities) as [key, abl]}
         <div class="attr-item">
@@ -265,21 +299,19 @@
     </div>
   </header>
 
-  <!-- ====== TABS ====== -->
   <nav class="tabs-bar">
     {#each tabs as tab}
       <button 
         type="button"
         class="tab-btn" 
         class:active={activeTab === tab.id} 
-        onclick={() => activeTab = tab.id}
+        onclick={() => setTab(tab.id)}
       >
         {tab.label}
       </button>
     {/each}
   </nav>
 
-  <!-- ====== TAB CONTENT ====== -->
   <section class="tab-content">
     {#if activeTab === "violence"}
       <div class="violence-content">
@@ -290,7 +322,13 @@
           </div>
           <div class="combat-stat">
             <span class="stat-label">Armor Reduction</span>
-            <span class="stat-value">-{system.derived.armorReduction || "0"}</span>
+            <span class="stat-value">{system.derived.armorReduction !== "0" ? "-" : ""}{system.derived.armorReduction}</span>
+          </div>
+          <div class="combat-stat">
+            <span class="stat-label">Might Penalty</span>
+            <span class="stat-value" class:penalty={system.derived.mightPenalty > 0}>
+              +{system.derived.mightPenalty} DR
+            </span>
           </div>
           <div class="combat-stat">
             <span class="stat-label">Swift Penalty</span>
@@ -333,8 +371,93 @@
         </div>
       </div>
     {:else if activeTab === "equipment"}
-      <div class="equipment-placeholder">
-        <p>Equipment management coming soon...</p>
+      <div class="equipment-content">
+        <div class="inventory-header">
+          <div class="load-tracker" class:overloaded={isOverloaded}>
+            <span class="label">Carrying</span>
+            <span class="value">{currentLoad.toFixed(2)} / {inventoryLimit}</span>
+            {#if isOverloaded}
+              <div class="overload-alert">OVERLOADED: DR+2 on Might/Swift Tests</div>
+            {/if}
+          </div>
+        </div>
+
+        <div class="inventory-section">
+          <h3 class="section-title">Weapons</h3>
+          <div class="item-list">
+            {#each weapons as item (item.id)}
+              <div class="item-row">
+                <img src={item.img} alt={item.name} width="24" height="24"/>
+                <span class="item-name">{item.name}</span>
+                <span class="item-qty">x{(item.system as any).quantity}</span>
+                <div class="item-controls">
+                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} title="Edit"><i class="fas fa-edit"></i></button>
+                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} title="Delete"><i class="fas fa-trash"></i></button>
+                </div>
+              </div>
+            {/each}
+          </div>
+        </div>
+
+        <div class="inventory-section">
+          <h3 class="section-title">Armor</h3>
+          <div class="item-list">
+            {#each armors as item (item.id)}
+              <div class="item-row" class:equipped={(item.system as any).equipped}>
+                <button 
+                  type="button" 
+                  class="equip-toggle-btn" 
+                  class:active={(item.system as any).equipped}
+                  onclick={() => toggleEquip(item)}
+                  title={(item.system as any).equipped ? "Unequip" : "Equip"}
+                >
+                  <i class="fas fa-shield-alt"></i>
+                </button>
+                <img src={item.img} alt={item.name} width="24" height="24"/>
+                <span class="item-name">{item.name}</span>
+                <span class="item-status">{(item.system as any).equipped ? "Equipped" : ""}</span>
+                <div class="item-controls">
+                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} title="Edit"><i class="fas fa-edit"></i></button>
+                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} title="Delete"><i class="fas fa-trash"></i></button>
+                </div>
+              </div>
+            {/each}
+          </div>
+        </div>
+
+        <div class="inventory-section">
+          <h3 class="section-title">Runes</h3>
+          <div class="item-list">
+            {#each runes as item (item.id)}
+              <div class="item-row">
+                <img src={item.img} alt={item.name} width="24" height="24"/>
+                <span class="item-name">{item.name}</span>
+                <span class="item-info">Set {(item.system as any).set} ({(item.system as any).uses.value}/{(item.system as any).uses.max})</span>
+                <div class="item-controls">
+                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} title="Edit"><i class="fas fa-edit"></i></button>
+                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} title="Delete"><i class="fas fa-trash"></i></button>
+                </div>
+              </div>
+            {/each}
+          </div>
+        </div>
+
+        <div class="inventory-section">
+          <h3 class="section-title">Gear</h3>
+          <div class="item-list">
+            {#each gear as item (item.id)}
+              <div class="item-row">
+                <img src={item.img} alt={item.name} width="24" height="24"/>
+                <span class="item-name">{item.name}</span>
+                <span class="item-qty">x{(item.system as any).quantity}</span>
+                <div class="item-controls">
+                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} title="Edit"><i class="fas fa-edit"></i></button>
+                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} title="Delete"><i class="fas fa-trash"></i></button>
+                </div>
+              </div>
+            {/each}
+          </div>
+        </div>
       </div>
     {:else if activeTab === "special"}
       <div class="special-placeholder">
@@ -359,7 +482,8 @@
     background: var(--berserkr-color-cyan-light);
     color: var(--berserkr-color-black);
     font-family: var(--berserkr-font-text, 'Alegreya', serif);
-    min-height: 600px;
+    height: 100%;
+    overflow: hidden;
     border: 3px solid var(--berserkr-color-black);
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
   }
@@ -371,6 +495,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    flex-shrink: 0;
   }
 
   .header-main {
@@ -543,6 +668,7 @@
     display: flex;
     background: var(--berserkr-bg-secondary);
     border-bottom: 2px solid var(--berserkr-color-cyan-medium);
+    flex-shrink: 0;
   }
 
   .tab-btn {
@@ -566,13 +692,15 @@
     flex: 1;
     padding: 1.5rem;
     background: var(--berserkr-bg-card);
-    min-height: 350px;
+    overflow-y: auto;
     color: var(--berserkr-color-black);
+    min-height: 350px;
+    max-height: 500px;
   }
 
   .combat-stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     margin-bottom: 2rem;
     padding: 1rem;
@@ -586,6 +714,92 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+  }
+
+  .load-tracker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--berserkr-color-cyan-medium);
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    
+    &.overloaded {
+      background: #d00;
+      animation: pulse 2s infinite;
+    }
+
+    .label { font-family: var(--berserkr-font-display); text-transform: uppercase; font-size: 0.9rem; }
+    .value { font-size: 1.6rem; font-weight: bold; }
+    .overload-alert { font-size: 0.75rem; font-weight: bold; margin-top: 4px; }
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(200, 0, 0, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(200, 0, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(200, 0, 0, 0); }
+  }
+
+  .inventory-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .item-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    img { border-radius: 2px; border: 1px solid #ccc; }
+    .item-name { flex: 1; font-weight: 500; }
+    .item-qty, .item-info, .item-status { font-size: 0.85rem; color: #666; font-style: italic; }
+    
+    &.equipped { 
+      background: var(--berserkr-color-cyan-medium); 
+      border-color: var(--berserkr-color-cyan-vibrant);
+      color: var(--berserkr-color-white);
+      .item-name { text-shadow: 0 0 8px var(--berserkr-color-cyan-vibrant); }
+      .item-status { color: var(--berserkr-color-cyan-vibrant); font-weight: bold; }
+    }
+
+    .item-controls {
+      display: flex;
+      gap: 4px;
+    }
+  }
+
+  .equip-toggle-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    font-size: 1rem;
+    padding: 0 4px;
+    transition: all 0.2s;
+    &:hover { color: var(--berserkr-color-cyan-medium); }
+    &.active { color: var(--berserkr-color-cyan-vibrant); filter: drop-shadow(0 0 5px var(--berserkr-color-cyan-vibrant)); }
+  }
+
+  .icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    padding: 4px;
+    font-size: 0.9rem;
+    &:hover { color: var(--berserkr-color-cyan-vibrant); }
+    &.delete:hover { color: #f55; }
   }
 
   .stat-label {
