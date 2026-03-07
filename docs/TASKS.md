@@ -53,13 +53,13 @@
 ### [x] Task 2: Interactive Features
 - [x] Adicionar botões de ataque e dano na aba Violence.
 - [x] Implementar rolagens de ataque (d20 + Might/Guile) e dano estruturado.
-- [x] Criar templates Handlebars (`test-card.hbs`, `damage-card.hbs`) para o chat.
+- [x] Criar templates Handlebars (`test-card.hbs`, `damage-card.hbs`, `item-card.hbs`) para o chat.
 - [x] Integrar expansão nativa de rolagens (dice-tooltip) no chat.
 - [x] Transformar nomes de atributos no cabeçalho em botões de rolagem clicáveis.
 - [x] Implementar gestão de inventário categorizada (Weapons, Armor, Runes, Gear).
 - [x] Implementar rastreador de carga (Might + 8) com penalidades automáticas.
-- [x] Resolver persistência de abas e scroll na interface Svelte.
-
+- [x] Implementar botões de uso rápido para Runas e envio de detalhes de itens para o chat.
+- [x] Resolver persistência absoluta de abas e posição de scroll na interface Svelte.
 
 ### [x] Task 3: Styling & Assets
 - [x] Aplicar temas visuais (fontes, cores, backgrounds) baseados no Mörk Borg.
@@ -67,3 +67,4 @@
 - [x] Reestruturar cabeçalho e layout de atributos na ficha de personagem.
 - [x] Implementar paleta "Mystic Teal" para harmonia entre cabeçalho escuro e corpo claro.
 - [x] Otimizar contraste e tamanho de fontes no cabeçalho (HP, Fates, Silver).
+- [x] Garantir acessibilidade (A11y) com labels e títulos em todos os elementos interativos.

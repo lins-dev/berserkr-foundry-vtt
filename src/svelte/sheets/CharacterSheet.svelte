@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { BerserkrActor } from "../../module/documents/actor";
+  import { tick } from "svelte";
 
   let { actor, context } = $props<{
     actor: BerserkrActor;
@@ -19,7 +20,22 @@
   }, 0));
   let isOverloaded = $derived(currentLoad > inventoryLimit);
 
-  let activeTab = $state(context?.activeTab || "violence");
+  let activeTab = $state("violence");
+  let scrollContainer: HTMLElement;
+
+  // Sincroniza a aba ativa e o scroll após renderizações do Foundry
+  $effect(() => {
+    if (context?.activeTab) {
+      activeTab = context.activeTab;
+    }
+    
+    // Restaura o scroll sempre que o container ou o contexto mudarem
+    if (scrollContainer && typeof context?.scrollTop === "number") {
+      tick().then(() => {
+        scrollContainer.scrollTop = context.scrollTop;
+      });
+    }
+  });
 
   const tabs = [
     { id: "violence", label: "Violence" },
@@ -40,7 +56,17 @@
     actor.update({ [path]: value });
   };
 
+  const saveScroll = () => {
+    if (scrollContainer) {
+      const sheet = (actor as any).sheet;
+      if (sheet && typeof sheet.updateScroll === "function") {
+        sheet.updateScroll(scrollContainer.scrollTop);
+      }
+    }
+  };
+
   const toggleEquip = async (item: any) => {
+    saveScroll();
     const isShield = (item.system as any).isShield;
     const isEquipping = !(item.system as any).equipped;
 
@@ -60,6 +86,36 @@
     }
 
     await item.update({ "system.equipped": isEquipping });
+  };
+
+  const postItemChat = async (item: any) => {
+    const itemSys = item.system as any;
+    // @ts-ignore
+    const render = foundry.applications.handlebars?.renderTemplate ?? renderTemplate;
+    // @ts-ignore
+    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+
+    const templateData = {
+      actorId: actor.id,
+      itemId: item.id,
+      itemName: item.name,
+      itemImg: item.img,
+      system: itemSys,
+      hasQuantity: typeof itemSys.quantity !== "undefined",
+      hasWeight: typeof itemSys.weight !== "undefined",
+      hasCost: typeof itemSys.cost !== "undefined",
+      hasUses: itemSys.uses && (itemSys.uses.max > 0)
+    };
+
+    const content = await render("systems/berserkr/templates/chat/item-card.hbs", templateData);
+
+    // @ts-ignore
+    ChatMessageClass.create({
+      user: (game as any).user.id,
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: content,
+      style: (CONST as any).CHAT_MESSAGE_STYLES?.OTHER ?? (CONST as any).CHAT_MESSAGE_TYPES?.OTHER
+    });
   };
 
   const rollAttribute = async (attributeName: string) => {
@@ -210,6 +266,13 @@
       style: (CONST as any).CHAT_MESSAGE_STYLES?.OTHER ?? (CONST as any).CHAT_MESSAGE_TYPES?.OTHER
     });
   };
+
+  const updateRuneUses = async (item: any, delta: number) => {
+    saveScroll();
+    const uses = (item.system as any).uses;
+    const newVal = Math.clamp(uses.value + delta, 0, uses.max);
+    await item.update({ "system.uses.value": newVal });
+  };
 </script>
 
 <div class="berserkr-sheet-v2">
@@ -312,7 +375,7 @@
     {/each}
   </nav>
 
-  <section class="tab-content">
+  <section class="tab-content" bind:this={scrollContainer} onscroll={saveScroll}>
     {#if activeTab === "violence"}
       <div class="violence-content">
         <div class="combat-stats-grid">
@@ -391,8 +454,15 @@
                 <span class="item-name">{item.name}</span>
                 <span class="item-qty">x{(item.system as any).quantity}</span>
                 <div class="item-controls">
-                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} title="Edit"><i class="fas fa-edit"></i></button>
-                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} title="Delete"><i class="fas fa-trash"></i></button>
+                  <button type="button" class="icon-btn" onclick={() => postItemChat(item)} aria-label="Send to Chat" title="Send to Chat">
+                    <i class="fas fa-comment-dots"></i>
+                  </button>
+                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} aria-label="Edit" title="Edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} aria-label="Delete" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
                 </div>
               </div>
             {/each}
@@ -409,6 +479,7 @@
                   class="equip-toggle-btn" 
                   class:active={(item.system as any).equipped}
                   onclick={() => toggleEquip(item)}
+                  aria-label={(item.system as any).equipped ? "Unequip" : "Equip"}
                   title={(item.system as any).equipped ? "Unequip" : "Equip"}
                 >
                   <i class="fas fa-shield-alt"></i>
@@ -417,8 +488,15 @@
                 <span class="item-name">{item.name}</span>
                 <span class="item-status">{(item.system as any).equipped ? "Equipped" : ""}</span>
                 <div class="item-controls">
-                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} title="Edit"><i class="fas fa-edit"></i></button>
-                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} title="Delete"><i class="fas fa-trash"></i></button>
+                  <button type="button" class="icon-btn" onclick={() => postItemChat(item)} aria-label="Send to Chat" title="Send to Chat">
+                    <i class="fas fa-comment-dots"></i>
+                  </button>
+                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} aria-label="Edit" title="Edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} aria-label="Delete" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
                 </div>
               </div>
             {/each}
@@ -432,10 +510,25 @@
               <div class="item-row">
                 <img src={item.img} alt={item.name} width="24" height="24"/>
                 <span class="item-name">{item.name}</span>
-                <span class="item-info">Set {(item.system as any).set} ({(item.system as any).uses.value}/{(item.system as any).uses.max})</span>
+                <div class="rune-uses-control">
+                  <button type="button" class="use-btn" onclick={() => updateRuneUses(item, -1)} disabled={(item.system as any).uses.value <= 0} aria-label="Decrease Uses" title="Decrease Uses">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <span class="use-val">{(item.system as any).uses.value}/{(item.system as any).uses.max}</span>
+                  <button type="button" class="use-btn" onclick={() => updateRuneUses(item, 1)} disabled={(item.system as any).uses.value >= (item.system as any).uses.max} aria-label="Increase Uses" title="Increase Uses">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
                 <div class="item-controls">
-                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} title="Edit"><i class="fas fa-edit"></i></button>
-                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} title="Delete"><i class="fas fa-trash"></i></button>
+                  <button type="button" class="icon-btn" onclick={() => postItemChat(item)} aria-label="Send to Chat" title="Send to Chat">
+                    <i class="fas fa-comment-dots"></i>
+                  </button>
+                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} aria-label="Edit" title="Edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} aria-label="Delete" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
                 </div>
               </div>
             {/each}
@@ -451,8 +544,15 @@
                 <span class="item-name">{item.name}</span>
                 <span class="item-qty">x{(item.system as any).quantity}</span>
                 <div class="item-controls">
-                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} title="Edit"><i class="fas fa-edit"></i></button>
-                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} title="Delete"><i class="fas fa-trash"></i></button>
+                  <button type="button" class="icon-btn" onclick={() => postItemChat(item)} aria-label="Send to Chat" title="Send to Chat">
+                    <i class="fas fa-comment-dots"></i>
+                  </button>
+                  <button type="button" class="icon-btn" onclick={() => item.sheet.render(true)} aria-label="Edit" title="Edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button type="button" class="icon-btn delete" onclick={() => item.delete()} aria-label="Delete" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
                 </div>
               </div>
             {/each}
@@ -763,7 +863,7 @@
 
     img { border-radius: 2px; border: 1px solid #ccc; }
     .item-name { flex: 1; font-weight: 500; }
-    .item-qty, .item-info, .item-status { font-size: 0.85rem; color: #666; font-style: italic; }
+    .item-qty, .item-status { font-size: 0.85rem; color: #666; font-style: italic; }
     
     &.equipped { 
       background: var(--berserkr-color-cyan-medium); 
@@ -898,6 +998,29 @@
       
       &:hover { background: var(--berserkr-color-cyan-medium); color: #fff; }
       &.damage { border-color: #d00; color: #d00; &:hover { background: #d00; color: #fff; } }
+    }
+  }
+
+  .rune-uses-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 0.5rem;
+
+    .use-val { font-size: 0.85rem; font-weight: bold; min-width: 35px; text-align: center; color: var(--berserkr-color-cyan-medium); }
+    
+    .use-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #666;
+      font-size: 0.75rem;
+      padding: 2px;
+      &:hover:not(:disabled) { color: var(--berserkr-color-cyan-vibrant); }
+      &:disabled { opacity: 0.3; cursor: not-allowed; }
     }
   }
 

@@ -40,6 +40,11 @@ export class BerserkrActorSheet extends (foundry.applications.sheets?.ActorSheet
   currentTab = "violence";
 
   /**
+   * Armazena a posição do scroll para persistência
+   */
+  scrollTop = 0;
+
+  /**
    * Cache do contexto para garantir persistência no Svelte
    */
   #renderContext: any;
@@ -48,15 +53,24 @@ export class BerserkrActorSheet extends (foundry.applications.sheets?.ActorSheet
   async _prepareContext(options: any) {
     const context = await super._prepareContext(options);
     context.activeTab = this.currentTab;
+    context.scrollTop = this.scrollTop;
     this.#renderContext = context;
     return context;
   }
 
   /**
-   * Altera a aba ativa e salva na instância
+   * Altera a aba ativa
    */
   setTab(tabId: string) {
     this.currentTab = tabId;
+    this.scrollTop = 0; // Reseta o scroll ao trocar de aba
+  }
+
+  /**
+   * Salva a posição do scroll
+   */
+  updateScroll(position: number) {
+    this.scrollTop = position;
   }
 
   /** @override */

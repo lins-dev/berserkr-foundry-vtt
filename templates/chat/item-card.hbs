@@ -1,0 +1,54 @@
+<div class="berserkr chat-card item-card" data-actor-id="{{actorId}}" data-item-id="{{itemId}}">
+    <header class="card-header">
+        <img src="{{itemImg}}" title="{{itemName}}" width="36" height="36"/>
+        <h3 class="item-name">{{itemName}}</h3>
+    </header>
+
+    <div class="card-content">
+        <div class="item-properties-chat">
+            {{#if hasQuantity}}
+            <div class="chat-prop">
+                <span class="label">Quantity:</span>
+                <span class="value">{{system.quantity}}</span>
+            </div>
+            {{/if}}
+
+            {{#if hasWeight}}
+            <div class="chat-prop">
+                <span class="label">Weight:</span>
+                <span class="value">{{system.weight}}</span>
+            </div>
+            {{/if}}
+
+            {{#if hasCost}}
+            <div class="chat-prop">
+                <span class="label">Cost:</span>
+                <span class="value">{{system.cost}}</span>
+            </div>
+            {{/if}}
+
+            {{#if hasUses}}
+            <div class="chat-prop">
+                <span class="label">Uses:</span>
+                <span class="value">{{system.uses.value}} / {{system.uses.max}}</span>
+            </div>
+            {{/if}}
+
+            {{#if system.tier}}
+            <div class="chat-prop">
+                <span class="label">Armor Tier:</span>
+                <span class="value">{{system.tier}}</span>
+            </div>
+            {{/if}}
+        </div>
+
+        {{#if system.description}}
+        <div class="item-description-chat">
+            <label class="label">Description:</label>
+            <div class="description-text">
+                {{{system.description}}}
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>

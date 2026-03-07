@@ -166,4 +166,43 @@
       &.fumble { color: #d00; text-shadow: 0 0 5px rgba(200, 0, 0, 0.3); }
     }
   }
+
+  &.item-card {
+    background: #fff;
+    border: 2px solid var(--berserkr-color-cyan-medium);
+    border-radius: 4px;
+    padding: 0.5rem;
+
+    .item-properties-chat {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.3rem;
+      background: rgba(0,0,0,0.05);
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+
+      .chat-prop {
+        display: flex;
+        gap: 0.3rem;
+        font-size: 0.8rem;
+        .label { font-weight: bold; color: #666; }
+        .value { color: var(--berserkr-color-cyan-medium); font-weight: bold; }
+      }
+    }
+
+    .item-description-chat {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      .label { 
+        font-family: var(--berserkr-font-display); 
+        font-size: 0.8rem; 
+        color: #666; 
+        display: block;
+        margin-bottom: 0.2rem;
+        border-bottom: 1px solid #eee;
+      }
+      .description-text { color: #333; }
+    }
+  }
 }
