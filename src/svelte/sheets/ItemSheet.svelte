@@ -227,25 +227,25 @@
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
-    background: var(--berserkr-color-white, #b8e8ee);
+    background: var(--berserkr-color-cyan-light);
     min-height: 400px;
     font-family: var(--berserkr-font-text, 'Alegreya', serif);
-    color: var(--berserkr-color-black, #0a0a0a);
+    color: var(--berserkr-color-black);
 
     .item-header {
       display: flex;
       gap: 1rem;
       align-items: center;
-      background: #122525;
+      background: var(--berserkr-color-cyan-medium);
       padding: 0.8rem;
-      color: #fff;
+      color: var(--berserkr-color-white);
       border-radius: 4px;
 
       .portrait-container {
         width: 60px;
         height: 60px;
-        background: #151520;
-        border: 2px solid #333;
+        background: rgba(0,0,0,0.2);
+        border: 2px solid var(--berserkr-color-cyan-vibrant);
         border-radius: 4px;
         cursor: pointer;
         img { width: 100%; height: 100%; object-fit: cover; }
@@ -260,10 +260,10 @@
         .item-name-input {
           font-family: var(--berserkr-font-display, 'Norse', serif);
           font-size: 1.8rem;
-          color: #fff;
+          color: var(--berserkr-color-cyan-vibrant);
           background: transparent;
           border: none;
-          border-bottom: 2px solid var(--berserkr-color-cyan, #00b8c8);
+          border-bottom: 2px solid var(--berserkr-color-cyan-vibrant);
           outline: none;
         }
 
@@ -271,7 +271,7 @@
           font-family: var(--berserkr-font-display, 'Norse', serif);
           font-size: 0.8rem;
           background: rgba(0, 184, 200, 0.2);
-          color: var(--berserkr-color-cyan, #00b8c8);
+          color: var(--berserkr-color-cyan-vibrant);
           padding: 2px 8px;
           border-radius: 4px;
           width: fit-content;
@@ -305,13 +305,13 @@
         margin-left: auto;
         font-family: var(--berserkr-font-display, 'Norse', serif);
         font-size: 0.8rem;
-        background: #122525;
-        color: #fff;
+        background: var(--berserkr-color-cyan-medium);
+        color: var(--berserkr-color-white);
         border: none;
         padding: 4px 12px;
         border-radius: 2px;
         cursor: pointer;
-        &:hover { background: var(--berserkr-color-cyan); }
+        &:hover { background: var(--berserkr-color-cyan-vibrant); color: var(--berserkr-color-black); }
         &:disabled { opacity: 0.5; cursor: not-allowed; }
       }
     }
@@ -350,7 +350,7 @@
       label {
         font-family: var(--berserkr-font-display, 'Norse', serif);
         font-size: 0.9rem;
-        color: #122525;
+        color: var(--berserkr-color-cyan-medium);
       }
 
       input[type="number"], input[type="text"] {
@@ -359,10 +359,10 @@
         padding: 4px;
         border-radius: 2px;
         outline: none;
-        color: var(--berserkr-color-black, #0a0a0a);
+        color: var(--berserkr-color-black);
         font-weight: bold;
         width: 100%;
-        &:focus { border-color: var(--berserkr-color-cyan, #00b8c8); }
+        &:focus { border-color: var(--berserkr-color-cyan-vibrant); }
       }
 
       &.check {
@@ -392,10 +392,10 @@
         padding: 3px; 
         border-radius: 2px;
         font-weight: bold;
-        color: #000;
+        color: var(--berserkr-color-black);
         min-width: 70px;
       }
-      .sign { font-weight: bold; color: #122525; font-size: 1.1rem; }
+      .sign { font-weight: bold; color: var(--berserkr-color-cyan-medium); font-size: 1.1rem; }
     }
 
     .item-description {
@@ -406,7 +406,7 @@
       .section-label {
         font-family: var(--berserkr-font-display, 'Norse', serif);
         font-size: 1.2rem;
-        color: #122525;
+        color: var(--berserkr-color-cyan-medium);
       }
 
       textarea {
@@ -417,7 +417,7 @@
         padding: 0.8rem;
         resize: vertical;
         outline: none;
-        color: var(--berserkr-color-black, #0a0a0a);
+        color: var(--berserkr-color-black);
         line-height: 1.6;
       }
     }

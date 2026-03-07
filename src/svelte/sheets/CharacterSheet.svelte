@@ -133,18 +133,18 @@
   .berserkr-sheet-v2 {
     display: flex;
     flex-direction: column;
-    background: var(--berserkr-color-white, #b8e8ee);
-    color: var(--berserkr-color-black, #0a0a0a);
+    background: var(--berserkr-color-cyan-light);
+    color: var(--berserkr-color-black);
     font-family: var(--berserkr-font-text, 'Alegreya', serif);
     min-height: 600px;
-    border: 3px solid var(--berserkr-color-black, #0a0a0a);
+    border: 3px solid var(--berserkr-color-black);
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
   }
 
   .sheet-header {
-    background: #122525;
+    background: var(--berserkr-color-cyan-medium);
     padding: 1rem;
-    color: #fff;
+    color: var(--berserkr-color-white);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -158,8 +158,8 @@
   .portrait-container {
     width: 120px;
     height: 140px;
-    background: #151520;
-    border: 2px solid #333;
+    background: rgba(0,0,0,0.2);
+    border: 2px solid var(--berserkr-color-cyan-vibrant);
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
@@ -176,10 +176,10 @@
   .char-name-input {
     font-family: var(--berserkr-font-display, 'Norse', serif);
     font-size: 2.2rem;
-    color: #fff;
+    color: var(--berserkr-color-cyan-vibrant);
     background: transparent;
     border: none;
-    border-bottom: 2px solid var(--berserkr-color-cyan, #00b8c8);
+    border-bottom: 2px solid var(--berserkr-color-cyan-vibrant);
     outline: none;
     width: 100%;
   }
@@ -188,8 +188,19 @@
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
-    label { font-family: var(--berserkr-font-display, 'Norse', serif); font-size: 1.4rem; color: #ddd; }
-    input { background: transparent; border: none; border-bottom: 1px solid #555; color: #ddd; flex: 1; outline: none; }
+    label { 
+      font-family: var(--berserkr-font-display, 'Norse', serif); 
+      font-size: 1.4rem; 
+      color: var(--berserkr-color-cyan-vibrant); // Cor vibrante igual ao nome
+    }
+    input { 
+      background: transparent; 
+      border: none; 
+      border-bottom: 1px solid var(--berserkr-color-cyan-vibrant); 
+      color: var(--berserkr-color-white); 
+      flex: 1; 
+      outline: none; 
+    }
   }
 
   .stats-grid {
@@ -204,23 +215,23 @@
     gap: 0.4rem;
     label { 
       font-family: var(--berserkr-font-display, 'Norse', serif); 
-      color: #ddd; 
-      font-size: 1.25rem; 
+      color: var(--berserkr-color-cyan-vibrant); 
+      font-size: 1.4rem; // Ajustado para 1.4rem
     }
     input { 
-      width: 50px;
+      width: 50px; // Ajustado para 50px
       background: transparent; 
       border: none; 
-      border-bottom: 2px solid var(--berserkr-color-cyan, #00b8c8); 
-      color: #fff; 
+      border-bottom: 2px solid var(--berserkr-color-cyan-vibrant); 
+      color: var(--berserkr-color-white); 
       text-align: center; 
       outline: none;
-      font-size: 1.25rem;
+      font-size: 1.4rem; // Ajustado para 1.4rem
       font-weight: bold;
     }
     .stat-separator {
-      font-size: 1.1rem;
-      color: #888;
+      font-size: 1.2rem;
+      color: var(--berserkr-color-cyan-vibrant);
     }
   }
 
@@ -235,11 +246,15 @@
     font-weight: bold;
     padding: 6px 12px;
     background: transparent;
-    border: 1px solid #555;
-    color: #ddd;
+    border: 1px solid var(--berserkr-color-cyan-light);
+    color: var(--berserkr-color-cyan-light);
     cursor: pointer;
     text-transform: uppercase;
-    &:hover { border-color: var(--berserkr-color-cyan, #00b8c8); color: #fff; background: rgba(0,184,200,0.1); }
+    &:hover { 
+      border-color: var(--berserkr-color-cyan-vibrant); 
+      color: var(--berserkr-color-white); 
+      background: rgba(0,229,255,0.1); 
+    }
   }
 
   .attributes-row {
@@ -247,9 +262,9 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
     padding: 0.8rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--berserkr-color-cyan-vibrant);
   }
 
   .attr-item {
@@ -261,7 +276,7 @@
     .attr-label { 
       font-family: var(--berserkr-font-display, 'Norse', serif); 
       font-size: 1rem; 
-      color: var(--berserkr-color-cyan, #00b8c8);
+      color: var(--berserkr-color-cyan-vibrant);
       letter-spacing: 1px;
     }
 
@@ -275,27 +290,27 @@
         background: transparent; 
         border: none; 
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        color: #fff; 
+        color: var(--berserkr-color-white); 
         text-align: center; 
         font-weight: bold; 
         outline: none;
         font-size: 1.1rem;
-        &:focus { border-color: var(--berserkr-color-cyan, #00b8c8); }
+        &:focus { border-color: var(--berserkr-color-cyan-vibrant); }
       }
 
       .attr-mod { 
-        color: #fff; 
+        color: var(--berserkr-color-white); 
         font-weight: 900; 
         font-size: 1.2rem;
-        text-shadow: 0 0 8px rgba(0, 184, 200, 0.5);
+        text-shadow: 0 0 8px var(--berserkr-color-cyan-vibrant);
       }
     }
   }
 
   .tabs-bar {
     display: flex;
-    background: var(--berserkr-bg-secondary, #a0dce4);
-    border-bottom: 2px solid var(--berserkr-color-black, #0a0a0a);
+    background: var(--berserkr-bg-secondary);
+    border-bottom: 2px solid var(--berserkr-color-cyan-medium);
   }
 
   .tab-btn {
@@ -305,20 +320,20 @@
     padding: 10px;
     border: none;
     background: transparent;
-    color: #333;
+    color: var(--berserkr-color-cyan-medium);
     cursor: pointer;
-    &:hover { color: var(--berserkr-color-black, #0a0a0a); }
+    &:hover { color: var(--berserkr-color-black); }
     &.active { 
-      background: var(--berserkr-bg-card, #cdf0f4); 
-      border-bottom: 3px solid var(--berserkr-color-black, #0a0a0a);
-      color: var(--berserkr-color-black, #0a0a0a);
+      background: var(--berserkr-bg-card); 
+      border-bottom: 3px solid var(--berserkr-color-cyan-medium);
+      color: var(--berserkr-color-black);
     }
   }
 
   .tab-content {
     flex: 1;
     padding: 1.5rem;
-    background: var(--berserkr-bg-card, #cdf0f4);
+    background: var(--berserkr-bg-card);
     min-height: 350px;
   }
 
@@ -331,6 +346,6 @@
     outline: none;
     font-family: inherit;
     line-height: 1.8;
-    color: var(--berserkr-color-black, #0a0a0a);
+    color: var(--berserkr-color-black);
   }
 </style>
