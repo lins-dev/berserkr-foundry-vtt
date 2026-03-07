@@ -1,10 +1,109 @@
 <script lang="ts">
-  let { system, weapons, rollAttack, rollDamage } = $props<{
+  import type { BerserkrActor } from "../../../module/documents/actor";
+
+  let { system, actor, weapons } = $props<{
     system: any;
+    actor: BerserkrActor;
     weapons: any[];
-    rollAttack: (weapon: any) => void;
-    rollDamage: (weapon: any) => void;
   }>();
+
+  /**
+   * Executa a rolagem de ataque de uma arma
+   */
+  const rollAttack = async (weapon: any) => {
+    const isRanged = weapon.system.isRanged;
+    const attribute = isRanged ? "guile" : "might";
+    const mod = system.abilities[attribute].mod;
+    
+    // @ts-ignore
+    const RollClass = foundry.dice?.Roll ?? Roll;
+    // @ts-ignore
+    const render = foundry.applications.handlebars?.renderTemplate ?? renderTemplate;
+    // @ts-ignore
+    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+
+    const roll = new RollClass(`1d20 + ${mod}`);
+    await roll.evaluate();
+
+    const d20 = roll.terms[0].results[0].result;
+    const templateData = {
+      actorId: actor.id,
+      itemId: weapon.id,
+      title: weapon.name,
+      itemImg: weapon.img,
+      total: roll.total,
+      formula: roll.formula,
+      tooltip: await roll.getTooltip(),
+      flavor: `Attack (${attribute})`,
+      isCrit: d20 === 20,
+      isFumble: d20 === 1
+    };
+
+    const content = await render("systems/berserkr/templates/chat/test-card.hbs", templateData);
+
+    // @ts-ignore
+    ChatMessageClass.create({
+      user: (game as any).user.id,
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: content,
+      rolls: [roll],
+      style: (CONST as any).CHAT_MESSAGE_STYLES?.OTHER ?? (CONST as any).CHAT_MESSAGE_TYPES?.OTHER
+    });
+  };
+
+  /**
+   * Executa a rolagem de dano de uma arma
+   */
+  const rollDamage = async (weapon: any) => {
+    const damages = weapon.system.damages;
+    if (!damages || damages.length === 0) return;
+
+    // @ts-ignore
+    const RollClass = foundry.dice?.Roll ?? Roll;
+    // @ts-ignore
+    const render = foundry.applications.handlebars?.renderTemplate ?? renderTemplate;
+    // @ts-ignore
+    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+
+    const rollsData = [];
+    let totalDamage = 0;
+
+    for (let dmg of damages) {
+      const formula = `${dmg.dieCount}${dmg.dieType}${dmg.modifier ? (dmg.modifier > 0 ? "+" + dmg.modifier : dmg.modifier) : ""}`;
+      const roll = new RollClass(formula);
+      await roll.evaluate();
+      
+      totalDamage += roll.total;
+      
+      rollsData.push({
+        formula: formula,
+        total: roll.total,
+        type: dmg.type,
+        tooltip: await roll.getTooltip(),
+        roll: roll
+      });
+    }
+
+    const templateData = {
+      actorId: actor.id,
+      itemId: weapon.id,
+      itemName: weapon.name,
+      itemImg: weapon.img,
+      totalDamage: totalDamage,
+      rolls: rollsData
+    };
+
+    const content = await render("systems/berserkr/templates/chat/damage-card.hbs", templateData);
+
+    // @ts-ignore
+    ChatMessageClass.create({
+      user: (game as any).user.id,
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: content,
+      rolls: rollsData.map(r => r.roll),
+      style: (CONST as any).CHAT_MESSAGE_STYLES?.OTHER ?? (CONST as any).CHAT_MESSAGE_TYPES?.OTHER
+    });
+  };
 </script>
 
 <div class="violence-content">

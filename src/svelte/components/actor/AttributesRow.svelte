@@ -1,9 +1,64 @@
 <script lang="ts">
-  let { system, updateField, rollAttribute } = $props<{
+  import type { BerserkrActor } from "../../../module/documents/actor";
+
+  let { system, actor, updateField } = $props<{
     system: any;
+    actor: BerserkrActor;
     updateField: (path: string, value: any) => void;
-    rollAttribute: (name: string) => void;
   }>();
+
+  /**
+   * Executa a rolagem de teste de um atributo
+   */
+  const rollAttribute = async (attributeName: string) => {
+    const mod = system.abilities[attributeName].mod;
+    let penalty = 0;
+    let penaltySource = "";
+
+    if (attributeName === "swift") {
+      penalty = system.derived.swiftPenalty;
+      penaltySource = "Armor/Overload";
+    } else if (attributeName === "might") {
+      penalty = system.derived.mightPenalty;
+      penaltySource = "Overload";
+    }
+
+    // @ts-ignore
+    const RollClass = foundry.dice?.Roll ?? Roll;
+    // @ts-ignore
+    const render = foundry.applications.handlebars?.renderTemplate ?? renderTemplate;
+    // @ts-ignore
+    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+
+    const roll = new RollClass(`1d20 + ${mod}`);
+    await roll.evaluate();
+
+    const d20 = roll.terms[0].results[0].result;
+    let flavor = `Test: ${attributeName.toUpperCase()}`;
+    if (penalty > 0) flavor += ` (+${penalty} DR from ${penaltySource})`;
+
+    const templateData = {
+      actorId: actor.id,
+      title: "Attribute Test",
+      total: roll.total,
+      formula: roll.formula,
+      tooltip: await roll.getTooltip(),
+      flavor: flavor,
+      isCrit: d20 === 20,
+      isFumble: d20 === 1
+    };
+
+    const content = await render("systems/berserkr/templates/chat/test-card.hbs", templateData);
+
+    // @ts-ignore
+    ChatMessageClass.create({
+      user: (game as any).user.id,
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: content,
+      rolls: [roll],
+      style: (CONST as any).CHAT_MESSAGE_STYLES?.OTHER ?? (CONST as any).CHAT_MESSAGE_TYPES?.OTHER
+    });
+  };
 </script>
 
 <div class="attributes-row">
