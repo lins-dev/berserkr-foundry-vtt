@@ -55,7 +55,9 @@
 - [x] Implementar rolagens de ataque (d20 + Might/Guile) e dano estruturado.
 - [x] Criar templates Handlebars (`test-card.hbs`, `damage-card.hbs`) para o chat.
 - [x] Integrar expansão nativa de rolagens (dice-tooltip) no chat.
-- [ ] Adicionar botões de rolagem de atributo na ficha do personagem.
+- [x] Transformar nomes de atributos no cabeçalho em botões de rolagem clicáveis.
+- [x] Aplicar automaticamente penalidades de armadura em testes de Swift.
+- [x] Corrigir avisos de acessibilidade (A11y) e conformidade V13 nas rolagens.
 
 
 ### [x] Task 3: Styling & Assets

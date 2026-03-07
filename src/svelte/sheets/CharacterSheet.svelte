@@ -22,6 +22,55 @@
   };
 
   /**
+   * Executa a rolagem de teste de um atributo
+   */
+  const rollAttribute = async (attributeName: string) => {
+    const mod = system.abilities[attributeName].mod;
+    const penalty = attributeName === "swift" ? system.derived.swiftPenalty : 0;
+
+    // Compatibilidade V12/V13
+    // @ts-ignore
+    const RollClass = foundry.dice?.Roll ?? Roll;
+    // @ts-ignore
+    const render = foundry.applications.handlebars?.renderTemplate ?? renderTemplate;
+    // @ts-ignore
+    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+
+    const formula = `1d20 + ${mod}`;
+    const roll = new RollClass(formula);
+    await roll.evaluate();
+
+    const d20 = roll.terms[0].results[0].result;
+    const isCrit = d20 === 20;
+    const isFumble = d20 === 1;
+
+    let flavor = `Test: ${attributeName.toUpperCase()}`;
+    if (penalty > 0) flavor += ` (+${penalty} DR from Armor)`;
+
+    const templateData = {
+      actorId: actor.id,
+      title: "Attribute Test",
+      total: roll.total,
+      formula: roll.formula,
+      tooltip: await roll.getTooltip(),
+      flavor: flavor,
+      isCrit,
+      isFumble
+    };
+
+    const content = await render("systems/berserkr/templates/chat/test-card.hbs", templateData);
+
+    // @ts-ignore
+    ChatMessageClass.create({
+      user: (game as any).user.id,
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: content,
+      rolls: [roll],
+      style: (CONST as any).CHAT_MESSAGE_STYLES?.OTHER ?? (CONST as any).CHAT_MESSAGE_TYPES?.OTHER
+    });
+  };
+
+  /**
    * Executa a rolagem de ataque de uma arma
    */
   const rollAttack = async (weapon: any) => {
@@ -29,7 +78,7 @@
     const attribute = isRanged ? "guile" : "might";
     const mod = system.abilities[attribute].mod;
     
-    // Compatibilidade V12/V13 para Roll e renderTemplate
+    // Compatibilidade V12/V13
     // @ts-ignore
     const RollClass = foundry.dice?.Roll ?? Roll;
     // @ts-ignore
@@ -193,7 +242,14 @@
     <div class="attributes-row">
       {#each Object.entries(system.abilities) as [key, abl]}
         <div class="attr-item">
-          <span class="attr-label">{key.toUpperCase()}</span>
+          <button 
+            type="button" 
+            class="attr-label-btn" 
+            onclick={() => rollAttribute(key)}
+            title="Roll {key} Test"
+          >
+            {key.toUpperCase()}
+          </button>
           <div class="attr-values">
             <input 
               aria-label={key}
@@ -443,11 +499,17 @@
     align-items: center;
     gap: 4px;
 
-    .attr-label { 
+    .attr-label-btn { 
       font-family: var(--berserkr-font-display, 'Norse', serif); 
       font-size: 1rem; 
       color: var(--berserkr-color-cyan-vibrant);
       letter-spacing: 1px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.2s;
+      &:hover { color: #fff; text-shadow: 0 0 8px var(--berserkr-color-cyan-vibrant); }
     }
 
     .attr-values {
