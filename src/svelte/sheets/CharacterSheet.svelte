@@ -23,6 +23,13 @@
   let activeTab = $state("violence");
   let scrollContainer: HTMLElement;
 
+  const tabs = [
+    { id: "violence", label: "Violence" },
+    { id: "equipment", label: "Equipment" },
+    { id: "special", label: "Special" },
+    { id: "background", label: "Background" }
+  ];
+
   // Sincroniza a aba ativa e o scroll após renderizações do Foundry
   $effect(() => {
     if (context?.activeTab) {
@@ -36,13 +43,6 @@
       });
     }
   });
-
-  const tabs = [
-    { id: "violence", label: "Violence" },
-    { id: "equipment", label: "Equipment" },
-    { id: "special", label: "Special" },
-    { id: "background", label: "Background" }
-  ];
 
   const setTab = (id: string) => {
     activeTab = id;
@@ -63,6 +63,20 @@
         sheet.updateScroll(scrollContainer.scrollTop);
       }
     }
+  };
+
+  /**
+   * Cria um novo item de um tipo específico diretamente no Ator
+   */
+  const createItem = async (type: string) => {
+    saveScroll();
+    const data = {
+      name: `New ${type.charAt(0).toUpperCase() + type.slice(1)}`,
+      type: type,
+      img: `icons/svg/item-bag.svg`
+    };
+    // @ts-ignore
+    await actor.createEmbeddedDocuments("Item", [data]);
   };
 
   const toggleEquip = async (item: any) => {
@@ -445,8 +459,14 @@
           </div>
         </div>
 
+        <!-- Armas -->
         <div class="inventory-section">
-          <h3 class="section-title">Weapons</h3>
+          <div class="section-header">
+            <h3 class="section-title">Weapons</h3>
+            <button type="button" class="add-item-btn" onclick={() => createItem("weapon")} aria-label="Add Weapon" title="Add Weapon">
+              <i class="fas fa-plus-circle"></i>
+            </button>
+          </div>
           <div class="item-list">
             {#each weapons as item (item.id)}
               <div class="item-row">
@@ -469,8 +489,14 @@
           </div>
         </div>
 
+        <!-- Armaduras -->
         <div class="inventory-section">
-          <h3 class="section-title">Armor</h3>
+          <div class="section-header">
+            <h3 class="section-title">Armor</h3>
+            <button type="button" class="add-item-btn" onclick={() => createItem("armor")} aria-label="Add Armor" title="Add Armor">
+              <i class="fas fa-plus-circle"></i>
+            </button>
+          </div>
           <div class="item-list">
             {#each armors as item (item.id)}
               <div class="item-row" class:equipped={(item.system as any).equipped}>
@@ -503,8 +529,14 @@
           </div>
         </div>
 
+        <!-- Runas -->
         <div class="inventory-section">
-          <h3 class="section-title">Runes</h3>
+          <div class="section-header">
+            <h3 class="section-title">Runes</h3>
+            <button type="button" class="add-item-btn" onclick={() => createItem("rune")} aria-label="Add Rune" title="Add Rune">
+              <i class="fas fa-plus-circle"></i>
+            </button>
+          </div>
           <div class="item-list">
             {#each runes as item (item.id)}
               <div class="item-row">
@@ -535,8 +567,14 @@
           </div>
         </div>
 
+        <!-- Equipamento Geral -->
         <div class="inventory-section">
-          <h3 class="section-title">Gear</h3>
+          <div class="section-header">
+            <h3 class="section-title">Gear</h3>
+            <button type="button" class="add-item-btn" onclick={() => createItem("gear")} aria-label="Add Gear" title="Add Gear">
+              <i class="fas fa-plus-circle"></i>
+            </button>
+          </div>
           <div class="item-list">
             {#each gear as item (item.id)}
               <div class="item-row">
@@ -846,6 +884,36 @@
     margin-bottom: 1.5rem;
   }
 
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #004D56;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--berserkr-font-display, 'Norse', serif);
+    font-size: 1.6rem;
+    color: #004D56 !important;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .add-item-btn {
+    background: transparent;
+    border: none;
+    color: #004D56;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+    &:hover { color: var(--berserkr-color-cyan-vibrant); transform: scale(1.1); }
+  }
+
   .item-list {
     display: flex;
     flex-direction: column;
@@ -922,17 +990,6 @@
 
   .weapon-section {
     margin-top: 1rem;
-  }
-
-  .section-title {
-    font-family: var(--berserkr-font-display, 'Norse', serif);
-    font-size: 1.6rem;
-    color: #004D56 !important;
-    border-bottom: 2px solid #004D56;
-    margin-bottom: 1rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    display: block;
   }
 
   .weapons-list {

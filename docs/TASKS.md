@@ -57,6 +57,7 @@
 - [x] Integrar expansão nativa de rolagens (dice-tooltip) no chat.
 - [x] Transformar nomes de atributos no cabeçalho em botões de rolagem clicáveis.
 - [x] Implementar gestão de inventário categorizada (Weapons, Armor, Runes, Gear).
+- [x] Implementar criação rápida de itens (botão +) por categoria no inventário.
 - [x] Implementar rastreador de carga (Might + 8) com penalidades automáticas.
 - [x] Implementar botões de uso rápido para Runas e envio de detalhes de itens para o chat.
 - [x] Resolver persistência absoluta de abas e posição de scroll na interface Svelte.
