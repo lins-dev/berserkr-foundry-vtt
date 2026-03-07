@@ -42,9 +42,11 @@
 
 ## Status: 🏗️ In Progress
 
-### [ ] Task 1: Item Sheets
-- [ ] Implementar `BerserkrItemSheet` (ApplicationV2 + Svelte).
-- [ ] Criar componentes Svelte para Arma, Armadura e Runa.
+### [x] Task 1: Item Sheets
+- [x] Implementar `BerserkrItemSheet` (ApplicationV2 + Svelte).
+- [x] Criar componentes Svelte para Arma, Armadura e Runa.
+- [x] Implementar suporte a múltiplos perfis de dano nas Armas.
+- [x] Adicionar validação de limites (Quantity, Weight, Cost, Damage, Armor, etc.).
 
 ### [ ] Task 2: Interactive Features
 - [ ] Adicionar botões de rolagem de atributo na ficha do personagem.
