@@ -9,19 +9,21 @@
   let system = $derived(item.system as any);
   let type = $derived(item.type);
 
+  const ALLOWED_DICE = ["d2", "d3", "d4", "d6", "d8", "d10", "d12", "d20", "d100"];
+
   const updateField = (path: string, e: Event) => {
     const input = e.currentTarget as HTMLInputElement;
     let value: any = input.value;
     let finalValue = value;
 
     if (input.type === "number" || path.includes("quantity") || path.includes("weight") || path.includes("cost") || path.includes("uses")) {
-      if (path.includes("quantity")) finalValue = Math.clamped(parseInt(value) || 0, 0, 9999);
-      if (path.includes("weight")) finalValue = parseFloat(Math.clamped(parseFloat(value) || 0, 0, 99).toFixed(2));
-      if (path.includes("cost")) finalValue = parseFloat(Math.clamped(parseFloat(value) || 0, 0, 9999999.99).toFixed(2));
-      if (path.includes("tier")) finalValue = Math.clamped(parseInt(value) || 1, 1, 4);
-      if (path.includes("range")) finalValue = Math.clamped(parseInt(value) || 0, 0, 9999);
-      if (path.includes("uses")) finalValue = Math.clamped(parseInt(value) || 0, 0, 100);
-      if (path.includes("set")) finalValue = Math.clamped(parseInt(value) || 1, 1, 3);
+      if (path.includes("quantity")) finalValue = Math.clamp(parseInt(value) || 0, 0, 9999);
+      if (path.includes("weight")) finalValue = parseFloat(Math.clamp(parseFloat(value) || 0, 0, 99).toFixed(2));
+      if (path.includes("cost")) finalValue = parseFloat(Math.clamp(parseFloat(value) || 0, 0, 9999999.99).toFixed(2));
+      if (path.includes("tier")) finalValue = Math.clamp(parseInt(value) || 1, 1, 4);
+      if (path.includes("range")) finalValue = Math.clamp(parseInt(value) || 0, 0, 9999);
+      if (path.includes("uses")) finalValue = Math.clamp(parseInt(value) || 0, 0, 100);
+      if (path.includes("set")) finalValue = Math.clamp(parseInt(value) || 1, 1, 3);
       
       input.value = finalValue.toString();
     }
@@ -53,8 +55,9 @@
     let value: any = input.value;
     let finalValue = value;
 
-    if (key === "dieCount") finalValue = Math.clamped(parseInt(value) || 1, 1, 10);
-    if (key === "modifier") finalValue = Math.clamped(parseInt(value) || 0, -100, 100);
+    if (key === "dieCount") finalValue = Math.clamp(parseInt(value) || 1, 1, 10);
+    if (key === "modifier") finalValue = Math.clamp(parseInt(value) || 0, -100, 100);
+    if (key === "dieType") finalValue = ALLOWED_DICE.includes(value) ? value : "d4";
     if (key === "type") finalValue = String(value).slice(0, 50);
 
     if (key !== "dieType") {
@@ -72,7 +75,8 @@
     let value: any = input.value;
     let finalValue = value;
 
-    if (key === "dieCount") finalValue = Math.clamped(parseInt(value) || 1, 1, 10);
+    if (key === "dieCount") finalValue = Math.clamp(parseInt(value) || 1, 1, 10);
+    if (key === "dieType") finalValue = ALLOWED_DICE.includes(value) ? value : "d4";
     
     if (key !== "dieType") {
       input.value = finalValue.toString();
@@ -127,7 +131,7 @@
               <div class="damage-grid">
                 <input type="number" min="1" max="10" value={dmg.dieCount} onchange={(e) => updateDamage(i, "dieCount", e)}>
                 <select value={dmg.dieType} onchange={(e) => updateDamage(i, "dieType", e)}>
-                  <option value="d3">d3</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d10">d10</option><option value="d12">d12</option><option value="d20">d20</option><option value="d100">d100</option>
+                  <option value="d2">d2</option><option value="d3">d3</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d10">d10</option><option value="d12">d12</option><option value="d20">d20</option><option value="d100">d100</option>
                 </select>
                 <span class="sign">+</span>
                 <input type="number" min="-100" max="100" value={dmg.modifier} onchange={(e) => updateDamage(i, "modifier", e)}>

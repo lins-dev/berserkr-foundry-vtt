@@ -3,7 +3,7 @@
 Foundry VTT System for the **Berserkr** RPG (based on Mörk Borg).
 
 ## Technical Stack
-- **Foundry VTT API**: v12/v13+
+- **Foundry VTT API**: v13 (Compatible with v12)
 - **Language**: TypeScript
 - **Frontend**: Svelte
 - **Build Tool**: Vite

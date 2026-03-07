@@ -12,7 +12,7 @@
   "author": "Lucas Lins",
   "license": "MIT",
   "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "^12.331.0",
+    "@league-of-foundry-developers/foundry-vtt-types": "^13.0.0",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "@tsconfig/svelte": "^5.0.0",
     "sass": "^1.70.0",
