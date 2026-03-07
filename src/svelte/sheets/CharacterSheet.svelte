@@ -22,6 +22,7 @@
 </script>
 
 <div class="berserkr-sheet-v2">
+  <!-- ====== HEADER ====== -->
   <header class="sheet-header">
     <div class="header-main">
       <div class="portrait-area">
@@ -93,6 +94,7 @@
     </div>
   </header>
 
+  <!-- ====== TABS ====== -->
   <nav class="tabs-bar">
     {#each tabs as tab}
       <button 
@@ -105,26 +107,47 @@
     {/each}
   </nav>
 
+  <!-- ====== TAB CONTENT ====== -->
   <section class="tab-content">
-    {#if activeTab === "background"}
+    {#if activeTab === "violence"}
+      <div class="violence-content">
+        <div class="combat-stats-grid">
+          <div class="combat-stat">
+            <span class="stat-label">Defense DR</span>
+            <span class="stat-value">{system.derived.defenseDR}</span>
+          </div>
+          <div class="combat-stat">
+            <span class="stat-label">Armor Reduction</span>
+            <span class="stat-value">-{system.derived.armorReduction || "0"}</span>
+          </div>
+          <div class="combat-stat">
+            <span class="stat-label">Swift Penalty</span>
+            <span class="stat-value" class:penalty={system.derived.swiftPenalty > 0}>
+              +{system.derived.swiftPenalty} DR
+            </span>
+          </div>
+        </div>
+
+        <div class="weapon-section">
+          <h3 class="section-title">Weapons</h3>
+          <p class="placeholder-text">Weapon list and attack rolls coming soon...</p>
+        </div>
+      </div>
+    {:else if activeTab === "equipment"}
+      <div class="equipment-placeholder">
+        <p>Equipment management coming soon...</p>
+      </div>
+    {:else if activeTab === "special"}
+      <div class="special-placeholder">
+        <p>Special abilities coming soon...</p>
+      </div>
+    {:else if activeTab === "background"}
       <textarea 
         class="background-textarea" 
         placeholder="Character background, description, history..."
         value={system.background}
         onchange={(e) => updateField("system.background", e.currentTarget.value)}
       ></textarea>
-    {:else if activeTab === "equipment"}
-      <div class="equipment-placeholder">
-        <p>Equipment management coming soon...</p>
-      </div>
-    {:else if activeTab === "violence"}
-      <div class="violence-placeholder">
-        <p>Violence and Combat features coming soon...</p>
-      </div>
-    {:else if activeTab === "special"}
-      <div class="special-placeholder">
-        <p>Special abilities coming soon...</p>
-      </div>
     {/if}
   </section>
 </div>
@@ -191,7 +214,7 @@
     label { 
       font-family: var(--berserkr-font-display, 'Norse', serif); 
       font-size: 1.4rem; 
-      color: var(--berserkr-color-cyan-vibrant); // Cor vibrante igual ao nome
+      color: var(--berserkr-color-cyan-vibrant);
     }
     input { 
       background: transparent; 
@@ -216,17 +239,17 @@
     label { 
       font-family: var(--berserkr-font-display, 'Norse', serif); 
       color: var(--berserkr-color-cyan-vibrant); 
-      font-size: 1.4rem; // Ajustado para 1.4rem
+      font-size: 1.4rem; 
     }
     input { 
-      width: 50px; // Ajustado para 50px
+      width: 50px;
       background: transparent; 
       border: none; 
       border-bottom: 2px solid var(--berserkr-color-cyan-vibrant); 
       color: var(--berserkr-color-white); 
       text-align: center; 
       outline: none;
-      font-size: 1.4rem; // Ajustado para 1.4rem
+      font-size: 1.4rem;
       font-weight: bold;
     }
     .stat-separator {
@@ -335,6 +358,58 @@
     padding: 1.5rem;
     background: var(--berserkr-bg-card);
     min-height: 350px;
+    color: var(--berserkr-color-black);
+  }
+
+  .combat-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .combat-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .stat-label {
+    font-family: var(--berserkr-font-display, 'Norse', serif);
+    font-size: 1.1rem;
+    color: var(--berserkr-color-cyan-medium);
+  }
+
+  .stat-value {
+    font-family: var(--berserkr-font-display, 'Norse', serif);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--berserkr-color-black);
+  }
+
+  .penalty {
+    color: #d00 !important;
+    text-shadow: 0 0 5px rgba(200, 0, 0, 0.2);
+  }
+
+  .weapon-section {
+    margin-top: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--berserkr-font-display, 'Norse', serif);
+    font-size: 1.6rem;
+    color: #004D56 !important; // Ciano Escuro hardcoded para garantir
+    border-bottom: 2px solid #004D56;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
   }
 
   .background-textarea {

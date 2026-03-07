@@ -56,3 +56,5 @@
 - [x] Aplicar temas visuais (fontes, cores, backgrounds) baseados no Mörk Borg.
 - [x] Integrar fonte Norse e Alegreya com suporte a PT-BR.
 - [x] Reestruturar cabeçalho e layout de atributos na ficha de personagem.
+- [x] Implementar paleta "Mystic Teal" para harmonia entre cabeçalho escuro e corpo claro.
+- [x] Otimizar contraste e tamanho de fontes no cabeçalho (HP, Fates, Silver).
