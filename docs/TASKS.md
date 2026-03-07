@@ -69,3 +69,4 @@
 - [x] Implementar paleta "Mystic Teal" para harmonia entre cabeçalho escuro e corpo claro.
 - [x] Otimizar contraste e tamanho de fontes no cabeçalho (HP, Fates, Silver).
 - [x] Garantir acessibilidade (A11y) com labels e títulos em todos os elementos interativos.
+- [x] Refatorar e modularizar fichas de Ator e Item em componentes Svelte menores para melhor manutenibilidade.

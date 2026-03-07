@@ -44,6 +44,20 @@
   }
 }
 
+.berserkr-v2-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+  > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+}
+
 /* --- Chat Cards --- */
 .berserkr.chat-card {
   font-family: var(--berserkr-font-text);

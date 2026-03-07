@@ -10,12 +10,14 @@ import { mount, unmount } from "svelte";
 export class BerserkrActorSheet extends (foundry.applications.sheets?.ActorSheetV2 ?? foundry.applications.api.ActorSheetV2) {
   /** @override */
   static DEFAULT_OPTIONS = {
-    classes: ["berserkr", "berserkr-sheet"],
+    classes: ["berserkr", "berserkr-sheet", "berserkr-v2-form"],
     tag: "form",
     window: {
       resizable: true,
       minimizable: true,
       title: "Berserkr Character Sheet",
+      width: 600,
+      height: 700,
     },
     actions: {},
     forms: {
@@ -76,7 +78,11 @@ export class BerserkrActorSheet extends (foundry.applications.sheets?.ActorSheet
   /** @override */
   async _renderHTML(context: any, options: any) {
     this.#renderContext = context;
-    return document.createElement("div");
+    const div = document.createElement("div");
+    div.style.height = "100%";
+    div.style.display = "flex";
+    div.style.flexDirection = "column";
+    return div;
   }
 
   /** @override */

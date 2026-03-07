@@ -16,6 +16,8 @@ export class BerserkrItemSheet extends (foundry.applications.sheets?.ItemSheetV2
       resizable: true,
       minimizable: true,
       title: "Berserkr Item Sheet",
+      width: 500,
+      height: 600,
     },
     actions: {},
     forms: {
@@ -27,16 +29,33 @@ export class BerserkrItemSheet extends (foundry.applications.sheets?.ItemSheetV2
   /** @override */
   static PARTS = {
     main: {
-      template: "", // Not used with Svelte
+      template: "",
     },
   };
 
   /** @type {any} */
   #svelteApp: any;
 
+  /**
+   * Cache do contexto para garantir persistência no Svelte
+   */
+  #renderContext: any;
+
+  /** @override */
+  async _prepareContext(options: any) {
+    const context = await super._prepareContext(options);
+    this.#renderContext = context;
+    return context;
+  }
+
   /** @override */
   async _renderHTML(context: any, options: any) {
-    return document.createElement("div");
+    this.#renderContext = context;
+    const div = document.createElement("div");
+    div.style.height = "100%";
+    div.style.display = "flex";
+    div.style.flexDirection = "column";
+    return div;
   }
 
   /** @override */
@@ -50,7 +69,7 @@ export class BerserkrItemSheet extends (foundry.applications.sheets?.ItemSheetV2
       target: result,
       props: {
         item: this.document as BerserkrItem,
-        context: this.context,
+        context: this.#renderContext,
       },
     });
   }
