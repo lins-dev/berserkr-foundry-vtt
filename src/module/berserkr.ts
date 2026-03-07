@@ -3,6 +3,7 @@
  * Author: Lucas Lins
  */
 
+import "../styles/berserkr.scss";
 import { BerserkrCharacterData } from "./data/character-data";
 import { BerserkrWeaponData, BerserkrArmorData, BerserkrRuneData, BerserkrItemBaseData } from "./data/item-data";
 import { BerserkrActor } from "./documents/actor";

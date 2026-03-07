@@ -1,4 +1,43 @@
 // Berserkr Global Styles
+
+/* --- Font Definitions --- */
+// Usamos caminhos relativos ao arquivo SCSS para que o Vite processe e mova as fontes para 'dist'
+@font-face {
+  font-family: 'Norse';
+  src: url('../../public/assets/fonts/Norse.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Norse';
+  src: url('../../public/assets/fonts/Norsebold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+// Alegreya (Grimdark Serif)
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  --berserkr-font-display: 'Norse', serif;
+  --berserkr-font-text: 'Alegreya', serif;
+  
+  --berserkr-color-cyan: #00b8c8;
+  --berserkr-color-black: #0a0a0a;
+  --berserkr-color-white: #b8e8ee; 
+  --berserkr-bg-secondary: #a0dce4;
+  --berserkr-bg-card: #cdf0f4;
+}
+
 .berserkr {
-  // Base theme colors could be defined here
+  font-family: var(--berserkr-font-text);
+  background: var(--berserkr-color-white);
+  color: var(--berserkr-color-black);
+
+  h1, h2, h3, .attr-label, .display-text, .tab-btn {
+    font-family: var(--berserkr-font-display);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
 }

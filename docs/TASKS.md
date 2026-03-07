@@ -40,7 +40,7 @@
 
 # Sprint 3: Items & UI Polish
 
-## Status: 📅 Planned
+## Status: 🏗️ In Progress
 
 ### [ ] Task 1: Item Sheets
 - [ ] Implementar `BerserkrItemSheet` (ApplicationV2 + Svelte).
@@ -50,6 +50,7 @@
 - [ ] Adicionar botões de rolagem de atributo na ficha do personagem.
 - [ ] Integrar `performTest` com a UI (chat messages).
 
-### [ ] Task 3: Styling & Assets
-- [ ] Aplicar temas visuais (fontes, cores, backgrounds) baseados no Mörk Borg.
-- [ ] Configurar assets de UI (parchment, denim).
+### [x] Task 3: Styling & Assets
+- [x] Aplicar temas visuais (fontes, cores, backgrounds) baseados no Mörk Borg.
+- [x] Integrar fonte Norse e Alegreya com suporte a PT-BR.
+- [x] Reestruturar cabeçalho e layout de atributos na ficha de personagem.

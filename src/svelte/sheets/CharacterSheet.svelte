@@ -7,13 +7,13 @@
   }>();
 
   let system = $derived(actor.system as any);
-  let activeTab = $state("background");
+  let activeTab = $state("violence");
 
   const tabs = [
-    { id: "background", label: "Background" },
-    { id: "equipment", label: "Equipment" },
     { id: "violence", label: "Violence" },
-    { id: "special", label: "Special" }
+    { id: "equipment", label: "Equipment" },
+    { id: "special", label: "Special" },
+    { id: "background", label: "Background" }
   ];
 
   const updateField = (path: string, value: any) => {
@@ -24,70 +24,74 @@
 <div class="berserkr-sheet-v2">
   <!-- ====== HEADER ====== -->
   <header class="sheet-header">
-    <!-- Portrait -->
-    <div class="portrait-area">
-      <div class="portrait-container" onclick={() => (actor as any).sheet.editImage()}>
-        <img src={actor.img} alt={actor.name} title={actor.name} />
+    <div class="header-main">
+      <!-- Portrait -->
+      <div class="portrait-area">
+        <div class="portrait-container" onclick={() => (actor as any).sheet.editImage()}>
+          <img src={actor.img} alt={actor.name} title={actor.name} />
+        </div>
       </div>
-    </div>
 
-    <!-- Character Info -->
-    <div class="char-info">
-      <input 
-        type="text" 
-        class="char-name-input" 
-        value={actor.name} 
-        onchange={(e) => updateField("name", e.currentTarget.value)}
-        placeholder="Character Name"
-      >
-
-      <div class="char-class-row">
-        <label>Class:</label>
+      <!-- Character Info -->
+      <div class="char-info">
         <input 
           type="text" 
-          class="char-class-input" 
-          value={system.class} 
-          onchange={(e) => updateField("system.class", e.currentTarget.value)}
-          placeholder="Enter class..."
+          class="char-name-input" 
+          value={actor.name} 
+          onchange={(e) => updateField("name", e.currentTarget.value)}
+          placeholder="Character Name"
         >
-      </div>
 
-      <div class="stats-grid">
-        <div class="stat-field">
-          <label>HP:</label>
-          <input type="number" class="stat-input" value={system.hp.value} onchange={(e) => updateField("system.hp.value", parseInt(e.currentTarget.value))}>
-          <span class="stat-separator">/</span>
-          <input type="number" class="stat-input" value={system.hp.max} onchange={(e) => updateField("system.hp.max", parseInt(e.currentTarget.value))}>
+        <div class="char-class-row">
+          <label>Class:</label>
+          <input 
+            type="text" 
+            class="char-class-input" 
+            value={system.class} 
+            onchange={(e) => updateField("system.class", e.currentTarget.value)}
+            placeholder="Enter class..."
+          >
         </div>
-        <div class="stat-field">
-          <label>Fates:</label>
-          <input type="number" class="stat-input" value={system.fates.value} onchange={(e) => updateField("system.fates.value", parseInt(e.currentTarget.value))}>
-        </div>
-        <div class="stat-field">
-          <label>Silver:</label>
-          <input type="number" class="stat-input" value={system.silver} onchange={(e) => updateField("system.silver", parseInt(e.currentTarget.value))}>
-        </div>
-      </div>
 
-      <div class="action-buttons">
-        <button class="btn" onclick={() => console.log("Broken")}>BROKEN</button>
-        <button class="btn" onclick={() => console.log("Rest")}>REST</button>
-        <button class="btn" onclick={() => console.log("Better")}>GET BETTER</button>
+        <div class="stats-grid">
+          <div class="stat-field">
+            <label>HP:</label>
+            <input type="number" class="stat-input" value={system.hp.value} onchange={(e) => updateField("system.hp.value", parseInt(e.currentTarget.value))}>
+            <span class="stat-separator">/</span>
+            <input type="number" class="stat-input" value={system.hp.max} onchange={(e) => updateField("system.hp.max", parseInt(e.currentTarget.value))}>
+          </div>
+          <div class="stat-field">
+            <label>Fates:</label>
+            <input type="number" class="stat-input" value={system.fates.value} onchange={(e) => updateField("system.fates.value", parseInt(e.currentTarget.value))}>
+          </div>
+          <div class="stat-field">
+            <label>Silver:</label>
+            <input type="number" class="stat-input" value={system.silver} onchange={(e) => updateField("system.silver", parseInt(e.currentTarget.value))}>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn" onclick={() => console.log("Broken")}>BROKEN</button>
+          <button class="btn" onclick={() => console.log("Rest")}>REST</button>
+          <button class="btn" onclick={() => console.log("Better")}>GET BETTER</button>
+        </div>
       </div>
     </div>
 
-    <!-- Attributes Sidebar -->
-    <div class="attributes-sidebar">
+    <!-- Attributes Horizontal Row -->
+    <div class="attributes-row">
       {#each Object.entries(system.abilities) as [key, abl]}
         <div class="attr-item">
-          <input 
-            type="number" 
-            class="attr-value-input" 
-            value={(abl as any).value} 
-            onchange={(e) => updateField(`system.abilities.${key}.value`, parseInt(e.currentTarget.value))}
-          >
-          <span class="attr-label">{key.slice(0, 3).toUpperCase()}</span>
-          <span class="attr-mod">{(abl as any).mod >= 0 ? "+" : ""}{(abl as any).mod}</span>
+          <span class="attr-label">{key.toUpperCase()}</span>
+          <div class="attr-values">
+            <input 
+              type="number" 
+              class="attr-value-input" 
+              value={(abl as any).value} 
+              onchange={(e) => updateField(`system.abilities.${key}.value`, parseInt(e.currentTarget.value))}
+            >
+            <span class="attr-mod">{(abl as any).mod >= 0 ? "+" : ""}{(abl as any).mod}</span>
+          </div>
         </div>
       {/each}
     </div>
@@ -132,38 +136,29 @@
 </div>
 
 <style lang="scss">
-  @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English+SC&family=Inter:wght@400;700&display=swap');
-
-  :host {
-    --bg-primary: #b8e8ee;
-    --bg-secondary: #a0dce4;
-    --bg-card: #cdf0f4;
-    --accent: #00b8c8;
-    --black: #0a0a0a;
-    --white: #ffffff;
-    --font-gothic: 'UnifrakturMaguntia', cursive;
-    --font-fell: 'IM Fell English SC', serif;
-    --font-ui: 'Inter', sans-serif;
-  }
-
   .berserkr-sheet-v2 {
     display: flex;
     flex-direction: column;
-    background: #b8e8ee;
-    color: #111;
-    font-family: 'Inter', sans-serif;
+    background: var(--berserkr-color-white, #b8e8ee);
+    color: var(--berserkr-color-black, #0a0a0a);
+    font-family: var(--berserkr-font-text, 'Alegreya', serif);
     min-height: 600px;
-    border: 3px solid #0a0a0a;
+    border: 3px solid var(--berserkr-color-black, #0a0a0a);
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
   }
 
   .sheet-header {
-    display: grid;
-    grid-template-columns: 140px 1fr 120px;
-    background: #0a0a0a;
+    background: #122525;
     padding: 1rem;
     color: #fff;
-    border-bottom: 3px solid #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .header-main {
+    display: flex;
+    gap: 1.5rem;
   }
 
   .portrait-container {
@@ -178,19 +173,19 @@
   }
 
   .char-info {
-    padding: 0 1rem;
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
   .char-name-input {
-    font-family: 'UnifrakturMaguntia', cursive;
+    font-family: var(--berserkr-font-display, 'Norse', serif);
     font-size: 2.2rem;
     color: #fff;
     background: transparent;
     border: none;
-    border-bottom: 2px solid #00b8c8;
+    border-bottom: 2px solid var(--berserkr-color-cyan, #00b8c8);
     outline: none;
     width: 100%;
   }
@@ -199,89 +194,149 @@
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
-    label { font-family: 'UnifrakturMaguntia', cursive; font-size: 1.4rem; color: #ddd; }
+    label { font-family: var(--berserkr-font-display, 'Norse', serif); font-size: 1.4rem; color: #ddd; }
     input { background: transparent; border: none; border-bottom: 1px solid #555; color: #ddd; flex: 1; outline: none; }
   }
 
   .stats-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
 
   .stat-field {
     display: flex;
     align-items: baseline;
-    gap: 0.3rem;
-    label { font-family: 'UnifrakturMaguntia', cursive; color: #ddd; }
-    input { width: 40px; background: transparent; border: none; border-bottom: 2px solid #00b8c8; color: #fff; text-align: center; outline: none; }
+    gap: 0.4rem;
+    label { 
+      font-family: var(--berserkr-font-display, 'Norse', serif); 
+      color: #ddd; 
+      font-size: 1.25rem; 
+    }
+    input { 
+      width: 50px;
+      background: transparent; 
+      border: none; 
+      border-bottom: 2px solid var(--berserkr-color-cyan, #00b8c8); 
+      color: #fff; 
+      text-align: center; 
+      outline: none;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    .stat-separator {
+      font-size: 1.1rem;
+      color: #888;
+    }
   }
 
   .action-buttons {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.8rem;
     margin-top: 0.5rem;
   }
 
   .btn {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-weight: bold;
-    padding: 4px 8px;
+    padding: 6px 12px;
     background: transparent;
     border: 1px solid #555;
     color: #ddd;
     cursor: pointer;
-    &:hover { border-color: #00b8c8; color: #fff; background: rgba(0,184,200,0.1); }
+    text-transform: uppercase;
+    &:hover { border-color: var(--berserkr-color-cyan, #00b8c8); color: #fff; background: rgba(0,184,200,0.1); }
   }
 
-  .attributes-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: flex-end;
+  .attributes-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .attr-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 6px;
-    .attr-label { font-family: 'UnifrakturMaguntia', cursive; font-size: 1.2rem; color: #00b8c8; min-width: 45px; text-align: right; }
-    input { width: 30px; background: transparent; border: none; color: #ddd; text-align: right; font-weight: bold; outline: none; }
-    .attr-mod { color: #fff; font-weight: 900; min-width: 25px; }
+    gap: 4px;
+
+    .attr-label { 
+      font-family: var(--berserkr-font-display, 'Norse', serif); 
+      font-size: 1rem; 
+      color: var(--berserkr-color-cyan, #00b8c8);
+      letter-spacing: 1px;
+    }
+
+    .attr-values {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      input { 
+        width: 35px; 
+        background: transparent; 
+        border: none; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff; 
+        text-align: center; 
+        font-weight: bold; 
+        outline: none;
+        font-size: 1.1rem;
+        &:focus { border-color: var(--berserkr-color-cyan, #00b8c8); }
+      }
+
+      .attr-mod { 
+        color: #fff; 
+        font-weight: 900; 
+        font-size: 1.2rem;
+        text-shadow: 0 0 8px rgba(0, 184, 200, 0.5);
+      }
+    }
   }
 
   .tabs-bar {
     display: flex;
-    background: #a0dce4;
-    border-bottom: 2px solid #0a0a0a;
+    background: var(--berserkr-bg-secondary, #a0dce4);
+    border-bottom: 2px solid var(--berserkr-color-black, #0a0a0a);
   }
 
   .tab-btn {
     flex: 1;
-    font-family: 'UnifrakturMaguntia', cursive;
+    font-family: var(--berserkr-font-display, 'Norse', serif);
     font-size: 1.2rem;
-    padding: 8px;
+    padding: 10px;
     border: none;
     background: transparent;
+    color: #333;
     cursor: pointer;
-    &.active { background: #cdf0f4; border-bottom: 3px solid #0a0a0a; }
+    &:hover { color: var(--berserkr-color-black, #0a0a0a); }
+    &.active { 
+      background: var(--berserkr-bg-card, #cdf0f4); 
+      border-bottom: 3px solid var(--berserkr-color-black, #0a0a0a);
+      color: var(--berserkr-color-black, #0a0a0a);
+    }
   }
 
   .tab-content {
     flex: 1;
-    padding: 1rem;
-    background: #cdf0f4;
-    min-height: 300px;
+    padding: 1.5rem;
+    background: var(--berserkr-bg-card, #cdf0f4);
+    min-height: 350px;
   }
 
   .background-textarea {
     width: 100%;
-    height: 250px;
-    background: rgba(255,255,255,0.3);
-    border: 2px solid rgba(0,0,0,0.1);
+    height: 300px;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(0,0,0,0.15);
     padding: 1rem;
     outline: none;
     font-family: inherit;
-    line-height: 1.6;
+    line-height: 1.8;
+    color: var(--berserkr-color-black, #0a0a0a);
   }
 </style>

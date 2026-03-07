@@ -10,7 +10,7 @@ import { mount, unmount } from "svelte";
 export class BerserkrActorSheet extends (foundry.applications.sheets?.ActorSheetV2 ?? foundry.applications.api.ActorSheetV2) {
   /** @override */
   static DEFAULT_OPTIONS = {
-    classes: ["berserkr-sheet"],
+    classes: ["berserkr", "berserkr-sheet"],
     tag: "form",
     window: {
       resizable: true,
