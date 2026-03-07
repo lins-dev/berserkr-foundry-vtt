@@ -50,9 +50,13 @@
 - [x] Adicionar validação de limites, sincronização de inputs e acessibilidade (A11y).
 - [x] Garantir conformidade com API v13 do Foundry (Math.clamp, modern FilePicker).
 
-### [ ] Task 2: Interactive Features
+### [x] Task 2: Interactive Features
+- [x] Adicionar botões de ataque e dano na aba Violence.
+- [x] Implementar rolagens de ataque (d20 + Might/Guile) e dano estruturado.
+- [x] Criar templates Handlebars (`test-card.hbs`, `damage-card.hbs`) para o chat.
+- [x] Integrar expansão nativa de rolagens (dice-tooltip) no chat.
 - [ ] Adicionar botões de rolagem de atributo na ficha do personagem.
-- [ ] Integrar `performTest` com a UI (chat messages).
+
 
 ### [x] Task 3: Styling & Assets
 - [x] Aplicar temas visuais (fontes, cores, backgrounds) baseados no Mörk Borg.

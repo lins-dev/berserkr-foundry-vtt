@@ -43,3 +43,127 @@
     letter-spacing: 2px;
   }
 }
+
+/* --- Chat Cards --- */
+.berserkr.chat-card {
+  font-family: var(--berserkr-font-text);
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--berserkr-color-cyan-medium);
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
+
+    img { border: none; border-radius: 4px; }
+    .item-name {
+      font-family: var(--berserkr-font-display);
+      font-size: 1.1rem;
+      margin: 0;
+      color: var(--berserkr-color-cyan-medium);
+      line-height: 1;
+    }
+  }
+
+  &.damage-card {
+    background: #fff;
+    border: 2px solid var(--berserkr-color-cyan-medium);
+    border-radius: 4px;
+    padding: 0.5rem;
+
+    .damage-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--berserkr-color-cyan-medium);
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+
+      .label { font-family: var(--berserkr-font-display); text-transform: uppercase; font-size: 0.9rem; }
+      .value { font-size: 1.4rem; font-weight: bold; }
+    }
+
+    .damage-breakdown {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .damage-roll {
+      display: flex;
+      flex-direction: column; // Mudar para coluna para acomodar o tooltip embaixo
+      background: rgba(0,0,0,0.05);
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+
+      .damage-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .formula { font-weight: bold; }
+      .type { font-style: italic; color: #555; flex: 1; margin-left: 0.5rem; }
+      
+      .dice-total { 
+        margin: 0; 
+        padding: 0 4px; 
+        background: transparent; 
+        border: none; 
+        font-size: 1rem;
+        cursor: pointer;
+        color: var(--berserkr-color-cyan-medium);
+        &:hover { color: var(--berserkr-color-cyan-vibrant); }
+      }
+    }
+  }
+
+  &.test-card {
+    background: #fff;
+    border: 2px solid var(--berserkr-color-cyan-medium);
+    border-radius: 4px;
+    padding: 0.5rem;
+
+    &.critical { border-color: #c90; border-width: 3px; }
+    &.fumble { border-color: #d00; border-width: 3px; }
+
+    .test-result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+      .label { font-family: var(--berserkr-font-display); text-transform: uppercase; font-size: 0.8rem; color: #666; }
+      .formula { font-size: 0.8rem; color: #888; font-style: italic; }
+    }
+
+    .dice-total {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: var(--berserkr-color-cyan-medium);
+      line-height: 1;
+      text-align: center;
+      background: #eee;
+      padding: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      &:hover { background: #e0e0e0; }
+    }
+
+    .special-results {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .special-result {
+      font-family: var(--berserkr-font-display);
+      font-size: 1.2rem;
+      &.crit { color: #c90; text-shadow: 0 0 5px rgba(200, 150, 0, 0.3); }
+      &.fumble { color: #d00; text-shadow: 0 0 5px rgba(200, 0, 0, 0.3); }
+    }
+  }
+}

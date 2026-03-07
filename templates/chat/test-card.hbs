@@ -1,0 +1,30 @@
+<div class="berserkr chat-card test-card {{#if isCrit}}critical{{/if}} {{#if isFumble}}fumble{{/if}}" data-actor-id="{{actorId}}" data-item-id="{{itemId}}">
+    <header class="card-header">
+        {{#if itemImg}}
+        <img src="{{itemImg}}" title="{{title}}" width="36" height="36"/>
+        {{/if}}
+        <h3 class="item-name">{{title}}</h3>
+    </header>
+
+    <div class="card-content">
+        <div class="dice-roll" data-action="expandRoll">
+            <div class="dice-result">
+                <div class="test-result-header">
+                    <span class="label">{{flavor}}</span>
+                    <span class="formula">{{formula}}</span>
+                </div>
+                {{{tooltip}}}
+                <h4 class="dice-total value">{{total}}</h4>
+            </div>
+        </div>
+
+        <div class="special-results">
+            {{#if isCrit}}
+            <div class="special-result crit">CRITICAL!</div>
+            {{/if}}
+            {{#if isFumble}}
+            <div class="special-result fumble">FUMBLE!</div>
+            {{/if}}
+        </div>
+    </div>
+</div>

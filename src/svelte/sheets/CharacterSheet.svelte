@@ -7,6 +7,7 @@
   }>();
 
   let system = $derived(actor.system as any);
+  let weapons = $derived(actor.items.filter(i => i.type === "weapon"));
   let activeTab = $state("violence");
 
   const tabs = [
@@ -19,11 +20,116 @@
   const updateField = (path: string, value: any) => {
     actor.update({ [path]: value });
   };
+
+  /**
+   * Executa a rolagem de ataque de uma arma
+   */
+  const rollAttack = async (weapon: any) => {
+    const isRanged = weapon.system.isRanged;
+    const attribute = isRanged ? "guile" : "might";
+    const mod = system.abilities[attribute].mod;
+    
+    // Compatibilidade V12/V13 para Roll e renderTemplate
+    // @ts-ignore
+    const RollClass = foundry.dice?.Roll ?? Roll;
+    // @ts-ignore
+    const render = foundry.applications.handlebars?.renderTemplate ?? renderTemplate;
+    // @ts-ignore
+    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+
+    const roll = new RollClass(`1d20 + ${mod}`);
+    await roll.evaluate();
+
+    const d20 = roll.terms[0].results[0].result;
+    const isCrit = d20 === 20;
+    const isFumble = d20 === 1;
+
+    const templateData = {
+      actorId: actor.id,
+      itemId: weapon.id,
+      title: weapon.name,
+      itemImg: weapon.img,
+      total: roll.total,
+      formula: roll.formula,
+      tooltip: await roll.getTooltip(),
+      flavor: `Attack (${attribute})`,
+      isCrit,
+      isFumble
+    };
+
+    const content = await render("systems/berserkr/templates/chat/test-card.hbs", templateData);
+
+    // @ts-ignore
+    ChatMessageClass.create({
+      user: (game as any).user.id,
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: content,
+      rolls: [roll],
+      style: (CONST as any).CHAT_MESSAGE_STYLES?.OTHER ?? (CONST as any).CHAT_MESSAGE_TYPES?.OTHER
+    });
+  };
+
+  /**
+   * Executa a rolagem de dano de uma arma
+   */
+  const rollDamage = async (weapon: any) => {
+    const damages = weapon.system.damages;
+    if (!damages || damages.length === 0) return;
+
+    // Compatibilidade V12/V13
+    // @ts-ignore
+    const RollClass = foundry.dice?.Roll ?? Roll;
+    // @ts-ignore
+    const render = foundry.applications.handlebars?.renderTemplate ?? renderTemplate;
+    // @ts-ignore
+    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+
+    const rollsData = [];
+    let totalDamage = 0;
+
+    for (let dmg of damages) {
+      const formula = `${dmg.dieCount}${dmg.dieType}${dmg.modifier ? (dmg.modifier > 0 ? "+" + dmg.modifier : dmg.modifier) : ""}`;
+      const roll = new RollClass(formula);
+      await roll.evaluate();
+      
+      totalDamage += roll.total;
+      
+      rollsData.push({
+        formula: formula,
+        total: roll.total,
+        type: dmg.type,
+        tooltip: await roll.getTooltip(),
+        roll: roll
+      });
+    }
+
+    const templateData = {
+      actorId: actor.id,
+      itemId: weapon.id,
+      itemName: weapon.name,
+      itemImg: weapon.img,
+      totalDamage: totalDamage,
+      rolls: rollsData
+    };
+
+    const content = await render("systems/berserkr/templates/chat/damage-card.hbs", templateData);
+
+    // @ts-ignore
+    ChatMessageClass.create({
+      user: (game as any).user.id,
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: content,
+      rolls: rollsData.map(r => r.roll),
+      style: (CONST as any).CHAT_MESSAGE_STYLES?.OTHER ?? (CONST as any).CHAT_MESSAGE_TYPES?.OTHER
+    });
+  };
 </script>
 
 <div class="berserkr-sheet-v2">
+  <!-- ====== HEADER ====== -->
   <header class="sheet-header">
     <div class="header-main">
+      <!-- Portrait -->
       <div class="portrait-area">
         <button 
           type="button"
@@ -35,6 +141,7 @@
         </button>
       </div>
 
+      <!-- Character Info -->
       <div class="char-info">
         <input 
           type="text" 
@@ -82,6 +189,7 @@
       </div>
     </div>
 
+    <!-- Attributes Horizontal Row -->
     <div class="attributes-row">
       {#each Object.entries(system.abilities) as [key, abl]}
         <div class="attr-item">
@@ -101,6 +209,7 @@
     </div>
   </header>
 
+  <!-- ====== TABS ====== -->
   <nav class="tabs-bar">
     {#each tabs as tab}
       <button 
@@ -114,6 +223,7 @@
     {/each}
   </nav>
 
+  <!-- ====== TAB CONTENT ====== -->
   <section class="tab-content">
     {#if activeTab === "violence"}
       <div class="violence-content">
@@ -136,7 +246,34 @@
 
         <div class="weapon-section">
           <h3 class="section-title">Weapons</h3>
-          <p class="placeholder-text">Weapon list and attack rolls coming soon...</p>
+          <div class="weapons-list">
+            {#each weapons as weapon (weapon.id)}
+              <div class="weapon-card">
+                <button type="button" class="weapon-img" onclick={() => weapon.sheet.render(true)}>
+                  <img src={weapon.img} alt={weapon.name} />
+                </button>
+                <div class="weapon-details">
+                  <div class="weapon-name">{weapon.name}</div>
+                  <div class="weapon-damage">
+                    {#each (weapon.system as any).damages as dmg}
+                      <span class="dmg-tag">{dmg.dieCount}{dmg.dieType}{dmg.modifier ? (dmg.modifier > 0 ? "+" + dmg.modifier : dmg.modifier) : ""} {dmg.type}</span>
+                    {/each}
+                  </div>
+                </div>
+                <div class="roll-buttons">
+                  <button type="button" class="roll-btn attack" onclick={() => rollAttack(weapon)} title="Roll Attack">
+                    <i class="fas fa-dice-d20"></i>
+                  </button>
+                  <button type="button" class="roll-btn damage" onclick={() => rollDamage(weapon)} title="Roll Damage">
+                    <i class="fas fa-fire"></i>
+                  </button>
+                </div>
+              </div>
+            {/each}
+            {#if weapons.length === 0}
+              <p class="placeholder-text">No weapons equipped.</p>
+            {/if}
+          </div>
         </div>
       </div>
     {:else if activeTab === "equipment"}
@@ -420,6 +557,72 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     display: block;
+  }
+
+  .weapons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .weapon-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 0.6rem;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    .weapon-img {
+      width: 40px;
+      height: 40px;
+      background: #122525;
+      border: 1px solid var(--berserkr-color-cyan-medium);
+      border-radius: 4px;
+      padding: 0;
+      cursor: pointer;
+      img { width: 100%; height: 100%; object-fit: cover; }
+    }
+
+    .weapon-details {
+      flex: 1;
+      .weapon-name { font-weight: bold; font-size: 1.1rem; }
+      .weapon-damage { 
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 4px; 
+        .dmg-tag { 
+          font-size: 0.75rem; 
+          background: var(--berserkr-color-cyan-medium); 
+          color: #fff; 
+          padding: 1px 6px; 
+          border-radius: 10px; 
+        }
+      }
+    }
+
+    .roll-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .roll-btn {
+      background: transparent;
+      border: 2px solid var(--berserkr-color-cyan-medium);
+      color: var(--berserkr-color-cyan-medium);
+      width: 34px;
+      height: 34px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      
+      &:hover { background: var(--berserkr-color-cyan-medium); color: #fff; }
+      &.damage { border-color: #d00; color: #d00; &:hover { background: #d00; color: #fff; } }
+    }
   }
 
   .background-textarea {

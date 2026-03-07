@@ -1,0 +1,28 @@
+<div class="berserkr chat-card damage-card" data-actor-id="{{actorId}}" data-item-id="{{itemId}}">
+    <header class="card-header">
+        <img src="{{itemImg}}" title="{{itemName}}" width="36" height="36"/>
+        <h3 class="item-name">{{itemName}}</h3>
+    </header>
+
+    <div class="card-content">
+        <div class="damage-total">
+            <span class="label">Total Damage</span>
+            <span class="value">{{totalDamage}}</span>
+        </div>
+
+        <div class="damage-breakdown">
+            {{#each rolls}}
+            <div class="dice-roll" data-action="expandRoll">
+                <div class="dice-result">
+                    <div class="damage-header">
+                        <span class="formula">{{formula}}</span>
+                        <span class="type">{{type}}</span>
+                    </div>
+                    {{{tooltip}}}
+                    <h4 class="dice-total">{{total}}</h4>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

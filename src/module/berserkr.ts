@@ -28,16 +28,23 @@ Hooks.once("init", async () => {
     gear: BerserkrItemBaseData,
   };
 
-  // Register Sheets
-  foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
-  foundry.documents.collections.Actors.registerSheet("berserkr", BerserkrActorSheet, {
+  // @ts-ignore
+  const ActorSheetClass = foundry.applications.sheets?.ActorSheetV2 ?? foundry.applications.api.ActorSheetV2;
+  // @ts-ignore
+  const ItemSheetClass = foundry.applications.sheets?.ItemSheetV2 ?? foundry.applications.api.ItemSheetV2;
+  // @ts-ignore
+  const SheetConfig = foundry.applications.apps?.DocumentSheetConfig ?? DocumentSheetConfig;
+
+  // Registro de Fichas
+  SheetConfig.unregisterSheet(Actor, "core", ActorSheetClass);
+  SheetConfig.registerSheet(Actor, "berserkr", BerserkrActorSheet, {
     types: ["character"],
     makeDefault: true,
     label: "Berserkr Character Sheet",
   });
 
-  foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
-  foundry.documents.collections.Items.registerSheet("berserkr", BerserkrItemSheet, {
+  SheetConfig.unregisterSheet(Item, "core", ItemSheetClass);
+  SheetConfig.registerSheet(Item, "berserkr", BerserkrItemSheet, {
     makeDefault: true,
     label: "Berserkr Item Sheet",
   });
