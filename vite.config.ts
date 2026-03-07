@@ -9,6 +9,13 @@ export default defineConfig({
     host: true,
     strictPort: true
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler'
+      }
+    }
+  },
   build: {
     outDir: 'dist',
     emptyOutDir: true,

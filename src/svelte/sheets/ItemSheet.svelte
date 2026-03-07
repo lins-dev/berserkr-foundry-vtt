@@ -89,9 +89,14 @@
 <div class="berserkr-item-sheet">
   <header class="item-header">
     <div class="portrait-area">
-      <div class="portrait-container" onclick={() => (item as any).sheet.editImage()}>
-        <img src={item.img} alt={item.name} title={item.name} />
-      </div>
+      <button 
+        type="button"
+        class="portrait-container" 
+        onclick={() => (item as any).sheet.editImage()}
+        title="Change Image"
+      >
+        <img src={item.img} alt={item.name} />
+      </button>
     </div>
 
     <div class="item-info">
@@ -101,6 +106,7 @@
         value={item.name} 
         onchange={(e) => updateField("name", e)}
         placeholder="Item Name"
+        aria-label="Item Name"
       >
       <div class="item-type-badge">{type.toUpperCase()}</div>
     </div>
@@ -109,16 +115,16 @@
   <section class="item-properties">
     <div class="prop-row base-stats">
       <div class="prop-field">
-        <label>Quantity</label>
-        <input type="number" min="0" max="9999" value={system.quantity} onchange={(e) => updateField("system.quantity", e)}>
+        <label for="{item.id}-quantity">Quantity</label>
+        <input id="{item.id}-quantity" type="number" min="0" max="9999" value={system.quantity} onchange={(e) => updateField("system.quantity", e)}>
       </div>
       <div class="prop-field">
-        <label>Weight</label>
-        <input type="number" step="0.01" min="0" max="99" value={system.weight} onchange={(e) => updateField("system.weight", e)}>
+        <label for="{item.id}-weight">Weight</label>
+        <input id="{item.id}-weight" type="number" step="0.01" min="0" max="99" value={system.weight} onchange={(e) => updateField("system.weight", e)}>
       </div>
       <div class="prop-field">
-        <label>Cost</label>
-        <input type="number" step="0.01" min="0" max="9999999.99" value={system.cost} onchange={(e) => updateField("system.cost", e)}>
+        <label for="{item.id}-cost">Cost</label>
+        <input id="{item.id}-cost" type="number" step="0.01" min="0" max="9999999.99" value={system.cost} onchange={(e) => updateField("system.cost", e)}>
       </div>
     </div>
 
@@ -127,22 +133,36 @@
         {#each system.damages as dmg, i (i)}
           <div class="damage-entry">
             <div class="prop-field">
-              <label>Damage {i + 1}</label>
+              <label for="{item.id}-dmg-count-{i}">Damage {i + 1}</label>
               <div class="damage-grid">
-                <input type="number" min="1" max="10" value={dmg.dieCount} onchange={(e) => updateDamage(i, "dieCount", e)}>
-                <select value={dmg.dieType} onchange={(e) => updateDamage(i, "dieType", e)}>
+                <input 
+                  id="{item.id}-dmg-count-{i}"
+                  type="number" 
+                  min="1" 
+                  max="10" 
+                  value={dmg.dieCount} 
+                  onchange={(e) => updateDamage(i, "dieCount", e)}
+                >
+                <select aria-label="Die Type" value={dmg.dieType} onchange={(e) => updateDamage(i, "dieType", e)}>
                   <option value="d2">d2</option><option value="d3">d3</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d10">d10</option><option value="d12">d12</option><option value="d20">d20</option><option value="d100">d100</option>
                 </select>
                 <span class="sign">+</span>
-                <input type="number" min="-100" max="100" value={dmg.modifier} onchange={(e) => updateDamage(i, "modifier", e)}>
+                <input 
+                  aria-label="Damage Modifier"
+                  type="number" 
+                  min="-100" 
+                  max="100" 
+                  value={dmg.modifier} 
+                  onchange={(e) => updateDamage(i, "modifier", e)}
+                >
               </div>
             </div>
             <div class="prop-field">
-              <label>Type</label>
-              <input type="text" maxlength="50" value={dmg.type} onchange={(e) => updateDamage(i, "type", e)}>
+              <label for="{item.id}-dmg-type-{i}">Type</label>
+              <input id="{item.id}-dmg-type-{i}" type="text" maxlength="50" value={dmg.type} onchange={(e) => updateDamage(i, "type", e)}>
             </div>
             {#if system.damages.length > 1}
-              <button class="remove-dmg-btn" onclick={() => removeDamage(i)}>✕</button>
+              <button class="remove-dmg-btn" type="button" onclick={() => removeDamage(i)}>✕</button>
             {/if}
           </div>
         {/each}
@@ -150,16 +170,16 @@
 
       <div class="weapon-extras-row">
         <div class="prop-field check">
-          <label>Ranged?</label>
-          <input type="checkbox" checked={system.isRanged} onchange={(e) => updateCheckbox("system.isRanged", e)}>
+          <label for="{item.id}-ranged">Ranged?</label>
+          <input id="{item.id}-ranged" type="checkbox" checked={system.isRanged} onchange={(e) => updateCheckbox("system.isRanged", e)}>
         </div>
         {#if system.isRanged}
           <div class="prop-field">
-            <label>Range</label>
-            <input type="number" min="0" max="9999" value={system.range} onchange={(e) => updateField("system.range", e)}>
+            <label for="{item.id}-range">Range</label>
+            <input id="{item.id}-range" type="number" min="0" max="9999" value={system.range} onchange={(e) => updateField("system.range", e)}>
           </div>
         {/if}
-        <button class="add-dmg-btn" onclick={addDamage} disabled={system.damages.length >= 5}>
+        <button class="add-dmg-btn" type="button" onclick={addDamage} disabled={system.damages.length >= 5}>
           + ADD DAMAGE
         </button>
       </div>
@@ -168,26 +188,28 @@
     {#if type === "armor"}
       <div class="prop-row type-stats">
         <div class="prop-field">
-          <label>Tier</label>
-          <input type="number" min="1" max="4" value={system.tier} onchange={(e) => updateField("system.tier", e)}>
+          <label for="{item.id}-tier">Tier</label>
+          <input id="{item.id}-tier" type="number" min="1" max="4" value={system.tier} onchange={(e) => updateField("system.tier", e)}>
         </div>
         <div class="prop-field">
-          <label>Reduction</label>
+          <label for="{item.id}-armor-red">Reduction</label>
           <div class="damage-grid">
-            <input type="number" min="1" max="10" value={system.reduction.dieCount} onchange={(e) => updateReduction("dieCount", e)}>
-            <select value={system.reduction.dieType} onchange={(e) => updateReduction("dieType", e)}>
+            <input 
+              id="{item.id}-armor-red"
+              type="number" min="1" max="10" value={system.reduction.dieCount} onchange={(e) => updateReduction("dieCount", e)}>
+            <select aria-label="Reduction Die Type" value={system.reduction.dieType} onchange={(e) => updateReduction("dieType", e)}>
               <option value="d2">d2</option><option value="d3">d3</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d10">d10</option><option value="d12">d12</option><option value="d20">d20</option><option value="d100">d100</option>
             </select>
           </div>
         </div>
         <div class="prop-field check">
-          <label>Shield?</label>
-          <input type="checkbox" checked={system.isShield} onchange={(e) => updateCheckbox("system.isShield", e)}>
+          <label for="{item.id}-shield">Shield?</label>
+          <input id="{item.id}-shield" type="checkbox" checked={system.isShield} onchange={(e) => updateCheckbox("system.isShield", e)}>
         </div>
         {#if item.actor}
           <div class="prop-field check">
-            <label>Equipped?</label>
-            <input type="checkbox" checked={system.equipped} onchange={(e) => updateCheckbox("system.equipped", e)}>
+            <label for="{item.id}-equipped">Equipped?</label>
+            <input id="{item.id}-equipped" type="checkbox" checked={system.equipped} onchange={(e) => updateCheckbox("system.equipped", e)}>
           </div>
         {/if}
       </div>
@@ -196,26 +218,27 @@
     {#if type === "rune"}
       <div class="prop-row type-stats">
         <div class="prop-field">
-          <label>Uses</label>
+          <label for="{item.id}-uses">Uses</label>
           <div class="multi-input">
-            <input type="number" min="0" max="100" value={system.uses.value} onchange={(e) => updateField("system.uses.value", e)}>
+            <input id="{item.id}-uses" type="number" min="0" max="100" value={system.uses.value} onchange={(e) => updateField("system.uses.value", e)}>
             <span>/</span>
-            <input type="number" min="0" max="100" value={system.uses.max} onchange={(e) => updateField("system.uses.max", e)}>
+            <input aria-label="Max Uses" type="number" min="0" max="100" value={system.uses.max} onchange={(e) => updateField("system.uses.max", e)}>
           </div>
         </div>
         <div class="prop-field">
-          <label>Set</label>
-          <input type="number" min="1" max="3" value={system.set} onchange={(e) => updateField("system.set", e)}>
+          <label for="{item.id}-set">Set</label>
+          <input id="{item.id}-set" type="number" min="1" max="3" value={system.set} onchange={(e) => updateField("system.set", e)}>
         </div>
       </div>
     {/if}
   </section>
 
   <section class="item-description">
-    <label class="section-label">Description</label>
+    <label for="{item.id}-description" class="section-label">Description</label>
     <textarea 
+      id="{item.id}-description"
       value={system.description}
-      onchange={(e) => updateField("system.description", e.currentTarget.value)}
+      onchange={(e) => updateField("system.description", e)}
       placeholder="Enter item description..."
     ></textarea>
   </section>
@@ -249,6 +272,9 @@
         border-radius: 4px;
         cursor: pointer;
         img { width: 100%; height: 100%; object-fit: cover; }
+        padding: 0;
+        margin: 0;
+        display: block;
       }
 
       .item-info {

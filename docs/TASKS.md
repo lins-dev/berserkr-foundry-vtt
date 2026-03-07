@@ -45,8 +45,10 @@
 ### [x] Task 1: Item Sheets
 - [x] Implementar `BerserkrItemSheet` (ApplicationV2 + Svelte).
 - [x] Criar componentes Svelte para Arma, Armadura e Runa.
-- [x] Implementar suporte a múltiplos perfis de dano nas Armas.
-- [x] Adicionar validação de limites (Quantity, Weight, Cost, Damage, Armor, etc.).
+- [x] Implementar suporte a múltiplos perfis de dano nas Armas (até 5 tipos).
+- [x] Estruturar redução de armadura como dados de dados (dieCount/dieType).
+- [x] Adicionar validação de limites, sincronização de inputs e acessibilidade (A11y).
+- [x] Garantir conformidade com API v13 do Foundry (Math.clamp, modern FilePicker).
 
 ### [ ] Task 2: Interactive Features
 - [ ] Adicionar botões de rolagem de atributo na ficha do personagem.

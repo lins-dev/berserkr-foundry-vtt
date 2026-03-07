@@ -55,6 +55,21 @@ export class BerserkrItemSheet extends (foundry.applications.sheets?.ItemSheetV2
     });
   }
 
+  /**
+   * Helper to edit the document image
+   */
+  async editImage() {
+    // @ts-ignore
+    const fp = new (foundry.applications.apps.FilePicker || FilePicker)({
+      type: "image",
+      current: this.document.img,
+      callback: (path: string) => {
+        this.document.update({ img: path });
+      }
+    });
+    return fp.browse();
+  }
+
   /** @override */
   _onClose() {
     if (this.#svelteApp) {

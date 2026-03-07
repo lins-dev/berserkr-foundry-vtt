@@ -22,13 +22,17 @@
 </script>
 
 <div class="berserkr-sheet-v2">
-  <!-- ====== HEADER ====== -->
   <header class="sheet-header">
     <div class="header-main">
       <div class="portrait-area">
-        <div class="portrait-container" onclick={() => (actor as any).sheet.editImage()}>
-          <img src={actor.img} alt={actor.name} title={actor.name} />
-        </div>
+        <button 
+          type="button"
+          class="portrait-container" 
+          onclick={() => (actor as any).sheet.editImage()}
+          title="Change Image"
+        >
+          <img src={actor.img} alt={actor.name} />
+        </button>
       </div>
 
       <div class="char-info">
@@ -38,11 +42,13 @@
           value={actor.name} 
           onchange={(e) => updateField("name", e.currentTarget.value)}
           placeholder="Character Name"
+          aria-label="Character Name"
         >
 
         <div class="char-class-row">
-          <label>Class:</label>
+          <label for="{actor.id}-class">Class:</label>
           <input 
+            id="{actor.id}-class"
             type="text" 
             class="char-class-input" 
             value={system.class} 
@@ -53,25 +59,25 @@
 
         <div class="stats-grid">
           <div class="stat-field">
-            <label>HP:</label>
-            <input type="number" class="stat-input" value={system.hp.value} onchange={(e) => updateField("system.hp.value", parseInt(e.currentTarget.value))}>
+            <label for="{actor.id}-hp-val">HP:</label>
+            <input id="{actor.id}-hp-val" type="number" class="stat-input" value={system.hp.value} onchange={(e) => updateField("system.hp.value", parseInt(e.currentTarget.value))}>
             <span class="stat-separator">/</span>
-            <input type="number" class="stat-input" value={system.hp.max} onchange={(e) => updateField("system.hp.max", parseInt(e.currentTarget.value))}>
+            <input aria-label="Max HP" type="number" class="stat-input" value={system.hp.max} onchange={(e) => updateField("system.hp.max", parseInt(e.currentTarget.value))}>
           </div>
           <div class="stat-field">
-            <label>Fates:</label>
-            <input type="number" class="stat-input" value={system.fates.value} onchange={(e) => updateField("system.fates.value", parseInt(e.currentTarget.value))}>
+            <label for="{actor.id}-fates">Fates:</label>
+            <input id="{actor.id}-fates" type="number" class="stat-input" value={system.fates.value} onchange={(e) => updateField("system.fates.value", parseInt(e.currentTarget.value))}>
           </div>
           <div class="stat-field">
-            <label>Silver:</label>
-            <input type="number" class="stat-input" value={system.silver} onchange={(e) => updateField("system.silver", parseInt(e.currentTarget.value))}>
+            <label for="{actor.id}-silver">Silver:</label>
+            <input id="{actor.id}-silver" type="number" class="stat-input" value={system.silver} onchange={(e) => updateField("system.silver", parseInt(e.currentTarget.value))}>
           </div>
         </div>
 
         <div class="action-buttons">
-          <button class="btn" onclick={() => console.log("Broken")}>BROKEN</button>
-          <button class="btn" onclick={() => console.log("Rest")}>REST</button>
-          <button class="btn" onclick={() => console.log("Better")}>GET BETTER</button>
+          <button class="btn" type="button" onclick={() => console.log("Broken")}>BROKEN</button>
+          <button class="btn" type="button" onclick={() => console.log("Rest")}>REST</button>
+          <button class="btn" type="button" onclick={() => console.log("Better")}>GET BETTER</button>
         </div>
       </div>
     </div>
@@ -82,6 +88,7 @@
           <span class="attr-label">{key.toUpperCase()}</span>
           <div class="attr-values">
             <input 
+              aria-label={key}
               type="number" 
               class="attr-value-input" 
               value={(abl as any).value} 
@@ -94,10 +101,10 @@
     </div>
   </header>
 
-  <!-- ====== TABS ====== -->
   <nav class="tabs-bar">
     {#each tabs as tab}
       <button 
+        type="button"
         class="tab-btn" 
         class:active={activeTab === tab.id} 
         onclick={() => activeTab = tab.id}
@@ -107,7 +114,6 @@
     {/each}
   </nav>
 
-  <!-- ====== TAB CONTENT ====== -->
   <section class="tab-content">
     {#if activeTab === "violence"}
       <div class="violence-content">
@@ -147,6 +153,7 @@
         placeholder="Character background, description, history..."
         value={system.background}
         onchange={(e) => updateField("system.background", e.currentTarget.value)}
+        aria-label="Character Background"
       ></textarea>
     {/if}
   </section>
@@ -186,6 +193,9 @@
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
+    padding: 0;
+    margin: 0;
+    display: block;
     img { width: 100%; height: 100%; object-fit: cover; }
   }
 
@@ -404,7 +414,7 @@
   .section-title {
     font-family: var(--berserkr-font-display, 'Norse', serif);
     font-size: 1.6rem;
-    color: #004D56 !important; // Ciano Escuro hardcoded para garantir
+    color: #004D56 !important;
     border-bottom: 2px solid #004D56;
     margin-bottom: 1rem;
     letter-spacing: 2px;
