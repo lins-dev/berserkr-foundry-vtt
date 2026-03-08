@@ -24,6 +24,8 @@ export class BerserkrCharacterData extends foundry.abstract.DataModel {
         value: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
         max: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
       }),
+      sagas: new fields.HTMLField({ initial: "" }),
+      improvementCount: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
       fates: new fields.SchemaField({
         value: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
         max: new fields.NumberField({ initial: 0, integer: true, min: 0 }),

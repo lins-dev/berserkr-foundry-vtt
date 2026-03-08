@@ -1,0 +1,22 @@
+<div class="berserkr chat-card get-better-card">
+  <header class="card-header">
+    <img src="icons/svg/upgrade.svg" alt="Get Better" />
+    <h3>The Saga Grows</h3>
+  </header>
+
+  <div class="card-content">
+    <p class="flavor-text">The gods have watched your deeds. You have grown stronger... or perhaps the world has just grown weaker.</p>
+    
+    <ul class="outcomes-list">
+      {#each outcomes as outcome}
+        <li class="outcome-item">
+          <span class="outcome-text">{outcome}</span>
+        </li>
+      {/each}
+    </ul>
+  </div>
+
+  <footer class="card-footer">
+    <div class="roll-total">NEW HP: {newHp}</div>
+  </footer>
+</div>

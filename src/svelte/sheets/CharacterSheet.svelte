@@ -9,6 +9,7 @@
   import ViolenceTab from "../components/actor/ViolenceTab.svelte";
   import EquipmentTab from "../components/actor/EquipmentTab.svelte";
   import SpecialTab from "../components/actor/SpecialTab.svelte";
+  import SagaTab from "../components/actor/SagaTab.svelte";
   import BackgroundTab from "../components/actor/BackgroundTab.svelte";
 
   let { actor, context } = $props<{
@@ -39,6 +40,7 @@
     { id: "violence", label: "Violence" },
     { id: "equipment", label: "Equipment" },
     { id: "special", label: "Special" },
+    { id: "sagas", label: "Sagas" },
     { id: "background", label: "Background" }
   ];
 
@@ -102,6 +104,8 @@
       />
     {:else if activeTab === "special"}
       <SpecialTab {actor} {system} {runes} {feats} {createItem} />
+    {:else if activeTab === "sagas"}
+      <SagaTab {actor} {system} {updateField} />
     {:else if activeTab === "background"}
       <BackgroundTab {system} {updateField} />
     {/if}
