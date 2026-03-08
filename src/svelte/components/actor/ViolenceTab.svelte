@@ -258,7 +258,7 @@
     background: rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    align-items: stretch; // Garante que todos os itens tenham a mesma altura
+    align-items: stretch;
   }
 
   .combat-stat {
@@ -286,7 +286,6 @@
       &:hover {
         .stat-label, .stat-value { 
           color: var(--berserkr-color-cyan-vibrant) !important; 
-          // Contorno colossal (6px em 8 direções - Dobrado)
           text-shadow: 
             -6px -6px 0px #000, 
              0px -6px 0px #000,
