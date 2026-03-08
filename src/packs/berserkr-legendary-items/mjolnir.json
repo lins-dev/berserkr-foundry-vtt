@@ -1,0 +1,15 @@
+{
+  "name": "BERSERKR.Items.Weapons.Mjolnir.Name",
+  "type": "weapon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Weapons.Mjolnir.Description",
+    "quantity": 1,
+    "weight": 2,
+    "cost": 0,
+    "damages": [{ "dieCount": 1, "dieType": "d12", "modifier": 4, "type": "physical" }],
+    "isRanged": true,
+    "range": 30
+  },
+  "_id": "LegMjolnir000001"
+}

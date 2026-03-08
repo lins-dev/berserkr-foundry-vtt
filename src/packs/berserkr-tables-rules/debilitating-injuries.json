@@ -1,0 +1,117 @@
+{
+  "name": "Debilitating Injuries",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Permanent marks of your struggle.",
+  "results": [
+    {
+      "_id": "x1n7W2EeRyZOZB1w",
+      "type": 0,
+      "text": "<strong>Lost An Eye:</strong> Disadvantage on ranged attacks.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "_id": "V5ZJe9ccmy3euGiE",
+      "type": 0,
+      "text": "<strong>Frostbitten Fingers:</strong> Struggle with fine motor tasks.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "_id": "x0KdSjfC1BEZbgXC",
+      "type": 0,
+      "text": "<strong>Cracked Ribs:</strong> Easily fatigued after battle.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "_id": "dwPsEduYqUyYKIUt",
+      "type": 0,
+      "text": "<strong>Venom-Scarred:</strong> Disadvantage on Tests for poison or fever.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "_id": "EFgoHnsoyg2BXJHU",
+      "type": 0,
+      "text": "<strong>Lame Leg:</strong> Disadvantage on Tests against being knocked prone.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "_id": "1bbeMqe2tJPEZbYM",
+      "type": 0,
+      "text": "<strong>Head Injury:</strong> Frequent headaches and impaired focus.",
+      "range": [
+        6,
+        6
+      ]
+    },
+    {
+      "_id": "n4ZsMMZmdSo43RBR",
+      "type": 0,
+      "text": "<strong>Frozen Lung:</strong> Shortness of breath with physical effort.",
+      "range": [
+        7,
+        7
+      ]
+    },
+    {
+      "_id": "tEsh4YoDYiLkmrLs",
+      "type": 0,
+      "text": "<strong>Crippled Hand:</strong> Reduced grip strength.",
+      "range": [
+        8,
+        8
+      ]
+    },
+    {
+      "_id": "nDUGy2X96sL89ccg",
+      "type": 0,
+      "text": "<strong>Deafened In One Ear:</strong> Difficulty pinpointing sounds.",
+      "range": [
+        9,
+        9
+      ]
+    },
+    {
+      "_id": "mJXBEXaLie964aOr",
+      "type": 0,
+      "text": "<strong>Necrotic Burns:</strong> Half any HP recovered from resting.",
+      "range": [
+        10,
+        10
+      ]
+    },
+    {
+      "_id": "YnDTEe5dSU0hZDic",
+      "type": 0,
+      "text": "<strong>Soul-Sapped:</strong> Disadvantage on Might Tests.",
+      "range": [
+        11,
+        11
+      ]
+    },
+    {
+      "_id": "EbC94CBnZVGx8HUE",
+      "type": 0,
+      "text": "<strong>Cracked Spine:</strong> Stiff movements. Next time you are broken, you DIE.",
+      "range": [
+        12,
+        12
+      ]
+    }
+  ],
+  "formula": "1d12",
+  "_id": "Z8WORb7Pr4ighMfH"
+}

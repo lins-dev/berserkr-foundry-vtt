@@ -1,0 +1,15 @@
+{
+  "name": "BERSERKR.Items.Weapons.Laevateinn.Name",
+  "type": "weapon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Weapons.Laevateinn.Description",
+    "quantity": 1,
+    "weight": 0.5,
+    "cost": 0,
+    "damages": [{ "dieCount": 1, "dieType": "d10", "modifier": 3, "type": "physical" }, { "dieCount": 1, "dieType": "d6", "modifier": 0, "type": "fire" }],
+    "isRanged": true,
+    "range": 20
+  },
+  "_id": "LegLaevat0000001"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "BERSERKR.Items.Gear.Andvaranaut.Name",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Gear.Andvaranaut.Description",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  },
+  "_id": "LegAndvar0000001"
+}

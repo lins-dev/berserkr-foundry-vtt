@@ -1,0 +1,63 @@
+{
+  "name": "Broken",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "When you reach 0 HP, your fate is in the balance.",
+  "results": [
+    {
+      "_id": "L2p1uEAc4fKYDd8a",
+      "type": 0,
+      "text": "<strong>Unconscious:</strong> Fall unconscious for d4 rounds, then awaken with d4 HP.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "_id": "OEqlzZLrL2qG7Dt9",
+      "type": 0,
+      "text": "<strong>Broken Limb:</strong> Broken or severed limb. Gain the fever condition.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "_id": "wAR4jQW3TK6DylFq",
+      "type": 0,
+      "text": "<strong>Lost Teeth:</strong> Most of your teeth were knocked out. Decrease current Guile by 1.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "_id": "NbFsc4NtgTjln0jf",
+      "type": 0,
+      "text": "<strong>Debilitating Injury:</strong> Roll on the Debilitating Injuries Table.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "_id": "7zk7I2ZcDZYnUoWz",
+      "type": 0,
+      "text": "<strong>Haemorrhage:</strong> Death in d2 hours unless treated. All Tests are DR16.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "_id": "ngKNvwbceo00fDTi",
+      "type": 0,
+      "text": "<strong>DEAD:</strong> The gods have called you home. Your saga ends here.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6",
+  "_id": "brokenTable00001"
+}

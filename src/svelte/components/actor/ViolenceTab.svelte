@@ -8,18 +8,26 @@
   }>();
 
   /**
+   * Helper para acessar as classes do Foundry de forma segura na v13
+   */
+  const getFoundryClasses = () => {
+    // @ts-ignore
+    const RollClass = foundry.dice?.Roll ?? Roll;
+    // @ts-ignore
+    const render = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
+    // @ts-ignore
+    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+    
+    return { RollClass, render, ChatMessageClass };
+  };
+
+  /**
    * Executa o teste de Defesa (Swift vs Defense DR)
    */
   const rollDefense = async () => {
     const mod = system.abilities.swift.mod;
     const dr = system.derived.defenseDR;
-    
-    // @ts-ignore
-    const RollClass = foundry.dice?.Roll ?? Roll;
-    // @ts-ignore
-    const render = (typeof renderTemplate !== "undefined") ? renderTemplate : foundry.applications.handlebars?.renderTemplate;
-    // @ts-ignore
-    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+    const { RollClass, render, ChatMessageClass } = getFoundryClasses();
 
     const roll = new RollClass(`1d20 + ${mod}`);
     await roll.evaluate();
@@ -64,12 +72,7 @@
     const formula = system.derived.armorReduction;
     if (formula === "0" || !formula) return;
 
-    // @ts-ignore
-    const RollClass = foundry.dice?.Roll ?? Roll;
-    // @ts-ignore
-    const render = (typeof renderTemplate !== "undefined") ? renderTemplate : foundry.applications.handlebars?.renderTemplate;
-    // @ts-ignore
-    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+    const { RollClass, render, ChatMessageClass } = getFoundryClasses();
 
     const roll = new RollClass(formula);
     await roll.evaluate();
@@ -104,13 +107,7 @@
     const isRanged = weapon.system.isRanged;
     const attribute = isRanged ? "guile" : "might";
     const mod = system.abilities[attribute].mod;
-    
-    // @ts-ignore
-    const RollClass = foundry.dice?.Roll ?? Roll;
-    // @ts-ignore
-    const render = (typeof renderTemplate !== "undefined") ? renderTemplate : foundry.applications.handlebars?.renderTemplate;
-    // @ts-ignore
-    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+    const { RollClass, render, ChatMessageClass } = getFoundryClasses();
 
     const roll = new RollClass(`1d20 + ${mod}`);
     await roll.evaluate();
@@ -148,12 +145,7 @@
     const damages = weapon.system.damages;
     if (!damages || damages.length === 0) return;
 
-    // @ts-ignore
-    const RollClass = foundry.dice?.Roll ?? Roll;
-    // @ts-ignore
-    const render = (typeof renderTemplate !== "undefined") ? renderTemplate : foundry.applications.handlebars?.renderTemplate;
-    // @ts-ignore
-    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+    const { RollClass, render, ChatMessageClass } = getFoundryClasses();
 
     const rollsData = [];
     let totalDamage = 0;
@@ -202,16 +194,19 @@
       <span class="stat-label">Defense DR</span>
       <span class="stat-value">{system.derived.defenseDR}</span>
     </button>
+    
     <button type="button" class="combat-stat clickable" onclick={rollArmorReduction} title="Roll Armor Reduction" disabled={system.derived.armorReduction === "0"}>
       <span class="stat-label">Armor Reduction</span>
       <span class="stat-value">{system.derived.armorReduction !== "0" ? "-" : ""}{system.derived.armorReduction}</span>
     </button>
+    
     <div class="combat-stat">
       <span class="stat-label">Might Penalty</span>
       <span class="stat-value" class:penalty={system.derived.mightPenalty > 0}>
         +{system.derived.mightPenalty} DR
       </span>
     </div>
+    
     <div class="combat-stat">
       <span class="stat-label">Swift Penalty</span>
       <span class="stat-value" class:penalty={system.derived.swiftPenalty > 0}>
@@ -257,59 +252,90 @@
   .combat-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 0.5rem;
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 0.5rem;
     background: rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    align-items: stretch; // Garante que todos os itens tenham a mesma altura
   }
 
   .combat-stat {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.2rem;
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
     padding: 0.5rem;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    color: inherit;
+    line-height: normal;
     
     &.clickable {
       cursor: pointer;
       border-radius: 4px;
       transition: all 0.2s;
-      border: 1px solid transparent;
       
       &:hover {
-        background: rgba(0, 77, 86, 0.1);
-        border-color: var(--berserkr-color-cyan-medium);
-        .stat-label { color: var(--berserkr-color-cyan-vibrant); }
+        .stat-label, .stat-value { 
+          color: var(--berserkr-color-cyan-vibrant) !important; 
+          // Contorno colossal (6px em 8 direções - Dobrado)
+          text-shadow: 
+            -6px -6px 0px #000, 
+             0px -6px 0px #000,
+             6px -6px 0px #000, 
+            -6px  0px 0px #000,
+             6px  0px 0px #000,
+            -6px  6px 0px #000, 
+             0px  6px 0px #000,
+             6px  6px 0px #000,
+             0 0 20px rgba(0, 217, 255, 0.9);
+        }
       }
       
       &:disabled {
         cursor: default;
-        &:hover { background: transparent; border-color: transparent; .stat-label { color: var(--berserkr-color-cyan-medium); } }
+        opacity: 0.6;
+        &:hover { 
+          background: transparent; 
+          border-color: transparent; 
+          .stat-label { color: var(--berserkr-color-cyan-medium); } 
+        }
       }
     }
   }
 
   .stat-label {
     font-family: var(--berserkr-font-display, 'Norse', serif);
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--berserkr-color-cyan-medium);
     transition: color 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
   }
 
   .stat-value {
     font-family: var(--berserkr-font-display, 'Norse', serif);
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: bold;
     color: var(--berserkr-color-black);
+    display: block;
+    width: 100%;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
 
   .penalty {
     color: #d00 !important;
-    text-shadow: 0 0 5px rgba(200, 0, 0, 0.2);
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) !important;
   }
 
   .weapon-section {

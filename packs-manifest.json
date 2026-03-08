@@ -132,6 +132,13 @@
     "worn-leather-pouch.json",
     "wyrd-knotted-twine.json"
   ],
+  "berserkr-legendary-items": [
+    "andvaranaut.json",
+    "brisingamen.json",
+    "gungnir.json",
+    "laevateinn.json",
+    "mjolnir.json"
+  ],
   "berserkr-runes": [
     "item-0.json",
     "item-1.json",
@@ -215,7 +222,10 @@
     "niflheim-rumours.json",
     "niflheim-weather.json"
   ],
-  "berserkr-tables-rules": [],
+  "berserkr-tables-rules": [
+    "broken.json",
+    "debilitating-injuries.json"
+  ],
   "berserkr-tables-svartalfheim": [
     "svartalfheim-discoveries.json",
     "svartalfheim-rumours.json",
