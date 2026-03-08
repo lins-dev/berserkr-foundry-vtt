@@ -60,6 +60,9 @@
     </div>
 
     <div class="action-buttons">
+      <button class="btn init-btn" type="button" onclick={() => actor.rollInitiative({createCombatants: true})} title="Roll Initiative">
+        <i class="fas fa-swords"></i> INIT
+      </button>
       <button class="btn" type="button" onclick={() => console.log("Broken")}>BROKEN</button>
       <button class="btn" type="button" onclick={() => console.log("Rest")}>REST</button>
       <button class="btn" type="button" onclick={() => console.log("Better")}>GET BETTER</button>
@@ -171,10 +174,24 @@
     color: var(--berserkr-color-cyan-light);
     cursor: pointer;
     text-transform: uppercase;
+    transition: all 0.2s;
     &:hover { 
       border-color: var(--berserkr-color-cyan-vibrant); 
       color: var(--berserkr-color-white); 
       background: rgba(0,229,255,0.1); 
+    }
+    
+    &.init-btn {
+      background: var(--berserkr-color-cyan-medium);
+      color: #fff;
+      border-color: #000;
+      box-shadow: 2px 2px 0px #000;
+      &:hover {
+        background: var(--berserkr-color-cyan-vibrant);
+        color: #000;
+        transform: translate(-1px, -1px);
+        box-shadow: 3px 3px 0px #000;
+      }
     }
   }
 </style>

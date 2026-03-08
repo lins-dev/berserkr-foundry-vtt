@@ -84,7 +84,8 @@
     const templateData = {
       actorId: actor.id,
       outcomes: outcomes,
-      newHp: newHpMax
+      newHp: newHpMax,
+      improvementCount: currentCount
     };
 
     const content = await render("systems/berserkr/templates/chat/get-better-card.hbs", templateData);

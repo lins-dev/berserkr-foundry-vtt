@@ -29,6 +29,12 @@ Hooks.once("init", async () => {
     feat: BerserkrFeatData,
   };
 
+  // Configure Initiative
+  CONFIG.Combat.initiative = {
+    formula: "1d6 + @abilities.swift.mod",
+    decimals: 0
+  };
+
   // @ts-ignore
   const ActorSheetClass = foundry.applications.sheets?.ActorSheetV2 ?? foundry.applications.api.ActorSheetV2;
   // @ts-ignore

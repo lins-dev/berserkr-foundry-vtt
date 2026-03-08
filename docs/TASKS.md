@@ -64,6 +64,8 @@
 - [x] Implementar Aba Saga para registro de progresso mecânico (histórico de melhorias).
 - [x] Implementar mecânica "Get Better": rolagens de HP/Atributos com log automático e contador de Improvements.
 - [x] Adicionar toggle "Prevent Attribute Decrease" na aba Saga para evitar regressão de personagem.
+- [x] Implementar Iniciativa Individual (Swift + d6) integrada ao Combat Tracker com card de chat customizado.
+- [x] Padronizar visual do chat para Get Better e Iniciativa seguindo a identidade visual Mystic Teal.
 - [x] Implementar automação de Runic Magic: Pool diária (d4+Guile), Teste de Cast (Wits DR12) e perda automática de 1 HP em falhas.
 - [x] Resolver persistência absoluta de abas e posição de scroll na interface Svelte.
 

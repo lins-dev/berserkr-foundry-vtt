@@ -7,16 +7,20 @@
   <div class="card-content">
     <p class="flavor-text">The gods have watched your deeds. You have grown stronger... or perhaps the world has just grown weaker.</p>
     
+    <div class="improvement-title">
+      IMPROVEMENT #{{improvementCount}}
+    </div>
+
     <ul class="outcomes-list">
-      {#each outcomes as outcome}
+      {{#each outcomes}}
         <li class="outcome-item">
-          <span class="outcome-text">{outcome}</span>
+          {{{this}}}
         </li>
-      {/each}
+      {{/each}}
     </ul>
   </div>
 
   <footer class="card-footer">
-    <div class="roll-total">NEW HP: {newHp}</div>
+    <div class="roll-total">NEW HP: {{newHp}}</div>
   </footer>
 </div>

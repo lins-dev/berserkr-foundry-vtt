@@ -53,6 +53,60 @@ export class BerserkrActor extends Actor {
   }
 
   /**
+   * Override rollInitiative to use custom chat template
+   */
+  /** @override */
+  // @ts-ignore
+  async rollInitiative(options: any = {}) {
+    const formula = (CONFIG.Combat.initiative.formula as string) || "1d6 + @abilities.swift.mod";
+    
+    // @ts-ignore
+    const RollClass = foundry.dice?.Roll ?? Roll;
+    // @ts-ignore
+    const render = (typeof renderTemplate !== "undefined") ? renderTemplate : foundry.applications.handlebars?.renderTemplate;
+
+    const roll = new RollClass(formula, this.getRollData());
+    await roll.evaluate();
+
+    // Create the custom chat content using the system standard template
+    const templateData = {
+      actorId: this.id,
+      title: "Initiative Roll",
+      total: roll.total,
+      formula: roll.formula,
+      tooltip: await roll.getTooltip(),
+      flavor: `Swift Initiative Test`,
+      isCrit: false,
+      isFumble: false
+    };
+
+    const content = await render("systems/berserkr/templates/chat/test-card.hbs", templateData);
+
+    // Disable the core message and use our own
+    const rollOptions = {
+      ...options,
+      createMessage: false // Prevent double message
+    };
+
+    // Update the combat tracker
+    const results = await super.rollInitiative(rollOptions);
+
+    // Create our styled chat message
+    // @ts-ignore
+    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+    await ChatMessageClass.create({
+      user: (game as any).user.id,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      content: content,
+      rolls: [roll],
+      // @ts-ignore
+      style: (CONST as any).CHAT_MESSAGE_STYLES?.OTHER ?? (CONST as any).CHAT_MESSAGE_TYPES?.OTHER
+    });
+
+    return results;
+  }
+
+  /**
    * Calculate modifier based on attribute value
    * @param {number} value
    * @returns {number}
