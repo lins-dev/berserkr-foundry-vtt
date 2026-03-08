@@ -62,18 +62,22 @@ The engine powering Berserkr was created by **Ockult Örtmästare Games** and **
 
 ### Character Sheet (Main Tab)
 ![Character Sheet](docs/rules-reference/images/Captura%20de%20tela%20de%202026-03-08%2003-15-58.png)
+
 *The Mystic Teal interface combining dark aesthetics with Svelte clarity.*
 
 ### Inventory and Items
 ![Inventory](docs/rules-reference/images/Captura%20de%20tela%20de%202026-03-08%2003-28-52.png)
+
 *Load management and equipment categories with quick-roll buttons.*
 
 ### Sagas and Progression
 ![Sagas](docs/rules-reference/images/Captura%20de%20tela%20de%202026-03-08%2003-18-06.png)
+
 *A dedicated space for your character's journey and mechanical improvements.*
 
 ### Compendiums and Tables
 ![Compendiums](docs/rules-reference/images/Captura%20de%20tela%20de%202026-03-08%2003-19-31.png)
+
 *Complete library of items and rules ready for use, automatically organized.*
 
 ---
@@ -165,18 +169,22 @@ O motor que alimenta o Berserkr foi criado pela **Ockult Örtmästare Games** e 
 
 ### Ficha de Personagem (Aba Principal)
 ![Ficha de Personagem](docs/rules-reference/images/Captura%20de%20tela%20de%202026-03-08%2003-15-58.png)
+
 *A interface Mystic Teal unindo a estética sombria com a clareza do Svelte.*
 
 ### Inventário e Itens
 ![Inventário](docs/rules-reference/images/Captura%20de%20tela%20de%202026-03-08%2003-28-52.png)
+
 *Gestão de carga e categorias de equipamentos com botões de rolagem rápida.*
 
 ### Sagas e Progressão
 ![Sagas](docs/rules-reference/images/Captura%20de%20tela%20de%202026-03-08%2003-18-06.png)
+
 *Um espaço dedicado para a jornada do seu personagem e melhorias mecânicas.*
 
 ### Compêndios e Tabelas
 ![Compêndios](docs/rules-reference/images/Captura%20de%20tela%20de%202026-03-08%2003-19-31.png)
+
 *Biblioteca completa de itens e regras pronta para uso, organizada automaticamente.*
 
 ---
