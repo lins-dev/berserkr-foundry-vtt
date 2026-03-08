@@ -40,7 +40,10 @@
         "BastardSword": { "Name": "Two-Handed Bastard Sword" },
         "ThrowingAxe": { "Name": "Throwing Axe" },
         "Battleaxe": { "Name": "Battleaxe" },
-        "Greatsword": { "Name": "Greatsword" }
+        "Greatsword": { "Name": "Greatsword" },
+        "Mjolnir": { "Name": "Mjölnir", "Description": "<strong>Type:</strong> Warhammer. <strong>Damage:</strong> d12+4. Returns to hand after thrown. <strong>Abilities:</strong> extra d6 lightning damage; ground smash (Fortitude DR14 or 2d8 dmg + prone); summon storm (+2 attacks, d8 lightning dmg randomly)." },
+        "Gungnir": { "Name": "Gungnir", "Description": "<strong>Type:</strong> Spear. <strong>Damage:</strong> d10+5. Rarely misses (reroll fumble once). <strong>Abilities:</strong> +2 to attacks; critical ignores armour (+d8 dmg); runic empowerment (+4 attacks, double dmg); Odin's Command (Wits DR14 to terrify/compel)." },
+        "Laevateinn": { "Name": "Lævateinn", "Description": "<strong>Type:</strong> Dagger. <strong>Damage:</strong> d10+3. Multiplies into 3 shards targeting 3 enemies when thrown. <strong>Abilities:</strong> +d6 fire dmg, ignore 2 armour; Chaotic Surge (3d8 damage to close enemies, feedbacks d6 damage); Mind Corruption on crit (Test Wits DR14)." }
       },
       "Armor": {
         "WornLeatherJerkin": { "Name": "Worn Leather Jerkin (Tier 2)", "Description": "A weathered leather garment, softened by countless battles and travels." },
@@ -51,6 +54,10 @@
         "ScaleArmour": { "Name": "Scale Armour (Tier 3)", "Description": "A flexible armour of overlapping metal scales, offering a balance of protection and agility. Penalty: +2DR Swift Tests. Defence is DR14." },
         "LamellarCuirass": { "Name": "Lamellar Cuirass (Tier 4)", "Description": "A segmented cuirass of lacquered metal plates, meticulously arranged like protective scales. Penalty: +4DR Swift Tests. Defence is DR14." },
         "PlateHauberk": { "Name": "Plate Hauberk (Tier 4)", "Description": "A coat of overlapping iron plates, forged into a rigid shell that encases the wearer in steel. Penalty: +4DR Swift Tests. Defence is DR14." }
+      },
+      "Gear": {
+        "Brisingamen": { "Name": "Brísingamen", "Description": "The Necklace of Freyja. <strong>Abilities:</strong> Divine Aura (defence with advantage); Freyja's Blessing (+2 defence for allies); Song of Seduction (Wits DR14 to charm creature)." },
+        "Andvaranaut": { "Name": "Andvaranaut", "Description": "The Ring of Andvari. <strong>Abilities:</strong> Wealth of Andvari (d100 Trinkets daily, risk curse); Greed's Grip (+1 Fortitude, -1 Wits permanently each use); Curse of Ruin (secret d6 check, on 1 lose half wealth)." }
       },
       "Runes": {
         "Fehu": { "Name": "Fehu (Wealth)", "Description": "For the next d4 hours, your ability to discern valuable objects, both hidden and in plain sight, is heightened. Gain +2 to any Test involving Trinkets or valuables." },

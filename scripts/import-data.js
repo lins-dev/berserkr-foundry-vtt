@@ -1,14 +1,13 @@
 /**
- * Berserkr FULL RESTORATION Macro (V13 - Sidebar & Content)
+ * Berserkr FULL RESTORATION Macro (V15 - Dedicated Legendary Pack)
  * 
  * This macro:
  * 1. Creates Sidebar Folders.
- * 2. Reads the manifest.
- * 3. Imports EVERY item/table from src/packs/.
+ * 2. Reads the manifest and imports everything from src/packs/.
  */
 
 const packGroups = {
-  "Berserkr: Items": ["berserkr-basic-weapons", "berserkr-special-weapons", "berserkr-armors", "berserkr-gear", "berserkr-runes"],
+  "Berserkr: Items": ["berserkr-basic-weapons", "berserkr-special-weapons", "berserkr-armors", "berserkr-gear", "berserkr-runes", "berserkr-legendary-items"],
   "Berserkr: Feats": [
     "berserkr-feats-berserkr", "berserkr-feats-valkyrie", "berserkr-feats-vanir-warden",
     "berserkr-feats-frost-jotunn", "berserkr-feats-light-elf", "berserkr-feats-master-smith",
@@ -34,6 +33,7 @@ async function masterSetup() {
     for (const [folderName, packNames] of Object.entries(packGroups)) {
       let folder = game.folders.find(f => f.name === folderName && f.type === "Compendium");
       if (!folder) {
+        // @ts-ignore
         folder = await Folder.create({ name: folderName, type: "Compendium", color: "#004D56" });
       }
 
@@ -46,11 +46,20 @@ async function masterSetup() {
         const docs = await pack.getDocuments();
         for (let d of docs) await d.delete();
 
+        // Import from manifest files
         const fileList = manifest[packName] || [];
         for (const fileName of fileList) {
           try {
             const response = await fetch(`systems/berserkr/src/packs/${packName}/${fileName}`);
-            const itemData = await response.json();
+            let itemData = await response.json();
+            
+            // Translate before creating
+            if (itemData.name?.startsWith("BERSERKR.")) itemData.name = game.i18n.localize(itemData.name);
+            if (itemData.system?.description?.startsWith("BERSERKR.")) itemData.system.description = game.i18n.localize(itemData.system.description);
+            if (itemData.results) {
+              itemData.results.forEach(r => { if (r.text?.startsWith("BERSERKR.")) r.text = game.i18n.localize(r.text); });
+            }
+
             if (!itemData._id) itemData._id = foundry.utils.randomID();
             await pack.documentClass.create(itemData, { pack: pack.collection });
           } catch (e) { console.error(e); }

@@ -46,7 +46,15 @@
     { "name": "berserkr-special-weapons", "label": "Items: Special Weapons", "path": "packs/berserkr-special-weapons", "type": "Item", "system": "berserkr", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
     { "name": "berserkr-armors", "label": "Items: Armors", "path": "packs/berserkr-armors", "type": "Item", "system": "berserkr", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
     { "name": "berserkr-gear", "label": "Items: Gear", "path": "packs/berserkr-gear", "type": "Item", "system": "berserkr", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
-    { "name": "berserkr-runes", "label": "Items: Runes", "path": "packs/berserkr-runes", "type": "Item", "system": "berserkr", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    {
+      "name": "berserkr-legendary-items",
+      "label": "Items: Legendary Artifacts",
+      "path": "packs/berserkr-legendary-items",
+      "type": "Item",
+      "system": "berserkr"
+    },
+    {
+      "name": "berserkr-runes", "label": "Items: Runes", "path": "packs/berserkr-runes", "type": "Item", "system": "berserkr", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
     { "name": "berserkr-feats-berserkr", "label": "Feats: Midgard's Berserkr", "path": "packs/berserkr-feats-berserkr", "type": "Item", "system": "berserkr", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
     { "name": "berserkr-feats-valkyrie", "label": "Feats: Asgard's Valkyrie", "path": "packs/berserkr-feats-valkyrie", "type": "Item", "system": "berserkr", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
     { "name": "berserkr-feats-vanir-warden", "label": "Feats: Vanaheim's Vanir Warden", "path": "packs/berserkr-feats-vanir-warden", "type": "Item", "system": "berserkr", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },

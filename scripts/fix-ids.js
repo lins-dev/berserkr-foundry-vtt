@@ -22,16 +22,16 @@ function walkDir(dir) {
       const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
       
       let modified = false;
-      // Guarantee main _id
-      if (!content._id) {
+      // Force main _id to be 16 chars
+      if (!content._id || content._id.length !== 16) {
         content._id = generateID();
         modified = true;
       }
       
-      // If it's a RollTable, guarantee results have _id as well
+      // Force result _ids to be 16 chars
       if (content.results && Array.isArray(content.results)) {
         content.results.forEach(r => {
-          if (!r._id) {
+          if (!r._id || r._id.length !== 16) {
             r._id = generateID();
             modified = true;
           }
@@ -46,4 +46,4 @@ function walkDir(dir) {
 }
 
 walkDir(srcDir);
-console.log("All JSON files patched with _ids.");
+console.log("All JSON files fixed with strictly 16-char IDs.");

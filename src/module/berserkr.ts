@@ -63,7 +63,7 @@ Hooks.once("ready", async () => {
   // Auto-organize compendiums into folders if user is GM
   if (game.user.isGM) {
     const packGroups = {
-      "Berserkr: Items": ["berserkr-basic-weapons", "berserkr-special-weapons", "berserkr-armors", "berserkr-gear", "berserkr-runes"],
+      "Berserkr: Items": ["berserkr-basic-weapons", "berserkr-special-weapons", "berserkr-armors", "berserkr-gear", "berserkr-runes", "berserkr-legendary-items"],
       "Berserkr: Feats": [
         "berserkr-feats-berserkr", "berserkr-feats-valkyrie", "berserkr-feats-vanir-warden",
         "berserkr-feats-frost-jotunn", "berserkr-feats-light-elf", "berserkr-feats-master-smith",
