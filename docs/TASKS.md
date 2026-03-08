@@ -91,6 +91,13 @@
 - [x] Organizar documentação de referência em categorias e subpastas para facilitar manutenção.
 - [x] Gerar lista de ativos visuais necessários em `docs/IMAGES_NEEDED.md`.
 
+### [x] Task 5: Project Identity & Documentation
+- [x] Traduzir e sincronizar `README.md` (EN/PT-BR).
+- [x] Incluir descrição oficial e créditos de editoras no `README.md`.
+- [x] Adicionar créditos da fonte Norse e link para download.
+- [x] Integrar capturas de tela reais da ficha, inventário e compêndios no `README.md`.
+- [x] Organizar pasta de imagens de referência em `docs/rules-reference/images`.
+
 # Sprint 4: NPCs & World Building
 
 ## Status: 🏗️ In Progress
