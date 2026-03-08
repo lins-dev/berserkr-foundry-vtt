@@ -1,0 +1,11 @@
+{
+  "name": "Chunk of Bog Iron",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Heavy piece of iron ore. Makeshift weapon (d4) or halve armor repair time.",
+    "quantity": 1,
+    "weight": 1,
+    "cost": 0
+  }
+}

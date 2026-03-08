@@ -1,0 +1,11 @@
+{
+  "name": "BERSERKR.Items.Feats.DarkVision.Name",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Feats.DarkVision.Description",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  }
+}

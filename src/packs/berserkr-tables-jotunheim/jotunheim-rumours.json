@@ -1,0 +1,56 @@
+{
+  "name": "Jotunheim Rumours",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Whispers among the peaks.",
+  "results": [
+    {
+      "type": 0,
+      "text": "\"Thrym's building an army to break the sky.\"",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Something old is waking beneath the frozen peaks.\"",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Geirrod's laying traps even the gods might fall for.\"",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The Frost Drakes are hunting giants now.\"",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The Rime Etins are ready to overthrow Thrym.\"",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The glaciers are moving... Ragnarok is close.\"",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

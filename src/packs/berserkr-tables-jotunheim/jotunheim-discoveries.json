@@ -1,0 +1,56 @@
+{
+  "name": "Jotunheim Discoveries",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Frozen treasures of the giants.",
+  "results": [
+    {
+      "type": 0,
+      "text": "Frozen Corpse: Giant-sized weapon or Trinkets. Test Fortitude DR12 to loot.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Ancient Giant's Relic: Weapon, Item, or Rune. Jotnar will notice!",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Abandoned Frost Drake Nest: Broken shells and one unhatched egg.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Cracked Ice Bridge: Test Wits DR12 to cross safely. Halfway, Test Swift DR14 or fall.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Mysterious Cave: Giant's hoard guarded by an ice trap (d6 damage).",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Frozen Waterfall: Chamber with Trinkets, Runes, and a legendary weapon.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

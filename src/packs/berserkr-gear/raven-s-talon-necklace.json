@@ -1,0 +1,11 @@
+{
+  "name": "Raven's Talon Necklace",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Once per session, ask GM a yes/no question about immediate surroundings.",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  }
+}

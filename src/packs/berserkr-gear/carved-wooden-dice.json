@@ -1,0 +1,11 @@
+{
+  "name": "Carved Wooden Dice",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "After a long rest, if any die shows 6, gain +2 to one Test today.",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  }
+}

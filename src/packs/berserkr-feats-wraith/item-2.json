@@ -1,0 +1,11 @@
+{
+  "name": "BERSERKR.Items.Feats.WailOfTheLost.Name",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Feats.WailOfTheLost.Description",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  }
+}

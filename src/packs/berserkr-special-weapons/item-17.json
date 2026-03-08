@@ -1,0 +1,21 @@
+{
+  "name": "BERSERKR.Items.Weapons.RunicWarHorn.Name",
+  "type": "weapon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Weapons.RunicWarHorn.Description",
+    "quantity": 1,
+    "weight": 1,
+    "cost": 60,
+    "damages": [
+      {
+        "dieCount": 1,
+        "dieType": "d2",
+        "modifier": 0,
+        "type": "physical"
+      }
+    ],
+    "isRanged": false,
+    "range": 0
+  }
+}

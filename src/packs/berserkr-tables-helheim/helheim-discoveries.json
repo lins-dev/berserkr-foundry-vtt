@@ -1,0 +1,56 @@
+{
+  "name": "Helheim Discoveries",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Tombs and soul-traps.",
+  "results": [
+    {
+      "type": 0,
+      "text": "Forgotten Tomb: Hero's remains clutching a random Rune.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Corpse Light Trail: Lead to a crypt. May be an ambush by Spirit Bound Guardians.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Collector's Lair: Bone Collector's hoard. Cursed item found inside.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Shattered Gravestone: Runic knowledge. Haunted by Modgudr's Sentinels.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Frozen Pool of Souls: Communicate with lost souls. Risks mind shattering.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Hel's Throne: Visions of Ragnarok. Draws the attention of Garmr.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

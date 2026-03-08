@@ -1,0 +1,56 @@
+{
+  "name": "Helheim Weather",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Suffocating mist and unmoving cold.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Thick Fog</strong>: Visibility feet away. Swift Tests disadvantage. Attacks +2DR penalty.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Freezing Rain</strong>: Brisk cold but strange clarity in the air.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Silent Night</strong>: Communication impossible. Eerie silence.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Soulstorm</strong>: Wails of the lost. Test Wits DR14 to maintain composure.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Grave Mist</strong>: Whispers guide the party. Test Wits DR12 for insight.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Eternal Twilight</strong>: Light dims to sickly green. Everything feels unreal.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Niflheim Rumours",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Whispers from the mist.",
+  "results": [
+    {
+      "type": 0,
+      "text": "\"Ymir stirs beneath the earth... his awakening ends the world.\"",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Hrimgrimnir is gathering an army of ice spectres.\"",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The River Serpents guard a powerful Rune in Hvergelmir.\"",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Mistwalkers lure the weak into endless confusion.\"",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The frozen dead are rising with increasing frequency.\"",
+      "range": [
+        5,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

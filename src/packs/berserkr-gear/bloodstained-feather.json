@@ -1,0 +1,11 @@
+{
+  "name": "Bloodstained Feather",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Used to determine the direction of the nearest source of fresh blood.",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  }
+}

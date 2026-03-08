@@ -1,0 +1,11 @@
+{
+  "name": "Wolf's Fang Talisman",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Grants +2 to all Tests relating to wolves.",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 110
+  }
+}

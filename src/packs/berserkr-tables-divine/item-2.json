@@ -1,0 +1,104 @@
+{
+  "name": "BERSERKR.Tables.OdinModerateFavour",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Powerful blessings when the gods take notice.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Odin's Ravens:</strong> Huginn and Muninn come to spy for you.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frigg's Protection:</strong> Next defence is an automatic success.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Freyja's Inspiration:</strong> Allies gain +1 to attacks next round.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Vidar's Endurance:</strong> +2 to all Tests during next holmgang.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Thor's Empowerment:</strong> Next melee attack deals additional d6 lightning damage.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Heimdall's Vigilance:</strong> Avoid next ambush or trap automatically.",
+      "range": [
+        6,
+        6
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Blessing:</strong> Reroll the next failed Test.",
+      "range": [
+        7,
+        7
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Tyr's Battle Cry:</strong> All allies gain +2 to attacks next round.",
+      "range": [
+        8,
+        8
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Freyja's Healing:</strong> Heal d8 HP and remove all conditions.",
+      "range": [
+        9,
+        9
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Vidar's Retribution:</strong> Next successful attack deals double damage.",
+      "range": [
+        10,
+        10
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Guidance:</strong> GM reveals an enemy weakness or mission secret.",
+      "range": [
+        11,
+        11
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Thor's Thunder:</strong> Next successful attack stuns all nearby enemies.",
+      "range": [
+        12,
+        12
+      ]
+    }
+  ],
+  "formula": "1d12"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Alfheim Rumours",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Whispers from the desert.",
+  "results": [
+    {
+      "type": 0,
+      "text": "\"The final city of Alfheim's glory lies buried and waiting.\"",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Mirage Stalkers hunt anyone with inscribed weapons.\"",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Elfric seeks allies to save Alfheim's fading magic.\"",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Eirwyn guards the last gate to somewhere untouched.\"",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Digging too deep in the sand awakens something hungry.\"",
+      "range": [
+        5,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

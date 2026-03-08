@@ -1,0 +1,104 @@
+{
+  "name": "BERSERKR.Tables.OdinMinorFavour",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Small acts of guidance from the Allfather.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Odin's Wisdom:</strong> Vision of insight. Advantage on your next Wits Test.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Huginn's Message:</strong> Raven delivers knowledge. GM reveals a minor secret.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Muninn's Memory:</strong> Glimpse of past glory. Regain d4 HP.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Favour:</strong> Your next attack is an automatic success.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Guiding Eye:</strong> +2 to next Guile Test. Removes Blindness.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Runic Empowerment:</strong> Gain a random Rune.",
+      "range": [
+        6,
+        6
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Endurance:</strong> +1 to next Fortitude Test.",
+      "range": [
+        7,
+        7
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Blessing of the Allfather:</strong> Restores vitality. Heal d6 HP.",
+      "range": [
+        8,
+        8
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Ravens:</strong> Advantage on next Guile Test.",
+      "range": [
+        9,
+        9
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Warding Vision:</strong> Half damage next time you are hit.",
+      "range": [
+        10,
+        10
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Freyja's Light:</strong> +2 to next attack or defence.",
+      "range": [
+        11,
+        11
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Gaze:</strong> DR of next Wits Test is reduced by -2.",
+      "range": [
+        12,
+        12
+      ]
+    }
+  ],
+  "formula": "1d12"
+}

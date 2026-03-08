@@ -1,0 +1,104 @@
+{
+  "name": "BERSERKR.Tables.OdinSevereWrath",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Divine doom from Asgard.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Odin's Deception:</strong> Compelled to attack your allies for d4 rounds.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frigg's Weeping:</strong> Group cursed; no HP can be restored for 24 hours.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Vidar's Retribution:</strong> Group suffers 3d6 damage and falls prone.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Heimdall's Silence:</strong> Cannot use Runes or Features in next battle.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Cleanse:</strong> Lose the ability to use Fates during next battle.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Thor's Fury:</strong> Thor descends personally, demanding a test of strength.",
+      "range": [
+        6,
+        6
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frigg's Judgement:</strong> Frigg arrives to weigh your actions with sorrow.",
+      "range": [
+        7,
+        7
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Vidar's Hunt:</strong> Marked for divine retribution by Vidar.",
+      "range": [
+        8,
+        8
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Heimdall's Wrath:</strong> Challenges group to a test of vigilance.",
+      "range": [
+        9,
+        9
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Tyr's Trial by Combat:</strong> Duel Tyr or suffer dire consequences.",
+      "range": [
+        10,
+        10
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Freyja's Vengeance:</strong> Freyja arrives seeking vengeance for your deeds.",
+      "range": [
+        11,
+        11
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Judgement:</strong> Odin personally delivers punishment and challenges your worth.",
+      "range": [
+        12,
+        12
+      ]
+    }
+  ],
+  "formula": "1d12"
+}

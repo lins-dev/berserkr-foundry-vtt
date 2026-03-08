@@ -1,0 +1,11 @@
+{
+  "name": "Iron Fish Hook",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Makeshift weapon (d4) or for fishing.",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 40
+  }
+}

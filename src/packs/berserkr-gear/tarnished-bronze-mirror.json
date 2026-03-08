@@ -1,0 +1,11 @@
+{
+  "name": "Tarnished Bronze Mirror",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Small mirror with distorted reflection.",
+    "quantity": 1,
+    "weight": 0.5,
+    "cost": 100
+  }
+}

@@ -1,8 +1,0 @@
-[
-  { "name": "BERSERKR.Items.Feats.TitansMight.Name", "type": "feat", "img": "icons/magic/control/buff-strength-red.webp", "system": { "description": "BERSERKR.Items.Feats.TitansMight.Description", "quantity": 1, "weight": 0, "cost": 0 } },
-  { "name": "BERSERKR.Items.Feats.IcedAegis.Name", "type": "feat", "img": "icons/magic/water/ice-shield-blue.webp", "system": { "description": "BERSERKR.Items.Feats.IcedAegis.Description", "quantity": 1, "weight": 0, "cost": 0 } },
-  { "name": "BERSERKR.Items.Feats.FrostboundGrasp.Name", "type": "feat", "img": "icons/magic/water/ice-hand-blue.webp", "system": { "description": "BERSERKR.Items.Feats.FrostboundGrasp.Description", "quantity": 1, "weight": 0, "cost": 0 } },
-  { "name": "BERSERKR.Items.Feats.WintersFury.Name", "type": "feat", "img": "icons/magic/water/ice-storm-blue-white.webp", "system": { "description": "BERSERKR.Items.Feats.WintersFury.Description", "quantity": 1, "weight": 0, "cost": 0 } },
-  { "name": "BERSERKR.Items.Feats.GlacialEmpowerment.Name", "type": "feat", "img": "icons/magic/water/ice-crystal-blue-white.webp", "system": { "description": "BERSERKR.Items.Feats.GlacialEmpowerment.Description", "quantity": 1, "weight": 0, "cost": 0 } },
-  { "name": "BERSERKR.Items.Feats.YmirsRevival.Name", "type": "feat", "img": "icons/magic/death/skull-horned-white.webp", "system": { "description": "BERSERKR.Items.Feats.YmirsRevival.Description", "quantity": 1, "weight": 0, "cost": 0 } }
-]

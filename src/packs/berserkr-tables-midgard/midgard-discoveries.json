@@ -1,0 +1,56 @@
+{
+  "name": "Midgard Discoveries",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Scavenging in the snow.",
+  "results": [
+    {
+      "type": 0,
+      "text": "Half-Frozen Corpse with a random Rune.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Wolf-Tracks leading to a den.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Hidden Shrine: Offering gives +1 to Wits Tests today.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Ice-Encased Spoils: Test Might DR14 to find a random Item.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Frostbitten Supplies: d4 food/water (Test Fortitude DR12 to avoid fever).",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Abandoned Camp: d10t Trinkets and a journal.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

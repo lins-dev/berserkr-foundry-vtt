@@ -1,0 +1,56 @@
+{
+  "name": "Svartalfheim Discoveries",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Dwarven masterworks and dark elf traps.",
+  "results": [
+    {
+      "type": 0,
+      "text": "Dwarven Forge: Tools and half-completed weapon. Reactivating might trigger a trap.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Vein of Gleaming Ore: Mining yields valuable trade materials. May draw Dokkalfar.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Crystalised Cave: Precious stones guarded by Crystal Spiders.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Forgotten Vault: Sealed by Runes. Riches guarded by Rock Golems.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Dvalin's Workshop: Cursed artefacts. Test Wits DR14 to handle safely.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Collapsed Mine: Tremors rock the tunnels. Hide lost artefacts.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

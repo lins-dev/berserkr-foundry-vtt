@@ -1,0 +1,11 @@
+{
+  "name": "Bundle of Yarrow Stalks",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Burn to release smoke that lures beasts or enemies.",
+    "quantity": 1,
+    "weight": 0.1,
+    "cost": 0
+  }
+}

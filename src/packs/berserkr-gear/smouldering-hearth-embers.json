@@ -1,0 +1,11 @@
+{
+  "name": "Smouldering Hearth Embers",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Provides warmth or can light torches/fires.",
+    "quantity": 1,
+    "weight": 0.5,
+    "cost": 60
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Vanaheim Discoveries",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Secrets hidden in the vines.",
+  "results": [
+    {
+      "type": 0,
+      "text": "Overgrown Shrine: Sacrifice gives +1 to Swift Tests today.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Touched Tree: Contains d6 Runes.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Vanir Relic: Cursed item humming with nature magic.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Gullveig's Altar: Gold and Trinkets. Taking them invokes her wrath.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Flooded Cave: Contains Trinkets. Test Swift DR12 to avoid being trapped.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Seed of Freyr: Planting creates a sanctuary (+d6 HP from rests).",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

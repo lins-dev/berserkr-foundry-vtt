@@ -1,0 +1,48 @@
+{
+  "name": "Svartalfheim Rumours",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Whispers from the deep forges.",
+  "results": [
+    {
+      "type": 0,
+      "text": "\"The cursed vault of Andvari has been found deep within.\"",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The tremors have broken the lifeblood of the forges.\"",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Dvalin's curse is spreading to anyone who handles his tools.\"",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The Dark Elves (Dokkalfar) are gathering for something big.\"",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The Dwarven forges are burning too hot... the mountain might fall.\"",
+      "range": [
+        5,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

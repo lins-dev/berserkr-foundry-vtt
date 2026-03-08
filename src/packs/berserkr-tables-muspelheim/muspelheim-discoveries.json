@@ -1,0 +1,56 @@
+{
+  "name": "Muspelheim Discoveries",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Wonders forged in fire.",
+  "results": [
+    {
+      "type": 0,
+      "text": "Abandoned Forge: Reactivating risks lava eruption (Test Swift DR12).",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Molten Pool: Imbue weapon with +d6 fire dmg (d4 days). Risk destroying it (Test Fortitude DR12).",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Fire-Resistant Ore Vein: Mining requires Might DR12. May draw Molten Hounds.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Smouldering Corpse: Contains d3 Runes. Might be trapped.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Volcanic Chamber: Runic walls. Might DR12 to pry free.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Petrified Remains: Secrets of ancient civilisations or cursed items.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

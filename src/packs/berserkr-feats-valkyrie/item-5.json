@@ -1,0 +1,11 @@
+{
+  "name": "BERSERKR.Items.Feats.RavensFavour.Name",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Feats.RavensFavour.Description",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  }
+}

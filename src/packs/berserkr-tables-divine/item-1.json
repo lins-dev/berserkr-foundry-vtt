@@ -1,0 +1,104 @@
+{
+  "name": "BERSERKR.Tables.OdinMinorWrath",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "The Allfather's growing irritation.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Odin's Disfavour:</strong> Misfortune on weapon. Next attack has disadvantage.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Thor's Punishment:</strong> Shockwave deals d6 damage.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frigg's Curse:</strong> Wave of sadness. Next failure makes you weep uncontrollably.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Heimdall's Watch:</strong> Stealth attempt fails due to bright spotlight.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Vidar's Grip:</strong> Held in place. Cannot move next round.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Freyja's Anger:</strong> Dominated by fear. Test Wits DR14 or scream.",
+      "range": [
+        6,
+        6
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Tyr's Judgement:</strong> Tyr watches next battle. Judging you.",
+      "range": [
+        7,
+        7
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Blind Eye:</strong> Apply Blindness for 24 hours.",
+      "range": [
+        8,
+        8
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Thor's Reckoning:</strong> Next Might Test DR increases by 4.",
+      "range": [
+        9,
+        9
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frigg's Withering Hand:</strong> Healing restored is halved next time.",
+      "range": [
+        10,
+        10
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Vidar's Retribution:</strong> Automatically knocked prone when attacked.",
+      "range": [
+        11,
+        11
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Displeasure:</strong> Role d6: 1-3 equipment fire, 4-5 lose d100 Trinkets, 6 both.",
+      "range": [
+        12,
+        12
+      ]
+    }
+  ],
+  "formula": "1d12"
+}

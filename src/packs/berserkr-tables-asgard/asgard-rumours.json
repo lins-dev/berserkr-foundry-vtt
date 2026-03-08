@@ -1,0 +1,56 @@
+{
+  "name": "Asgard Rumours",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Whispers from Valhalla.",
+  "results": [
+    {
+      "type": 0,
+      "text": "\"Loki walks among us in disguise.\"",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Odin is watching everyone with rising paranoia.\"",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The Valkyries choose no more for Valhalla.\"",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The Bifrost is cracking and unstable.\"",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"A traitor walks among the Aesir.\"",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Thor's hammer has been seen in mortal hands.\"",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

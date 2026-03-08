@@ -1,0 +1,21 @@
+{
+  "name": "BERSERKR.Items.Weapons.Club.Name",
+  "type": "weapon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "weight": 1,
+    "cost": 30,
+    "damages": [
+      {
+        "dieCount": 1,
+        "dieType": "d6",
+        "modifier": 0,
+        "type": "physical"
+      }
+    ],
+    "isRanged": false,
+    "range": 0
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Worn Leather Pouch",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "A small pouch containing 3d10+ Trinkets.",
+    "quantity": 1,
+    "weight": 0.5,
+    "cost": 20
+  }
+}

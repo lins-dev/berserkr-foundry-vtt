@@ -1,0 +1,11 @@
+{
+  "name": "BERSERKR.Items.Feats.RunicReforging.Name",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Feats.RunicReforging.Description",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  }
+}

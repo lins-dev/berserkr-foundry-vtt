@@ -1,0 +1,56 @@
+{
+  "name": "Jotunheim Weather",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Relentless frost and shifting glaciers.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Blinding Blizzard</strong>: Movement halved. Test Fortitude DR12 every hour or take d4 cold damage.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Reshaping Landscape</strong>: Glaciers shift. Test Wits DR12 to find a shortcut or hidden cave.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Howling Winds</strong>: Guile Tests disadvantage. Attacks suffer -2 penalty.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frozen Fog</strong>: Test Fortitude DR12 or take d4 damage and half movement.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Dance of Ice</strong>: Glittering ice crystals fall. Oddly calm.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Fimbulwinter's Breath</strong>: Fortitude Tests disadvantage today. Failure = d4 cold damage.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

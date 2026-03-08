@@ -8,6 +8,96 @@
   }>();
 
   /**
+   * Executa o teste de Defesa (Swift vs Defense DR)
+   */
+  const rollDefense = async () => {
+    const mod = system.abilities.swift.mod;
+    const dr = system.derived.defenseDR;
+    
+    // @ts-ignore
+    const RollClass = foundry.dice?.Roll ?? Roll;
+    // @ts-ignore
+    const render = (typeof renderTemplate !== "undefined") ? renderTemplate : foundry.applications.handlebars?.renderTemplate;
+    // @ts-ignore
+    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+
+    const roll = new RollClass(`1d20 + ${mod}`);
+    await roll.evaluate();
+
+    const d20 = roll.terms[0].results[0].result;
+    const isSuccess = roll.total >= dr;
+    const isCrit = d20 === 20;
+    const isFumble = d20 === 1;
+
+    let flavor = `Defense Test (DR ${dr})`;
+    if (isCrit) flavor += " - FREE ATTACK!";
+    if (isFumble) flavor += " - DOUBLE DAMAGE & ARMOR DEGRADED!";
+
+    const templateData = {
+      actorId: actor.id,
+      title: "Defense Roll",
+      total: roll.total,
+      formula: roll.formula,
+      tooltip: await roll.getTooltip(),
+      flavor: flavor,
+      isCrit,
+      isFumble,
+      isSuccess
+    };
+
+    const content = await render("systems/berserkr/templates/chat/test-card.hbs", templateData);
+
+    // @ts-ignore
+    ChatMessageClass.create({
+      user: (game as any).user.id,
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: content,
+      rolls: [roll],
+      style: (CONST as any).CHAT_MESSAGE_STYLES?.OTHER ?? (CONST as any).CHAT_MESSAGE_TYPES?.OTHER
+    });
+  };
+
+  /**
+   * Executa a rolagem de Redução de Armadura
+   */
+  const rollArmorReduction = async () => {
+    const formula = system.derived.armorReduction;
+    if (formula === "0" || !formula) return;
+
+    // @ts-ignore
+    const RollClass = foundry.dice?.Roll ?? Roll;
+    // @ts-ignore
+    const render = (typeof renderTemplate !== "undefined") ? renderTemplate : foundry.applications.handlebars?.renderTemplate;
+    // @ts-ignore
+    const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
+
+    const roll = new RollClass(formula);
+    await roll.evaluate();
+
+    const templateData = {
+      actorId: actor.id,
+      title: "Armor Reduction",
+      total: roll.total,
+      formula: roll.formula,
+      tooltip: await roll.getTooltip(),
+      flavor: "Damage Negated",
+      isCrit: false,
+      isFumble: false
+    };
+
+    const content = await render("systems/berserkr/templates/chat/test-card.hbs", templateData);
+
+    // @ts-ignore
+    ChatMessageClass.create({
+      user: (game as any).user.id,
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: content,
+      rolls: [roll],
+      style: (CONST as any).CHAT_MESSAGE_STYLES?.OTHER ?? (CONST as any).CHAT_MESSAGE_TYPES?.OTHER
+    });
+  };
+
+  /**
    * Executa a rolagem de ataque de uma arma
    */
   const rollAttack = async (weapon: any) => {
@@ -18,7 +108,7 @@
     // @ts-ignore
     const RollClass = foundry.dice?.Roll ?? Roll;
     // @ts-ignore
-    const render = foundry.applications.handlebars?.renderTemplate ?? renderTemplate;
+    const render = (typeof renderTemplate !== "undefined") ? renderTemplate : foundry.applications.handlebars?.renderTemplate;
     // @ts-ignore
     const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
 
@@ -61,7 +151,7 @@
     // @ts-ignore
     const RollClass = foundry.dice?.Roll ?? Roll;
     // @ts-ignore
-    const render = foundry.applications.handlebars?.renderTemplate ?? renderTemplate;
+    const render = (typeof renderTemplate !== "undefined") ? renderTemplate : foundry.applications.handlebars?.renderTemplate;
     // @ts-ignore
     const ChatMessageClass = foundry.documents?.BaseChatMessage ?? ChatMessage;
 
@@ -108,14 +198,14 @@
 
 <div class="violence-content">
   <div class="combat-stats-grid">
-    <div class="combat-stat">
+    <button type="button" class="combat-stat clickable" onclick={rollDefense} title="Roll Defense (Swift vs DR)">
       <span class="stat-label">Defense DR</span>
       <span class="stat-value">{system.derived.defenseDR}</span>
-    </div>
-    <div class="combat-stat">
+    </button>
+    <button type="button" class="combat-stat clickable" onclick={rollArmorReduction} title="Roll Armor Reduction" disabled={system.derived.armorReduction === "0"}>
       <span class="stat-label">Armor Reduction</span>
       <span class="stat-value">{system.derived.armorReduction !== "0" ? "-" : ""}{system.derived.armorReduction}</span>
-    </div>
+    </button>
     <div class="combat-stat">
       <span class="stat-label">Might Penalty</span>
       <span class="stat-value" class:penalty={system.derived.mightPenalty > 0}>
@@ -142,7 +232,7 @@
             <div class="weapon-name">{weapon.name}</div>
             <div class="weapon-damage">
               {#each (weapon.system as any).damages as dmg}
-                <span class="dmg-tag">{dmg.dieCount}{dmg.dieType}{dmg.modifier ? (dmg.modifier > 0 ? "+" + dmg.modifier : dmg.modifier) : ""} {dmg.type}</span>
+                <span class="dmg-tag">{dmg.dieCount}${dmg.dieType}{dmg.modifier ? (dmg.modifier > 0 ? "+" + dmg.modifier : dmg.modifier) : ""} {dmg.type}</span>
               {/each}
             </div>
           </div>
@@ -180,12 +270,34 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    
+    &.clickable {
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      
+      &:hover {
+        background: rgba(0, 77, 86, 0.1);
+        border-color: var(--berserkr-color-cyan-medium);
+        .stat-label { color: var(--berserkr-color-cyan-vibrant); }
+      }
+      
+      &:disabled {
+        cursor: default;
+        &:hover { background: transparent; border-color: transparent; .stat-label { color: var(--berserkr-color-cyan-medium); } }
+      }
+    }
   }
 
   .stat-label {
     font-family: var(--berserkr-font-display, 'Norse', serif);
     font-size: 1.1rem;
     color: var(--berserkr-color-cyan-medium);
+    transition: color 0.2s;
   }
 
   .stat-value {

@@ -1,0 +1,48 @@
+{
+  "name": "Midgard Rumours",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Whispers by the hearth.",
+  "results": [
+    {
+      "type": 0,
+      "text": "\"The Nithing walks these woods.\"",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The Draugr are restless. The ground itself is opening.\"",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Trollkin have stolen our food!\"",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"They say Odin's ravens see everything.\"",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Fimbulwinter's only the start.\"",
+      "range": [
+        5,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

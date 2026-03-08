@@ -1,0 +1,11 @@
+{
+  "name": "Dried Serpent Skin",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Preserved snake skin. Grants +2 to Tests relating to serpentine/draconic creatures.",
+    "quantity": 1,
+    "weight": 0.1,
+    "cost": 0
+  }
+}

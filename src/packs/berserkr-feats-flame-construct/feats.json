@@ -1,9 +1,0 @@
-[
-  { "name": "BERSERKR.Items.Feats.FireResistant.Name", "type": "feat", "img": "icons/magic/fire/beam-jet-orange-yellow.webp", "system": { "description": "BERSERKR.Items.Feats.FireResistant.Description", "quantity": 1, "weight": 0, "cost": 0 } },
-  { "name": "BERSERKR.Items.Feats.ImmolationAura.Name", "type": "feat", "img": "icons/magic/fire/flame-burning-campfire-orange.webp", "system": { "description": "BERSERKR.Items.Feats.ImmolationAura.Description", "quantity": 1, "weight": 0, "cost": 0 } },
-  { "name": "BERSERKR.Items.Feats.MoltenSurge.Name", "type": "feat", "img": "icons/magic/fire/beam-jet-orange-yellow.webp", "system": { "description": "BERSERKR.Items.Feats.MoltenSurge.Description", "quantity": 1, "weight": 0, "cost": 0 } },
-  { "name": "BERSERKR.Items.Feats.PyroclasticFist.Name", "type": "feat", "img": "icons/magic/fire/beam-jet-orange-yellow.webp", "system": { "description": "BERSERKR.Items.Feats.PyroclasticFist.Description", "quantity": 1, "weight": 0, "cost": 0 } },
-  { "name": "BERSERKR.Items.Feats.LivingFlame.Name", "type": "feat", "img": "icons/magic/fire/flame-burning-campfire-orange.webp", "system": { "description": "BERSERKR.Items.Feats.LivingFlame.Description", "quantity": 1, "weight": 0, "cost": 0 } },
-  { "name": "BERSERKR.Items.Feats.EruptionCall.Name", "type": "feat", "img": "icons/magic/fire/beam-jet-orange-yellow.webp", "system": { "description": "BERSERKR.Items.Feats.EruptionCall.Description", "quantity": 1, "weight": 0, "cost": 0 } },
-  { "name": "BERSERKR.Items.Feats.InfernoHeart.Name", "type": "feat", "img": "icons/magic/fire/flame-burning-campfire-orange.webp", "system": { "description": "BERSERKR.Items.Feats.InfernoHeart.Description", "quantity": 1, "weight": 0, "cost": 0 } }
-]

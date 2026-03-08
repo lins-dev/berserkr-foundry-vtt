@@ -1,0 +1,11 @@
+{
+  "name": "Jar of Pickled Crowberries",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "d6 handfuls. Eating one restores d4 HP.",
+    "quantity": 1,
+    "weight": 0.5,
+    "cost": 0
+  }
+}

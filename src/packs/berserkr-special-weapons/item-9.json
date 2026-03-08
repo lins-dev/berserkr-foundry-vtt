@@ -1,0 +1,21 @@
+{
+  "name": "BERSERKR.Items.Weapons.WolfBoneDagger.Name",
+  "type": "weapon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Weapons.WolfBoneDagger.Description",
+    "quantity": 1,
+    "weight": 0.5,
+    "cost": 40,
+    "damages": [
+      {
+        "dieCount": 1,
+        "dieType": "d4",
+        "modifier": 0,
+        "type": "physical"
+      }
+    ],
+    "isRanged": false,
+    "range": 0
+  }
+}

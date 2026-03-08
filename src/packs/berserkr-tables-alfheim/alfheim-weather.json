@@ -1,0 +1,56 @@
+{
+  "name": "Alfheim Weather",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Scorched desert and blinding sandstorms.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Eternal Horizon</strong>: Lost in time. Perception disadvantage.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Blinding Sandstorm</strong>: Visibility zero. d4 damage per hour outside.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Echoes of Glory</strong>: Winds carry fragments of lost elven music.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Sudden Drought</strong>: Lose d4 water. Test Wits DR14 or suffer dehydration.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Fleeting Mirage</strong>: Drawn to a city or oasis. Test Wits DR12 to resist.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Light's Last Gasp</strong>: Flicker of beauty. +2 to Wits Tests for 1 hour.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

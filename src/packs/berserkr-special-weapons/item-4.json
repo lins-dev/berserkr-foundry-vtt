@@ -1,0 +1,21 @@
+{
+  "name": "BERSERKR.Items.Weapons.TrollSkullMace.Name",
+  "type": "weapon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Weapons.TrollSkullMace.Description",
+    "quantity": 1,
+    "weight": 1,
+    "cost": 45,
+    "damages": [
+      {
+        "dieCount": 1,
+        "dieType": "d10",
+        "modifier": 0,
+        "type": "physical"
+      }
+    ],
+    "isRanged": false,
+    "range": 0
+  }
+}

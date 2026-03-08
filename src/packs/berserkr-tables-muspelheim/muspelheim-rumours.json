@@ -1,0 +1,48 @@
+{
+  "name": "Muspelheim Rumours",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Whispers from the volcanic peaks.",
+  "results": [
+    {
+      "type": 0,
+      "text": "\"Eldrimnir is reshaping Muspelheim into an unstoppable fortress.\"",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Logi wanders the fields, seeking worthy opponents to test his flames.\"",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The molten rivers hold memories, but many go mad watching them.\"",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Rival clans of fire giants are warring for the central volcano.\"",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The ground is on the brink of splitting open... Ragnarok is near.\"",
+      "range": [
+        5,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

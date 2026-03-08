@@ -1,0 +1,11 @@
+{
+  "name": "BERSERKR.Items.Feats.VanirsBlessing.Name",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Feats.VanirsBlessing.Description",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  }
+}

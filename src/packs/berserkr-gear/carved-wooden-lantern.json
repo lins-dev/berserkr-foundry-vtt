@@ -1,0 +1,11 @@
+{
+  "name": "Carved Wooden Lantern",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Provides Guile+6 hours of light.",
+    "quantity": 1,
+    "weight": 1,
+    "cost": 50
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "name": "BERSERKR.Tables.OdinModerateWrath",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Divine punishment for those who stray.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Thor's Strike:</strong> Test Swift DR12 or take 2d6 lightning damage.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Take Backs:</strong> One precious belonging is permanently destroyed.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Vidar's Vengeance:</strong> Enemies deal +2 damage to you in the next battle.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frigg's Sorrow:</strong> Test Fortitude DR14 or lament next enemy like family.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Heimdall's Judgement:</strong> Instantly lost, even in familiar places.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Tyr's Demand:</strong> Lose d10 HP or suffer -2 to all Tests for 24h.",
+      "range": [
+        6,
+        6
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Blind Eye:</strong> Next Guile Test fails automatically. Apply Blindness.",
+      "range": [
+        7,
+        7
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Thor's Rage:</strong> Stunned by a lightning bolt from the sky.",
+      "range": [
+        8,
+        8
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Vidar's Grip:</strong> Automatic failure on all defences in next battle.",
+      "range": [
+        9,
+        9
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Heimdall's Eyes:</strong> Spotlight reveals you; horn sounds with each step.",
+      "range": [
+        10,
+        10
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frigg's Curse:</strong> You can only heal while in Asgard.",
+      "range": [
+        11,
+        11
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Tyr's Judgement:</strong> Challenge next god seen to holmgang (-2 to all Tests).",
+      "range": [
+        12,
+        12
+      ]
+    }
+  ],
+  "formula": "1d12"
+}

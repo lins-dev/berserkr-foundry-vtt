@@ -1,0 +1,16 @@
+{
+  "name": "BERSERKR.Items.Runes.Ansuz.Name",
+  "type": "rune",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Runes.Ansuz.Description",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0,
+    "set": 1,
+    "uses": {
+      "value": 0,
+      "max": 0
+    }
+  }
+}

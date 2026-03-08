@@ -1,0 +1,56 @@
+{
+  "name": "Svartalfheim Weather",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Ash-choked skies and seismic tremors.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Dust Storm</strong>: Guile disadvantage. Test Fortitude DR12 or take d4 damage and become Fatigued.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Echoes of the Forge</strong>: Mines hum with rhythmic creation. Calming presence.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Seismic Tremors</strong>: Test Swift DR12 to avoid falling rocks or crevasses.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Cleansing Breeze</strong>: Sulphur gas invigorates. +2 to Fortitude Tests for 1 hour.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Unstable Machinery</strong>: Malfunctioning gears. Test Swift DR12 or take d6 damage.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Lava Flow</strong>: Sudden eruption. Test Swift DR14 or take 2d6 fire damage.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

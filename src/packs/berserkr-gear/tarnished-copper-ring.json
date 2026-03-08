@@ -1,0 +1,11 @@
+{
+  "name": "Tarnished Copper Ring",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "A simple copper ring.",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 80
+  }
+}

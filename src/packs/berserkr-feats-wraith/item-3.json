@@ -1,0 +1,11 @@
+{
+  "name": "BERSERKR.Items.Feats.GhostlyStep.Name",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Feats.GhostlyStep.Description",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  }
+}

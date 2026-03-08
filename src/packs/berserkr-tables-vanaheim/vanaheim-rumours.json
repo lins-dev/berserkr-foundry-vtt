@@ -1,0 +1,48 @@
+{
+  "name": "Vanaheim Rumours",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Voices in the wind.",
+  "results": [
+    {
+      "type": 0,
+      "text": "\"Freyr is missing.\"",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Njord has lost control.\"",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"Gullveig has returned.\"",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The Vanir have abandoned us.\"",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "\"The Grove Wardens have awoken.\"",
+      "range": [
+        5,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

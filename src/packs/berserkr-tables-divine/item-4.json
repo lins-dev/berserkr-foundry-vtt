@@ -1,0 +1,104 @@
+{
+  "name": "BERSERKR.Tables.OdinSevereFavour",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "The Allfather's direct intervention in your saga.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Odin's Gift:</strong> Permanent Rune inscribed on equipment. Weapon +1 dmg or Armour +1 negation.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Heimdall's Horn:</strong> GJALLARHORN sounds! d4 Einherjar join you in the next battle.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Thor's Thunderstrike:</strong> 3d6 damage to ALL enemies in battle.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Freyja's Valkyries:</strong> d4 Valkyries descend to fight by your side.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Intervention:</strong> Each player gains automatic success on all attacks next round.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Vidar's Vengeance:</strong> Choose an enemy; they suffer 5d6 damage immediately.",
+      "range": [
+        6,
+        6
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Tyr's Divine Trial:</strong> Weapon deals double damage for the entire next battle.",
+      "range": [
+        7,
+        7
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Freyja's Blessing:</strong> Heal ALL party members 2d6 HP and remove all conditions.",
+      "range": [
+        8,
+        8
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Insight:</strong> Odin lends a Legendary Weapon or Item for the next mission.",
+      "range": [
+        9,
+        9
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Heimdall's Vision:</strong> Advantage on all attacks and defences in next battle.",
+      "range": [
+        10,
+        10
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frigg's Shield:</strong> Immunity to one condition for the entire group next battle.",
+      "range": [
+        11,
+        11
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Odin's Runic Mastery:</strong> Inscribe THREE random Runes into your equipment.",
+      "range": [
+        12,
+        12
+      ]
+    }
+  ],
+  "formula": "1d12"
+}

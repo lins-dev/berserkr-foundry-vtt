@@ -1,0 +1,11 @@
+{
+  "name": "BERSERKR.Items.Feats.Quicksmith.Name",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Feats.Quicksmith.Description",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "BERSERKR.Items.Weapons.ValkyriesBlade.Name",
+  "type": "weapon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Weapons.ValkyriesBlade.Description",
+    "quantity": 1,
+    "weight": 1,
+    "cost": 80,
+    "damages": [
+      {
+        "dieCount": 1,
+        "dieType": "d8",
+        "modifier": 0,
+        "type": "physical"
+      }
+    ],
+    "isRanged": false,
+    "range": 0
+  }
+}

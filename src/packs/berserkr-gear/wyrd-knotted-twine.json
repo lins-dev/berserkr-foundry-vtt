@@ -1,0 +1,11 @@
+{
+  "name": "Wyrd-Knotted Twine",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Long rope trançada com nós protetores.",
+    "quantity": 1,
+    "weight": 1,
+    "cost": 30
+  }
+}

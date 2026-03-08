@@ -1,0 +1,56 @@
+{
+  "name": "Niflheim Discoveries",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Relics trapped in permafrost.",
+  "results": [
+    {
+      "type": 0,
+      "text": "Frozen Relic: A random Rune. Test Wits DR12 to avoid a trap (d8 damage).",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Ymir's Blood: Drink for +2 Might (d4 hours). Price: d6 HP damage.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Frozen Lake of the Dead: Test Wits DR14 to cross without awakening spirits.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Glacial Cavern: Warriors carrying Runes or souls waiting for bodies.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Ancient Sigils: Test Wits DR12 to gain a random Rune.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Frost-Rimed Scroll: Contains a Rune. Deciphering risks gods' wrath.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

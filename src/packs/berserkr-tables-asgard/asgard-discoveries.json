@@ -1,0 +1,56 @@
+{
+  "name": "Asgard Discoveries",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Artifacts of the Aesir.",
+  "results": [
+    {
+      "type": 0,
+      "text": "Idunn's Fallen Apple: Restore full HP, +1 to all Tests today. May invoke wrath.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Shattered Valkyrie Spear: Can be reforged to grant +2 Might vs Jotnar.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Runestone of Prophecy: d3 Runes. Visions of Ragnarok.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Einherjar Helm: +2 defence, but halver healing from rests (cursed with visions).",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Forseti's Abandoned Scale: Take vengeance whenever wronged.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Golden Mead Flask: Restore 2d6 HP, +2 to flying. Test Wits DR12 to avoid gloom.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

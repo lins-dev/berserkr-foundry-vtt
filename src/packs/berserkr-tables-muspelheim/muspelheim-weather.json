@@ -1,0 +1,56 @@
+{
+  "name": "Muspelheim Weather",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "The suffocating heat of the fire realm.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Ash Storm</strong>: Visibility zero. Disadvantage on Swift. Test Fortitude DR12 each hour or take d4 damage.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Molten Rain</strong>: Fiery debris. Test Swift DR14 or suffer d6 damage.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Blistering Mirage</strong>: Intense heat wave. Shifting surreal visions.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Red Lightning Storm</strong>: Random strikes. Test Swift DR12 or take d6 damage.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Volcanic Tremors</strong>: Terrain shifts. Test Swift DR12 or fall into lava crevasses.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Cleansing Ember Winds</strong>: Burning impurities. +2 to Fortitude Tests tomorrow.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

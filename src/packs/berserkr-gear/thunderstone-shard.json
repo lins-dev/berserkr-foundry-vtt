@@ -1,0 +1,11 @@
+{
+  "name": "Thunderstone Shard",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Deals d6 damage to everyone nearby when thrown.",
+    "quantity": 1,
+    "weight": 0.5,
+    "cost": 140
+  }
+}

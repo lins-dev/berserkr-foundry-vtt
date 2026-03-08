@@ -1,101 +1,62 @@
 /**
- * Berserkr Master Setup Macro (V8 - Total Organization)
+ * Berserkr FULL RESTORATION Macro (V12 - Manifest Driven)
  * 
- * This macro:
- * 1. Creates Sidebar Folders for Compendiums.
- * 2. Organizes all 28 packs into these folders.
- * 3. Imports all JSON data.
+ * This macro reads the manifest and imports EVERY item/table 
+ * from the src/packs/ folders into your system compendiums.
  */
 
-const packGroups = {
-  "Berserkr: Items": ["berserkr-basic-weapons", "berserkr-special-weapons", "berserkr-armors", "berserkr-gear", "berserkr-runes"],
-  "Berserkr: Feats": [
-    "berserkr-feats-berserkr", "berserkr-feats-valkyrie", "berserkr-feats-vanir-warden",
-    "berserkr-feats-frost-jotunn", "berserkr-feats-light-elf", "berserkr-feats-master-smith",
-    "berserkr-feats-wraith", "berserkr-feats-flame-construct", "berserkr-feats-soul-shepherd",
-    "berserkr-feats-realmbreaker"
-  ],
-  "Berserkr: Tables": ["berserkr-tables-creation", "berserkr-tables-rules", "berserkr-tables-divine"],
-  "Berserkr: Realms": [
-    "berserkr-tables-midgard", "berserkr-tables-asgard", "berserkr-tables-vanaheim",
-    "berserkr-tables-jotunheim", "berserkr-tables-alfheim", "berserkr-tables-svartalfheim",
-    "berserkr-tables-niflheim", "berserkr-tables-muspelheim", "berserkr-tables-helheim"
-  ]
-};
+async function fullRestore() {
+  ui.notifications.info("BERSERKR | Starting Deep Restoration...");
 
-const packFiles = {
-  "berserkr-basic-weapons": ["basic-weapons.json"],
-  "berserkr-special-weapons": ["special-weapons.json"],
-  "berserkr-armors": ["armors.json"],
-  "berserkr-gear": ["gear.json"],
-  "berserkr-runes": ["runes.json"],
-  "berserkr-feats-berserkr": ["feats.json"],
-  "berserkr-feats-valkyrie": ["feats.json"],
-  "berserkr-feats-vanir-warden": ["feats.json"],
-  "berserkr-feats-frost-jotunn": ["feats.json"],
-  "berserkr-feats-light-elf": ["feats.json"],
-  "berserkr-feats-master-smith": ["feats.json"],
-  "berserkr-feats-wraith": ["feats.json"],
-  "berserkr-feats-flame-construct": ["feats.json"],
-  "berserkr-feats-soul-shepherd": ["feats.json"],
-  "berserkr-feats-realmbreaker": ["feats.json"],
-  "berserkr-tables-creation": ["memories-of-the-past.json", "quirks-and-talents.json", "habitual-by-nature.json", "beliefs-and-superstitions.json", "starting-equipment.json", "additional-gear.json", "weapons-table.json"],
-  "berserkr-tables-rules": ["broken.json", "debilitating-injuries.json"],
-  "berserkr-tables-divine": ["odin-favour-wrath.json", "loki-favour-wrath.json"],
-  "berserkr-tables-midgard": ["midgard-tables.json"],
-  "berserkr-tables-asgard": ["asgard-tables.json"],
-  "berserkr-tables-vanaheim": ["vanaheim-tables.json"],
-  "berserkr-tables-jotunheim": ["jotunheim-tables.json"],
-  "berserkr-tables-alfheim": ["alfheim-tables.json"],
-  "berserkr-tables-svartalfheim": ["svartalfheim-tables.json"],
-  "berserkr-tables-niflheim": ["niflheim-tables.json"],
-  "berserkr-tables-muspelheim": ["muspelheim-tables.json"],
-  "berserkr-tables-helheim": ["helheim-tables.json"]
-};
+  try {
+    // 1. Load the manifest
+    const manifestResponse = await fetch('systems/berserkr/packs-manifest.json');
+    if (!manifestResponse.ok) throw new Error("Manifest file not found!");
+    const manifest = await manifestResponse.json();
 
-async function masterSetup() {
-  ui.notifications.info("BERSERKR | Starting Master Setup...");
+    const packs = game.packs.filter(p => p.metadata.packageName === "berserkr");
+    
+    for (let pack of packs) {
+      const packKey = pack.metadata.name;
+      const fileList = manifest[packKey];
 
-  // 1. Organize Sidebar Folders
-  for (const [folderName, packNames] of Object.entries(packGroups)) {
-    // Find or Create sidebar folder for Compendiums
-    let folder = game.folders.find(f => f.name === folderName && f.type === "Compendium");
-    if (!folder) {
-      folder = await Folder.create({ name: folderName, type: "Compendium", color: "#004D56" });
-    }
-
-    for (const packName of packNames) {
-      const pack = game.packs.get(`berserkr.${packName}`);
-      if (pack) {
-        await pack.configure({ folder: folder.id, locked: false });
-        
-        // 2. Clear Pack
-        const content = await pack.getDocuments();
-        for (let doc of content) await doc.delete();
-
-        // 3. Import Data
-        const files = packFiles[packName] || [];
-        for (const fileName of files) {
-          try {
-            const response = await fetch(`systems/berserkr/packs/${packName}/${fileName}`);
-            if (!response.ok) continue;
-            const data = await response.json();
-            for (let itemData of data) {
-              if (!itemData._id) itemData._id = foundry.utils.randomID();
-              await pack.documentClass.create(itemData, { pack: pack.collection });
-            }
-            console.log(`BERSERKR | Imported ${fileName} into ${packName}`);
-          } catch (err) {
-            console.error(`BERSERKR | Error in ${fileName}:`, err);
-          }
-        }
-        
-        await pack.configure({ locked: true });
+      if (!fileList || fileList.length === 0) {
+        console.warn(`BERSERKR | No source files found for pack: ${packKey}`);
+        continue;
       }
-    }
-  }
 
-  ui.notifications.info("BERSERKR | Master Setup Complete! Sidebar organized.");
+      ui.notifications.info(`Importing ${fileList.length} items into ${packKey}...`);
+
+      // Unlock
+      await pack.configure({ locked: false });
+
+      // Clear existing to avoid duplicates
+      const docs = await pack.getDocuments();
+      for (let d of docs) await d.delete();
+
+      // Import each file
+      for (const fileName of fileList) {
+        try {
+          const itemResponse = await fetch(`systems/berserkr/src/packs/${packKey}/${fileName}`);
+          const itemData = await itemResponse.json();
+          
+          if (!itemData._id) itemData._id = foundry.utils.randomID();
+          await pack.documentClass.create(itemData, { pack: pack.collection });
+        } catch (err) {
+          console.error(`BERSERKR | Error importing ${fileName} into ${packKey}:`, err);
+        }
+      }
+
+      // Relock
+      await pack.configure({ locked: true });
+      console.log(`BERSERKR | Restored pack: ${packKey}`);
+    }
+
+    ui.notifications.info("BERSERKR | Restoration Complete! All items and tables loaded.");
+  } catch (err) {
+    ui.notifications.error("BERSERKR | Restoration failed. See console for details.");
+    console.error(err);
+  }
 }
 
-masterSetup();
+fullRestore();

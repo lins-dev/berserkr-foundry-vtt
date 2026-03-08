@@ -1,0 +1,11 @@
+{
+  "name": "Foraged Healing Poultice",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Heals d4 HP and removes fatigue (d4 uses).",
+    "quantity": 1,
+    "weight": 0.1,
+    "cost": 40
+  }
+}

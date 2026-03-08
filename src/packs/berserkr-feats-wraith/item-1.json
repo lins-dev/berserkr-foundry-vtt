@@ -1,0 +1,11 @@
+{
+  "name": "BERSERKR.Items.Feats.MistyApparition.Name",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Feats.MistyApparition.Description",
+    "quantity": 1,
+    "weight": 0,
+    "cost": 0
+  }
+}

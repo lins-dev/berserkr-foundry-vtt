@@ -1,0 +1,56 @@
+{
+  "name": "Midgard Weather",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "The frozen skies of Midgard.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Blinding Snowstorm</strong>: Visibility drops to almost nothing. Navigation falters.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Icy Winds</strong>: Test Fortitude DR12 every 2 hours or take d4 cold damage.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frozen Fog</strong>: Perception disadvantage, Stealth advantage.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Forgotten Sun</strong>: Fleeting reprieve. +1 to all Tests for 1 hour.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Black Ice</strong>: Test Swift DR10 or take d2 damage and fall prone.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Cloud Break</strong>: The gloom lifts temporarily.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

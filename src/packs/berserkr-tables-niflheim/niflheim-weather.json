@@ -1,0 +1,56 @@
+{
+  "name": "Niflheim Weather",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "The eternal ice of Niflheim.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Blinding Snowstorm</strong>: Test Fortitude DR14 or take d4 damage per hour.",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Freezing Mist</strong>: Visibility obscured. Stealth advantage today.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Ice Shards</strong>: Rain of blades. Test Swift DR12 or take d4 damage.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Aurora's Blessing</strong>: Degraded armour is miraculously repaired.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frozen Ground</strong>: Icy fissures. Test Swift DR12 to avoid falling.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Silent Night</strong>: Communication impossible. Footsteps leave no echo.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

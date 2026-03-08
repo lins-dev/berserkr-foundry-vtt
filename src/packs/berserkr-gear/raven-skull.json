@@ -1,0 +1,11 @@
+{
+  "name": "Raven Skull",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "Can be used to invent a tale for your Saga.",
+    "quantity": 1,
+    "weight": 0.5,
+    "cost": 300
+  }
+}

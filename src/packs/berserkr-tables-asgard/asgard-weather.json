@@ -1,0 +1,56 @@
+{
+  "name": "Asgard Weather",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Stormy skies over the divine realm.",
+  "results": [
+    {
+      "type": 0,
+      "text": "<strong>Divine Storm</strong>: Lightning deals d6 damage. 1-in-6 chance to charge a weapon (+2 lightning dmg).",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Aurora Veil</strong>: Clarity and beauty. Touched by divine presence.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Frozen Twilight</strong>: Unnatural gloom. Stealth advantage.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Sunlit Cold</strong>: Golden light. +1 to Fortitude Tests today.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Hail of Spears</strong>: Golden weapons rain down. Test Swift DR12 or take d6 damage.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "<strong>Fimbulwinter's Gale</strong>: Howling wind. Subtract d4 from food. Extinguishes magical fire.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

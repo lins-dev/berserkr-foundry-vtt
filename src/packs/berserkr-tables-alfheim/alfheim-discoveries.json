@@ -1,0 +1,56 @@
+{
+  "name": "Alfheim Discoveries",
+  "img": "icons/svg/mystery-man.svg",
+  "description": "Lost elven wonders buried in sand.",
+  "results": [
+    {
+      "type": 0,
+      "text": "Buried Elven Relic: A random Rune (fragile power).",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Crumbling Tower: Ancient Runes and Trinkets. Collapses on failure.",
+      "range": [
+        2,
+        2
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Shattered Mirror of Light: Reassembly reveals a desired location.",
+      "range": [
+        3,
+        3
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Sunken Elven Temple: Sheltered rest, but guarded by magic.",
+      "range": [
+        4,
+        4
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Desiccated Corpse: Key to an elven vault or a trap.",
+      "range": [
+        5,
+        5
+      ]
+    },
+    {
+      "type": 0,
+      "text": "Glowing Oasis: Regain d6 HP. Might be guarded by stalkers.",
+      "range": [
+        6,
+        6
+      ]
+    }
+  ],
+  "formula": "1d6"
+}

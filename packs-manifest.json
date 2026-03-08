@@ -1,0 +1,229 @@
+{
+  "berserkr-armors": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json",
+    "item-7.json",
+    "item-8.json"
+  ],
+  "berserkr-basic-weapons": [
+    "item-0.json",
+    "item-1.json",
+    "item-10.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json",
+    "item-7.json",
+    "item-8.json",
+    "item-9.json"
+  ],
+  "berserkr-feats-berserkr": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json"
+  ],
+  "berserkr-feats-flame-construct": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json"
+  ],
+  "berserkr-feats-frost-jotunn": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json"
+  ],
+  "berserkr-feats-light-elf": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json"
+  ],
+  "berserkr-feats-master-smith": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json"
+  ],
+  "berserkr-feats-realmbreaker": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json"
+  ],
+  "berserkr-feats-soul-shepherd": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json"
+  ],
+  "berserkr-feats-valkyrie": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json"
+  ],
+  "berserkr-feats-vanir-warden": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json"
+  ],
+  "berserkr-feats-wraith": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json"
+  ],
+  "berserkr-gear": [
+    "bloodstained-feather.json",
+    "bundle-of-yarrow-stalks.json",
+    "carved-wooden-dice.json",
+    "carved-wooden-lantern.json",
+    "chunk-of-bog-iron.json",
+    "dried-serpent-skin.json",
+    "foraged-healing-poultice.json",
+    "iron-fish-hook.json",
+    "jar-of-pickled-crowberries.json",
+    "raven-s-talon-necklace.json",
+    "raven-skull.json",
+    "smouldering-hearth-embers.json",
+    "tarnished-bronze-mirror.json",
+    "tarnished-copper-ring.json",
+    "thunderstone-shard.json",
+    "wolf-s-fang-talisman.json",
+    "worn-leather-pouch.json",
+    "wyrd-knotted-twine.json"
+  ],
+  "berserkr-runes": [
+    "item-0.json",
+    "item-1.json",
+    "item-10.json",
+    "item-11.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json",
+    "item-7.json",
+    "item-8.json",
+    "item-9.json"
+  ],
+  "berserkr-special-weapons": [
+    "item-0.json",
+    "item-1.json",
+    "item-10.json",
+    "item-11.json",
+    "item-12.json",
+    "item-13.json",
+    "item-14.json",
+    "item-15.json",
+    "item-16.json",
+    "item-17.json",
+    "item-18.json",
+    "item-19.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json",
+    "item-6.json",
+    "item-7.json",
+    "item-8.json",
+    "item-9.json"
+  ],
+  "berserkr-tables-alfheim": [
+    "alfheim-discoveries.json",
+    "alfheim-rumours.json",
+    "alfheim-weather.json"
+  ],
+  "berserkr-tables-asgard": [
+    "asgard-discoveries.json",
+    "asgard-rumours.json",
+    "asgard-weather.json"
+  ],
+  "berserkr-tables-creation": [
+    "beliefs-superstitions.json",
+    "quirks-talents.json"
+  ],
+  "berserkr-tables-divine": [
+    "item-0.json",
+    "item-1.json",
+    "item-2.json",
+    "item-3.json",
+    "item-4.json",
+    "item-5.json"
+  ],
+  "berserkr-tables-helheim": [
+    "helheim-discoveries.json",
+    "helheim-rumours.json",
+    "helheim-weather.json"
+  ],
+  "berserkr-tables-jotunheim": [
+    "jotunheim-discoveries.json",
+    "jotunheim-rumours.json",
+    "jotunheim-weather.json"
+  ],
+  "berserkr-tables-midgard": [
+    "midgard-discoveries.json",
+    "midgard-rumours.json",
+    "midgard-weather.json"
+  ],
+  "berserkr-tables-muspelheim": [
+    "muspelheim-discoveries.json",
+    "muspelheim-rumours.json",
+    "muspelheim-weather.json"
+  ],
+  "berserkr-tables-niflheim": [
+    "niflheim-discoveries.json",
+    "niflheim-rumours.json",
+    "niflheim-weather.json"
+  ],
+  "berserkr-tables-rules": [],
+  "berserkr-tables-svartalfheim": [
+    "svartalfheim-discoveries.json",
+    "svartalfheim-rumours.json",
+    "svartalfheim-weather.json"
+  ],
+  "berserkr-tables-vanaheim": [
+    "vanaheim-discoveries.json",
+    "vanaheim-rumours.json",
+    "vanaheim-weather.json"
+  ]
+}

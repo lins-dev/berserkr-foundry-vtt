@@ -1,0 +1,21 @@
+{
+  "name": "BERSERKR.Items.Weapons.DragonboneSpear.Name",
+  "type": "weapon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "BERSERKR.Items.Weapons.DragonboneSpear.Description",
+    "quantity": 1,
+    "weight": 1,
+    "cost": 200,
+    "damages": [
+      {
+        "dieCount": 1,
+        "dieType": "d10",
+        "modifier": 0,
+        "type": "physical"
+      }
+    ],
+    "isRanged": false,
+    "range": 0
+  }
+}
