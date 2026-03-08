@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Svartalfheim Weather",
+    "img": "icons/magic/air/fog-gas-cloud-brown.webp",
+    "description": "Ash-choked skies and seismic tremors.",
+    "results": [
+      { "type": 0, "text": "<strong>Dust Storm</strong>: Guile disadvantage. Test Fortitude DR12 or take d4 damage and become Fatigued.", "range": [1, 1] },
+      { "type": 0, "text": "<strong>Echoes of the Forge</strong>: Mines hum with rhythmic creation. Calming presence.", "range": [2, 2] },
+      { "type": 0, "text": "<strong>Seismic Tremors</strong>: Test Swift DR12 to avoid falling rocks or crevasses.", "range": [3, 3] },
+      { "type": 0, "text": "<strong>Cleansing Breeze</strong>: Sulphur gas invigorates. +2 to Fortitude Tests for 1 hour.", "range": [4, 4] },
+      { "type": 0, "text": "<strong>Unstable Machinery</strong>: Malfunctioning gears. Test Swift DR12 or take d6 damage.", "range": [5, 5] },
+      { "type": 0, "text": "<strong>Lava Flow</strong>: Sudden eruption. Test Swift DR14 or take 2d6 fire damage.", "range": [6, 6] }
+    ],
+    "formula": "1d6"
+  },
+  {
+    "name": "Svartalfheim Discoveries",
+    "img": "icons/tools/smithing/anvil.webp",
+    "description": "Dwarven masterworks and dark elf traps.",
+    "results": [
+      { "type": 0, "text": "Dwarven Forge: Tools and half-completed weapon. Reactivating might trigger a trap.", "range": [1, 1] },
+      { "type": 0, "text": "Vein of Gleaming Ore: Mining yields valuable trade materials. May draw Dokkalfar.", "range": [2, 2] },
+      { "type": 0, "text": "Crystalised Cave: Precious stones guarded by Crystal Spiders.", "range": [3, 3] },
+      { "type": 0, "text": "Forgotten Vault: Sealed by Runes. Riches guarded by Rock Golems.", "range": [4, 4] },
+      { "type": 0, "text": "Dvalin's Workshop: Cursed artefacts. Test Wits DR14 to handle safely.", "range": [5, 5] },
+      { "type": 0, "text": "Collapsed Mine: Tremors rock the tunnels. Hide lost artefacts.", "range": [6, 6] }
+    ],
+    "formula": "1d6"
+  },
+  {
+    "name": "Svartalfheim Rumours",
+    "img": "icons/skills/social/diplomacy-handshake.webp",
+    "description": "Whispers from the deep forges.",
+    "results": [
+      { "type": 0, "text": "\"The cursed vault of Andvari has been found deep within.\"", "range": [1, 1] },
+      { "type": 0, "text": "\"The tremors have broken the lifeblood of the forges.\"", "range": [2, 2] },
+      { "type": 0, "text": "\"Dvalin's curse is spreading to anyone who handles his tools.\"", "range": [3, 3] },
+      { "type": 0, "text": "\"The Dark Elves (Dokkalfar) are gathering for something big.\"", "range": [4, 4] },
+      { "type": 0, "text": "\"The Dwarven forges are burning too hot... the mountain might fall.\"", "range": [5, 6] }
+    ],
+    "formula": "1d6"
+  }
+]

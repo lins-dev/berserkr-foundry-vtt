@@ -1,0 +1,50 @@
+{
+  "name": "a",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "asdsad",
+    "quantity": 3,
+    "weight": 1.5,
+    "cost": 13.5,
+    "isRanged": false,
+    "range": 0,
+    "damages": [
+      {
+        "dieCount": 1,
+        "dieType": "d4",
+        "modifier": 100,
+        "type": "physical"
+      },
+      {
+        "dieCount": 2,
+        "dieType": "d3",
+        "modifier": 100,
+        "type": "physicala"
+      }
+    ]
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "teste-berserkr",
+      "uuid": "Item.dUdQoypq5fIy80Mk",
+      "coreVersion": "13.351",
+      "systemId": "berserkr",
+      "systemVersion": "0.1.0"
+    },
+    "coreVersion": "13.351",
+    "systemId": "berserkr",
+    "systemVersion": "0.1.0",
+    "createdTime": 1772909355501,
+    "modifiedTime": 1772915442644,
+    "lastModifiedBy": "iRk89fafUC3IRAFK"
+  },
+  "ownership": {
+    "default": 0
+  }
+}

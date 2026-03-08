@@ -1,0 +1,9 @@
+[
+  { "name": "BERSERKR.Items.Feats.SmithsWill.Name", "type": "feat", "img": "icons/tools/smithing/hammer-anvil.webp", "system": { "description": "BERSERKR.Items.Feats.SmithsWill.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.RunicMastery.Name", "type": "feat", "img": "icons/commodities/biological/stone-rune.webp", "system": { "description": "BERSERKR.Items.Feats.RunicMastery.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.RunicReforging.Name", "type": "feat", "img": "icons/tools/smithing/anvil.webp", "system": { "description": "BERSERKR.Items.Feats.RunicReforging.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.RuneOfShattering.Name", "type": "feat", "img": "icons/magic/sonic/explosion-shock-wave-teal.webp", "system": { "description": "BERSERKR.Items.Feats.RuneOfShattering.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.SmithsResilience.Name", "type": "feat", "img": "icons/magic/symbols/shield-blue.webp", "system": { "description": "BERSERKR.Items.Feats.SmithsResilience.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.AnvilBoundWill.Name", "type": "feat", "img": "icons/tools/smithing/anvil.webp", "system": { "description": "BERSERKR.Items.Feats.AnvilBoundWill.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.Quicksmith.Name", "type": "feat", "img": "icons/tools/hand/hammer-black.webp", "system": { "description": "BERSERKR.Items.Feats.Quicksmith.Description", "quantity": 1, "weight": 0, "cost": 0 } }
+]

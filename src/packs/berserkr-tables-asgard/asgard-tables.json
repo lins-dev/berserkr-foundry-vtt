@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Asgard Weather",
+    "img": "icons/magic/lightning/bolt-strike-blue.webp",
+    "description": "Stormy skies over the divine realm.",
+    "results": [
+      { "type": 0, "text": "<strong>Divine Storm</strong>: Lightning deals d6 damage. 1-in-6 chance to charge a weapon (+2 lightning dmg).", "range": [1, 1] },
+      { "type": 0, "text": "<strong>Aurora Veil</strong>: Clarity and beauty. Touched by divine presence.", "range": [2, 2] },
+      { "type": 0, "text": "<strong>Frozen Twilight</strong>: Unnatural gloom. Stealth advantage.", "range": [3, 3] },
+      { "type": 0, "text": "<strong>Sunlit Cold</strong>: Golden light. +1 to Fortitude Tests today.", "range": [4, 4] },
+      { "type": 0, "text": "<strong>Hail of Spears</strong>: Golden weapons rain down. Test Swift DR12 or take d6 damage.", "range": [5, 5] },
+      { "type": 0, "text": "<strong>Fimbulwinter's Gale</strong>: Howling wind. Subtract d4 from food. Extinguishes magical fire.", "range": [6, 6] }
+    ],
+    "formula": "1d6"
+  },
+  {
+    "name": "Asgard Discoveries",
+    "img": "icons/consumables/food/apple-gold.webp",
+    "description": "Artifacts of the Aesir.",
+    "results": [
+      { "type": 0, "text": "Idunn's Fallen Apple: Restore full HP, +1 to all Tests today. May invoke wrath.", "range": [1, 1] },
+      { "type": 0, "text": "Shattered Valkyrie Spear: Can be reforged to grant +2 Might vs Jotnar.", "range": [2, 2] },
+      { "type": 0, "text": "Runestone of Prophecy: d3 Runes. Visions of Ragnarok.", "range": [3, 3] },
+      { "type": 0, "text": "Einherjar Helm: +2 defence, but halver healing from rests (cursed with visions).", "range": [4, 4] },
+      { "type": 0, "text": "Forseti's Abandoned Scale: Take vengeance whenever wronged.", "range": [5, 5] },
+      { "type": 0, "text": "Golden Mead Flask: Restore 2d6 HP, +2 to flying. Test Wits DR12 to avoid gloom.", "range": [6, 6] }
+    ],
+    "formula": "1d6"
+  },
+  {
+    "name": "Asgard Rumours",
+    "img": "icons/skills/social/diplomacy-handshake.webp",
+    "description": "Whispers from Valhalla.",
+    "results": [
+      { "type": 0, "text": "\"Loki walks among us in disguise.\"", "range": [1, 1] },
+      { "type": 0, "text": "\"Odin is watching everyone with rising paranoia.\"", "range": [2, 2] },
+      { "type": 0, "text": "\"The Valkyries choose no more for Valhalla.\"", "range": [3, 3] },
+      { "type": 0, "text": "\"The Bifrost is cracking and unstable.\"", "range": [4, 4] },
+      { "type": 0, "text": "\"A traitor walks among the Aesir.\"", "range": [5, 5] },
+      { "type": 0, "text": "\"Thor's hammer has been seen in mortal hands.\"", "range": [6, 6] }
+    ],
+    "formula": "1d6"
+  }
+]

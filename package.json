@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "vite",
     "watch": "vite build --watch",
-    "build": "vite build",
+    "build": "vite build && npm run build:packs",
+    "build:packs": "node scripts/compile-packs.js",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "author": "Lucas Lins",
   "license": "MIT",
   "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^3.0.3",
     "@league-of-foundry-developers/foundry-vtt-types": "^13.0.0",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "@tsconfig/svelte": "^5.0.0",

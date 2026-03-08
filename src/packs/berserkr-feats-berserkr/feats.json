@@ -1,0 +1,9 @@
+[
+  { "name": "BERSERKR.Items.Feats.WrathOfMan.Name", "type": "feat", "img": "icons/magic/life/heart-cross-red.webp", "system": { "description": "BERSERKR.Items.Feats.WrathOfMan.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.WyrdOfTheWolfSkin.Name", "type": "feat", "img": "icons/creatures/mammals/wolf-head-paws-grey.webp", "system": { "description": "BERSERKR.Items.Feats.WyrdOfTheWolfSkin.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.IronVigor.Name", "type": "feat", "img": "icons/commodities/materials/liquid-red.webp", "system": { "description": "BERSERKR.Items.Feats.IronVigor.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.StormOfTheAesir.Name", "type": "feat", "img": "icons/magic/lightning/bolt-strike-blue.webp", "system": { "description": "BERSERKR.Items.Feats.StormOfTheAesir.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.OathToTheAncestors.Name", "type": "feat", "img": "icons/magic/symbols/shield-blue.webp", "system": { "description": "BERSERKR.Items.Feats.OathToTheAncestors.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.BerserkersToll.Name", "type": "feat", "img": "icons/magic/control/buff-strength-red.webp", "system": { "description": "BERSERKR.Items.Feats.BerserkersToll.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.BloodEagleRitual.Name", "type": "feat", "img": "icons/magic/death/skull-horned-white.webp", "system": { "description": "BERSERKR.Items.Feats.BloodEagleRitual.Description", "quantity": 1, "weight": 0, "cost": 0 } }
+]

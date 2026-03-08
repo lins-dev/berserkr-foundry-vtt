@@ -1,0 +1,9 @@
+[
+  { "name": "BERSERKR.Items.Feats.DarkVision.Name", "type": "feat", "img": "icons/magic/perception/eye-ringed-glow-white.webp", "system": { "description": "BERSERKR.Items.Feats.DarkVision.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.BlindingRadiance.Name", "type": "feat", "img": "icons/magic/light/hand-shining-white.webp", "system": { "description": "BERSERKR.Items.Feats.BlindingRadiance.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.VeilOfLight.Name", "type": "feat", "img": "icons/magic/light/explosion-star-glow-blue.webp", "system": { "description": "BERSERKR.Items.Feats.VeilOfLight.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.LuminousHealing.Name", "type": "feat", "img": "icons/magic/life/cross-white-green.webp", "system": { "description": "BERSERKR.Items.Feats.LuminousHealing.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.SunbeamStrike.Name", "type": "feat", "img": "icons/magic/light/beam-jet-orange-yellow.webp", "system": { "description": "BERSERKR.Items.Feats.SunbeamStrike.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.RadiantForm.Name", "type": "feat", "img": "icons/magic/light/sun-shining-white-yellow.webp", "system": { "description": "BERSERKR.Items.Feats.RadiantForm.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.BeaconOfHope.Name", "type": "feat", "img": "icons/magic/light/column-light-white.webp", "system": { "description": "BERSERKR.Items.Feats.BeaconOfHope.Description", "quantity": 1, "weight": 0, "cost": 0 } }
+]

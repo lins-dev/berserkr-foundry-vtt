@@ -1,6 +1,6 @@
 # Sprint 1: Infrastructure & Core Rules Extraction
 
-## Status: 🏗️ In Progress
+## Status: ✅ Complete
 
 ### [x] Task 1: Rulebook Extraction
 - [x] Ler @docs/rules-reference/Berserkr_Barebones.pdf integralmente.
@@ -40,7 +40,7 @@
 
 # Sprint 3: Items & UI Polish
 
-## Status: 🏗️ In Progress
+## Status: ✅ Complete
 
 ### [x] Task 1: Item Sheets
 - [x] Implementar `BerserkrItemSheet` (ApplicationV2 + Svelte).
@@ -78,3 +78,11 @@
 - [x] Garantir acessibilidade (A11y) com labels e títulos em todos os elementos interativos.
 - [x] Refatorar e modularizar fichas de Ator e Item em componentes Svelte menores para melhor manutenibilidade.
 - [x] Isolar lógica de rolagens e gestão de inventário em componentes Svelte autocontidos (decoupling).
+
+### [x] Task 4: Compendiums & Tables
+- [x] Implementar Compêndios profissionais (LevelDB) com suporte a build automatizado (`npm run build:packs`).
+- [x] Organizar itens em packs granulares: Basic Weapons, Special Weapons, Armors, Gear e Runes.
+- [x] Criar compêndios individuais de Feats para cada uma das 10 classes do sistema.
+- [x] Reorganizar Tabelas de Rolagem por categorias (Creation, Rules, Divine) e por Reinos (Midgard, Alfheim, etc.).
+- [x] Implementar localização completa (EN/PT-BR) para todos os itens dos compêndios.
+- [x] Gerar lista de ativos visuais necessários em `docs/IMAGES_NEEDED.md`.

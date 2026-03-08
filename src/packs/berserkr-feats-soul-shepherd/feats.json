@@ -1,0 +1,9 @@
+[
+  { "name": "BERSERKR.Items.Feats.ChatWithAGoner.Name", "type": "feat", "img": "icons/magic/death/undead-skeleton-hand-white.webp", "system": { "description": "BERSERKR.Items.Feats.ChatWithAGoner.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.RequiemOfRest.Name", "type": "feat", "img": "icons/magic/sonic/horn-glowing-gold.webp", "system": { "description": "BERSERKR.Items.Feats.RequiemOfRest.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.SoulBinding.Name", "type": "feat", "img": "icons/magic/death/skull-horned-white.webp", "system": { "description": "BERSERKR.Items.Feats.SoulBinding.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.HelsEmbrace.Name", "type": "feat", "img": "icons/magic/death/undead-skeleton-hand-white.webp", "system": { "description": "BERSERKR.Items.Feats.HelsEmbrace.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.VeilOfDeath.Name", "type": "feat", "img": "icons/magic/air/fog-gas-cloud-green.webp", "system": { "description": "BERSERKR.Items.Feats.VeilOfDeath.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.TheSpiritPath.Name", "type": "feat", "img": "icons/magic/air/fog-gas-cloud-green.webp", "system": { "description": "BERSERKR.Items.Feats.TheSpiritPath.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.HelsBargain.Name", "type": "feat", "img": "icons/magic/death/skull-horned-white.webp", "system": { "description": "BERSERKR.Items.Feats.HelsBargain.Description", "quantity": 1, "weight": 0, "cost": 0 } }
+]

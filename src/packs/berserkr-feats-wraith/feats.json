@@ -1,0 +1,9 @@
+[
+  { "name": "BERSERKR.Items.Feats.StenchOfDeath.Name", "type": "feat", "img": "icons/magic/air/fog-gas-cloud-green.webp", "system": { "description": "BERSERKR.Items.Feats.StenchOfDeath.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.MistyApparition.Name", "type": "feat", "img": "icons/magic/air/fog-gas-cloud-green.webp", "system": { "description": "BERSERKR.Items.Feats.MistyApparition.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.WailOfTheLost.Name", "type": "feat", "img": "icons/magic/sonic/shout-wave-blue.webp", "system": { "description": "BERSERKR.Items.Feats.WailOfTheLost.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.GhostlyStep.Name", "type": "feat", "img": "icons/magic/movement/trail-blue.webp", "system": { "description": "BERSERKR.Items.Feats.GhostlyStep.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.SoulboundWeapon.Name", "type": "feat", "img": "icons/weapons/swords/sword-broad-glowing-orange.webp", "system": { "description": "BERSERKR.Items.Feats.SoulboundWeapon.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.MarkOfTheDead.Name", "type": "feat", "img": "icons/magic/death/skull-horned-white.webp", "system": { "description": "BERSERKR.Items.Feats.MarkOfTheDead.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.CommuneWithTheLost.Name", "type": "feat", "img": "icons/magic/death/undead-skeleton-hand-white.webp", "system": { "description": "BERSERKR.Items.Feats.CommuneWithTheLost.Description", "quantity": 1, "weight": 0, "cost": 0 } }
+]

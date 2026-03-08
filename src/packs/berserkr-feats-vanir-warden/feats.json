@@ -1,0 +1,9 @@
+[
+  { "name": "BERSERKR.Items.Feats.NaturesLore.Name", "type": "feat", "img": "icons/magic/nature/leaf-glow-green.webp", "system": { "description": "BERSERKR.Items.Feats.NaturesLore.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.NaturesWrath.Name", "type": "feat", "img": "icons/magic/nature/root-vine-glow-green.webp", "system": { "description": "BERSERKR.Items.Feats.NaturesWrath.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.NaturesShield.Name", "type": "feat", "img": "icons/magic/nature/bark-skin-brown.webp", "system": { "description": "BERSERKR.Items.Feats.NaturesShield.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.HealingWaters.Name", "type": "feat", "img": "icons/magic/water/stream-droplets-teal.webp", "system": { "description": "BERSERKR.Items.Feats.HealingWaters.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.BeastCompanion.Name", "type": "feat", "img": "icons/creatures/mammals/wolf-head-paws-grey.webp", "system": { "description": "BERSERKR.Items.Feats.BeastCompanion.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.VanirsBlessing.Name", "type": "feat", "img": "icons/magic/symbols/clover-luck-green.webp", "system": { "description": "BERSERKR.Items.Feats.VanirsBlessing.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.VerdantRebirth.Name", "type": "feat", "img": "icons/magic/life/cross-white-green.webp", "system": { "description": "BERSERKR.Items.Feats.VerdantRebirth.Description", "quantity": 1, "weight": 0, "cost": 0 } }
+]

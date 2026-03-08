@@ -1,0 +1,122 @@
+[
+  {
+    "name": "BERSERKR.Tables.OdinMinorFavour",
+    "img": "icons/magic/light/hand-shining-white.webp",
+    "description": "Small acts of guidance from the Allfather.",
+    "results": [
+      { "type": 0, "text": "<strong>Odin's Wisdom:</strong> Vision of insight. Advantage on your next Wits Test.", "range": [1, 1] },
+      { "type": 0, "text": "<strong>Huginn's Message:</strong> Raven delivers knowledge. GM reveals a minor secret.", "range": [2, 2] },
+      { "type": 0, "text": "<strong>Muninn's Memory:</strong> Glimpse of past glory. Regain d4 HP.", "range": [3, 3] },
+      { "type": 0, "text": "<strong>Odin's Favour:</strong> Your next attack is an automatic success.", "range": [4, 4] },
+      { "type": 0, "text": "<strong>Guiding Eye:</strong> +2 to next Guile Test. Removes Blindness.", "range": [5, 5] },
+      { "type": 0, "text": "<strong>Runic Empowerment:</strong> Gain a random Rune.", "range": [6, 6] },
+      { "type": 0, "text": "<strong>Odin's Endurance:</strong> +1 to next Fortitude Test.", "range": [7, 7] },
+      { "type": 0, "text": "<strong>Blessing of the Allfather:</strong> Restores vitality. Heal d6 HP.", "range": [8, 8] },
+      { "type": 0, "text": "<strong>Odin's Ravens:</strong> Advantage on next Guile Test.", "range": [9, 9] },
+      { "type": 0, "text": "<strong>Warding Vision:</strong> Half damage next time you are hit.", "range": [10, 10] },
+      { "type": 0, "text": "<strong>Freyja's Light:</strong> +2 to next attack or defence.", "range": [11, 11] },
+      { "type": 0, "text": "<strong>Odin's Gaze:</strong> DR of next Wits Test is reduced by -2.", "range": [12, 12] }
+    ],
+    "formula": "1d12"
+  },
+  {
+    "name": "BERSERKR.Tables.OdinMinorWrath",
+    "img": "icons/magic/lightning/bolt-strike-blue.webp",
+    "description": "The Allfather's growing irritation.",
+    "results": [
+      { "type": 0, "text": "<strong>Odin's Disfavour:</strong> Misfortune on weapon. Next attack has disadvantage.", "range": [1, 1] },
+      { "type": 0, "text": "<strong>Thor's Punishment:</strong> Shockwave deals d6 damage.", "range": [2, 2] },
+      { "type": 0, "text": "<strong>Frigg's Curse:</strong> Wave of sadness. Next failure makes you weep uncontrollably.", "range": [3, 3] },
+      { "type": 0, "text": "<strong>Heimdall's Watch:</strong> Stealth attempt fails due to bright spotlight.", "range": [4, 4] },
+      { "type": 0, "text": "<strong>Vidar's Grip:</strong> Held in place. Cannot move next round.", "range": [5, 5] },
+      { "type": 0, "text": "<strong>Freyja's Anger:</strong> Dominated by fear. Test Wits DR14 or scream.", "range": [6, 6] },
+      { "type": 0, "text": "<strong>Tyr's Judgement:</strong> Tyr watches next battle. Judging you.", "range": [7, 7] },
+      { "type": 0, "text": "<strong>Odin's Blind Eye:</strong> Apply Blindness for 24 hours.", "range": [8, 8] },
+      { "type": 0, "text": "<strong>Thor's Reckoning:</strong> Next Might Test DR increases by 4.", "range": [9, 9] },
+      { "type": 0, "text": "<strong>Frigg's Withering Hand:</strong> Healing restored is halved next time.", "range": [10, 10] },
+      { "type": 0, "text": "<strong>Vidar's Retribution:</strong> Automatically knocked prone when attacked.", "range": [11, 11] },
+      { "type": 0, "text": "<strong>Odin's Displeasure:</strong> Role d6: 1-3 equipment fire, 4-5 lose d100 Trinkets, 6 both.", "range": [12, 12] }
+    ],
+    "formula": "1d12"
+  },
+  {
+    "name": "BERSERKR.Tables.OdinModerateFavour",
+    "img": "icons/magic/light/explosion-star-glow-blue.webp",
+    "description": "Powerful blessings when the gods take notice.",
+    "results": [
+      { "type": 0, "text": "<strong>Odin's Ravens:</strong> Huginn and Muninn come to spy for you.", "range": [1, 1] },
+      { "type": 0, "text": "<strong>Frigg's Protection:</strong> Next defence is an automatic success.", "range": [2, 2] },
+      { "type": 0, "text": "<strong>Freyja's Inspiration:</strong> Allies gain +1 to attacks next round.", "range": [3, 3] },
+      { "type": 0, "text": "<strong>Vidar's Endurance:</strong> +2 to all Tests during next holmgang.", "range": [4, 4] },
+      { "type": 0, "text": "<strong>Thor's Empowerment:</strong> Next melee attack deals additional d6 lightning damage.", "range": [5, 5] },
+      { "type": 0, "text": "<strong>Heimdall's Vigilance:</strong> Avoid next ambush or trap automatically.", "range": [6, 6] },
+      { "type": 0, "text": "<strong>Odin's Blessing:</strong> Reroll the next failed Test.", "range": [7, 7] },
+      { "type": 0, "text": "<strong>Tyr's Battle Cry:</strong> All allies gain +2 to attacks next round.", "range": [8, 8] },
+      { "type": 0, "text": "<strong>Freyja's Healing:</strong> Heal d8 HP and remove all conditions.", "range": [9, 9] },
+      { "type": 0, "text": "<strong>Vidar's Retribution:</strong> Next successful attack deals double damage.", "range": [10, 10] },
+      { "type": 0, "text": "<strong>Odin's Guidance:</strong> GM reveals an enemy weakness or mission secret.", "range": [11, 11] },
+      { "type": 0, "text": "<strong>Thor's Thunder:</strong> Next successful attack stuns all nearby enemies.", "range": [12, 12] }
+    ],
+    "formula": "1d12"
+  },
+  {
+    "name": "BERSERKR.Tables.OdinModerateWrath",
+    "img": "icons/magic/lightning/bolt-strike-red.webp",
+    "description": "Divine punishment for those who stray.",
+    "results": [
+      { "type": 0, "text": "<strong>Thor's Strike:</strong> Test Swift DR12 or take 2d6 lightning damage.", "range": [1, 1] },
+      { "type": 0, "text": "<strong>Odin's Take Backs:</strong> One precious belonging is permanently destroyed.", "range": [2, 2] },
+      { "type": 0, "text": "<strong>Vidar's Vengeance:</strong> Enemies deal +2 damage to you in the next battle.", "range": [3, 3] },
+      { "type": 0, "text": "<strong>Frigg's Sorrow:</strong> Test Fortitude DR14 or lament next enemy like family.", "range": [4, 4] },
+      { "type": 0, "text": "<strong>Heimdall's Judgement:</strong> Instantly lost, even in familiar places.", "range": [5, 5] },
+      { "type": 0, "text": "<strong>Tyr's Demand:</strong> Lose d10 HP or suffer -2 to all Tests for 24h.", "range": [6, 6] },
+      { "type": 0, "text": "<strong>Odin's Blind Eye:</strong> Next Guile Test fails automatically. Apply Blindness.", "range": [7, 7] },
+      { "type": 0, "text": "<strong>Thor's Rage:</strong> Stunned by a lightning bolt from the sky.", "range": [8, 8] },
+      { "type": 0, "text": "<strong>Vidar's Grip:</strong> Automatic failure on all defences in next battle.", "range": [9, 9] },
+      { "type": 0, "text": "<strong>Heimdall's Eyes:</strong> Spotlight reveals you; horn sounds with each step.", "range": [10, 10] },
+      { "type": 0, "text": "<strong>Frigg's Curse:</strong> You can only heal while in Asgard.", "range": [11, 11] },
+      { "type": 0, "text": "<strong>Tyr's Judgement:</strong> Challenge next god seen to holmgang (-2 to all Tests).", "range": [12, 12] }
+    ],
+    "formula": "1d12"
+  },
+  {
+    "name": "BERSERKR.Tables.OdinSevereFavour",
+    "img": "icons/magic/light/sun-shining-white-yellow.webp",
+    "description": "The Allfather's direct intervention in your saga.",
+    "results": [
+      { "type": 0, "text": "<strong>Odin's Gift:</strong> Permanent Rune inscribed on equipment. Weapon +1 dmg or Armour +1 negation.", "range": [1, 1] },
+      { "type": 0, "text": "<strong>Heimdall's Horn:</strong> GJALLARHORN sounds! d4 Einherjar join you in the next battle.", "range": [2, 2] },
+      { "type": 0, "text": "<strong>Thor's Thunderstrike:</strong> 3d6 damage to ALL enemies in battle.", "range": [3, 3] },
+      { "type": 0, "text": "<strong>Freyja's Valkyries:</strong> d4 Valkyries descend to fight by your side.", "range": [4, 4] },
+      { "type": 0, "text": "<strong>Odin's Intervention:</strong> Each player gains automatic success on all attacks next round.", "range": [5, 5] },
+      { "type": 0, "text": "<strong>Vidar's Vengeance:</strong> Choose an enemy; they suffer 5d6 damage immediately.", "range": [6, 6] },
+      { "type": 0, "text": "<strong>Tyr's Divine Trial:</strong> Weapon deals double damage for the entire next battle.", "range": [7, 7] },
+      { "type": 0, "text": "<strong>Freyja's Blessing:</strong> Heal ALL party members 2d6 HP and remove all conditions.", "range": [8, 8] },
+      { "type": 0, "text": "<strong>Odin's Insight:</strong> Odin lends a Legendary Weapon or Item for the next mission.", "range": [9, 9] },
+      { "type": 0, "text": "<strong>Heimdall's Vision:</strong> Advantage on all attacks and defences in next battle.", "range": [10, 10] },
+      { "type": 0, "text": "<strong>Frigg's Shield:</strong> Immunity to one condition for the entire group next battle.", "range": [11, 11] },
+      { "type": 0, "text": "<strong>Odin's Runic Mastery:</strong> Inscribe THREE random Runes into your equipment.", "range": [12, 12] }
+    ],
+    "formula": "1d12"
+  },
+  {
+    "name": "BERSERKR.Tables.OdinSevereWrath",
+    "img": "icons/magic/lightning/bolt-strike-red.webp",
+    "description": "Divine doom from Asgard.",
+    "results": [
+      { "type": 0, "text": "<strong>Odin's Deception:</strong> Compelled to attack your allies for d4 rounds.", "range": [1, 1] },
+      { "type": 0, "text": "<strong>Frigg's Weeping:</strong> Group cursed; no HP can be restored for 24 hours.", "range": [2, 2] },
+      { "type": 0, "text": "<strong>Vidar's Retribution:</strong> Group suffers 3d6 damage and falls prone.", "range": [3, 3] },
+      { "type": 0, "text": "<strong>Heimdall's Silence:</strong> Cannot use Runes or Features in next battle.", "range": [4, 4] },
+      { "type": 0, "text": "<strong>Odin's Cleanse:</strong> Lose the ability to use Fates during next battle.", "range": [5, 5] },
+      { "type": 0, "text": "<strong>Thor's Fury:</strong> Thor descends personally, demanding a test of strength.", "range": [6, 6] },
+      { "type": 0, "text": "<strong>Frigg's Judgement:</strong> Frigg arrives to weigh your actions with sorrow.", "range": [7, 7] },
+      { "type": 0, "text": "<strong>Vidar's Hunt:</strong> Marked for divine retribution by Vidar.", "range": [8, 8] },
+      { "type": 0, "text": "<strong>Heimdall's Wrath:</strong> Challenges group to a test of vigilance.", "range": [9, 9] },
+      { "type": 0, "text": "<strong>Tyr's Trial by Combat:</strong> Duel Tyr or suffer dire consequences.", "range": [10, 10] },
+      { "type": 0, "text": "<strong>Freyja's Vengeance:</strong> Freyja arrives seeking vengeance for your deeds.", "range": [11, 11] },
+      { "type": 0, "text": "<strong>Odin's Judgement:</strong> Odin personally delivers punishment and challenges your worth.", "range": [12, 12] }
+    ],
+    "formula": "1d12"
+  }
+]

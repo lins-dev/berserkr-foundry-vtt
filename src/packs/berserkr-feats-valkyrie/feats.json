@@ -1,0 +1,9 @@
+[
+  { "name": "BERSERKR.Items.Feats.Flight.Name", "type": "feat", "img": "icons/magic/air/feather-wing-white.webp", "system": { "description": "BERSERKR.Items.Feats.Flight.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.EyesOfTheFallen.Name", "type": "feat", "img": "icons/magic/perception/eye-ringed-glow-white.webp", "system": { "description": "BERSERKR.Items.Feats.EyesOfTheFallen.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.WingsOfTheStorm.Name", "type": "feat", "img": "icons/magic/air/wing-lightning-blue.webp", "system": { "description": "BERSERKR.Items.Feats.WingsOfTheStorm.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.VoiceOfTheChooser.Name", "type": "feat", "img": "icons/magic/sonic/shout-wave-blue.webp", "system": { "description": "BERSERKR.Items.Feats.VoiceOfTheChooser.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.SpearOfTheWorthy.Name", "type": "feat", "img": "icons/weapons/spears/spear-shaft-wrapped-white.webp", "system": { "description": "BERSERKR.Items.Feats.SpearOfTheWorthy.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.RavensFavour.Name", "type": "feat", "img": "icons/creatures/birds/raven-black.webp", "system": { "description": "BERSERKR.Items.Feats.RavensFavour.Description", "quantity": 1, "weight": 0, "cost": 0 } },
+  { "name": "BERSERKR.Items.Feats.ValhallasCall.Name", "type": "feat", "img": "icons/magic/sonic/horn-glowing-gold.webp", "system": { "description": "BERSERKR.Items.Feats.ValhallasCall.Description", "quantity": 1, "weight": 0, "cost": 0 } }
+]

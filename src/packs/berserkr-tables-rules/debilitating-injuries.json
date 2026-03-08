@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Debilitating Injuries",
+    "img": "icons/magic/death/undead-skeleton-hand-white.webp",
+    "description": "Permanent marks of your struggle.",
+    "results": [
+      { "type": 0, "text": "<strong>Lost An Eye:</strong> Disadvantage on ranged attacks.", "range": [1, 1] },
+      { "type": 0, "text": "<strong>Frostbitten Fingers:</strong> Struggle with fine motor tasks.", "range": [2, 2] },
+      { "type": 0, "text": "<strong>Cracked Ribs:</strong> Easily fatigued after battle.", "range": [3, 3] },
+      { "type": 0, "text": "<strong>Venom-Scarred:</strong> Disadvantage on Tests for poison or fever.", "range": [4, 4] },
+      { "type": 0, "text": "<strong>Lame Leg:</strong> Disadvantage on Tests against being knocked prone.", "range": [5, 5] },
+      { "type": 0, "text": "<strong>Head Injury:</strong> Frequent headaches and impaired focus.", "range": [6, 6] },
+      { "type": 0, "text": "<strong>Frozen Lung:</strong> Shortness of breath with physical effort.", "range": [7, 7] },
+      { "type": 0, "text": "<strong>Crippled Hand:</strong> Reduced grip strength.", "range": [8, 8] },
+      { "type": 0, "text": "<strong>Deafened In One Ear:</strong> Difficulty pinpointing sounds.", "range": [9, 9] },
+      { "type": 0, "text": "<strong>Necrotic Burns:</strong> Half any HP recovered from resting.", "range": [10, 10] },
+      { "type": 0, "text": "<strong>Soul-Sapped:</strong> Disadvantage on Might Tests.", "range": [11, 11] },
+      { "type": 0, "text": "<strong>Cracked Spine:</strong> Stiff movements. Next time you are broken, you DIE.", "range": [12, 12] }
+    ],
+    "formula": "1d12"
+  }
+]
