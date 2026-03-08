@@ -60,6 +60,8 @@
 - [x] Implementar criação rápida de itens (botão +) por categoria no inventário.
 - [x] Implementar rastreador de carga (Might + 8) com penalidades automáticas.
 - [x] Implementar botões de uso rápido para Runas e envio de detalhes de itens para o chat.
+- [x] Implementar Aba Special com suporte a Feats (habilidades de classe) e Runic Magic.
+- [x] Implementar automação de Runic Magic: Pool diária (d4+Guile), Teste de Cast (Wits DR12) e perda automática de 1 HP em falhas.
 - [x] Resolver persistência absoluta de abas e posição de scroll na interface Svelte.
 
 ### [x] Task 3: Styling & Assets

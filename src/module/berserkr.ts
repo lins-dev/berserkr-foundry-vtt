@@ -5,7 +5,7 @@
 
 import "../styles/berserkr.scss";
 import { BerserkrCharacterData } from "./data/character-data";
-import { BerserkrWeaponData, BerserkrArmorData, BerserkrRuneData, BerserkrItemBaseData } from "./data/item-data";
+import { BerserkrWeaponData, BerserkrArmorData, BerserkrRuneData, BerserkrItemBaseData, BerserkrFeatData } from "./data/item-data";
 import { BerserkrActor } from "./documents/actor";
 import { BerserkrItem } from "./documents/item";
 import { BerserkrActorSheet } from "./applications/actor-sheet";
@@ -26,6 +26,7 @@ Hooks.once("init", async () => {
     armor: BerserkrArmorData,
     rune: BerserkrRuneData,
     gear: BerserkrItemBaseData,
+    feat: BerserkrFeatData,
   };
 
   // @ts-ignore

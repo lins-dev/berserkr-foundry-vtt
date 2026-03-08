@@ -20,6 +20,10 @@ export class BerserkrCharacterData extends foundry.abstract.DataModel {
         max: new fields.NumberField({ initial: 1, integer: true, min: 1 }),
       }),
       silver: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
+      runeUses: new fields.SchemaField({
+        value: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
+        max: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
+      }),
       fates: new fields.SchemaField({
         value: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
         max: new fields.NumberField({ initial: 0, integer: true, min: 0 }),

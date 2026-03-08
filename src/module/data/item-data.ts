@@ -74,3 +74,14 @@ export class BerserkrRuneData extends BerserkrItemBaseData {
     };
   }
 }
+
+/**
+ * Data Model for Feats (Class Abilities)
+ */
+export class BerserkrFeatData extends BerserkrItemBaseData {
+  static defineSchema() {
+    return {
+      ...super.defineSchema(),
+    };
+  }
+}

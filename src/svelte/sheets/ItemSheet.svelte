@@ -96,6 +96,8 @@
       <ArmorProps {item} {system} {updateField} {updateCheckbox} {updateReduction} />
     {:else if type === "rune"}
       <RuneProps {item} {system} {updateField} />
+    {:else if type === "feat"}
+      <!-- Feats only use common props and description -->
     {/if}
   </section>
 

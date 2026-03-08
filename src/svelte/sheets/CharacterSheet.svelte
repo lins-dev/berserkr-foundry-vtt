@@ -2,11 +2,13 @@
   import type { BerserkrActor } from "../../module/documents/actor";
   import { tick } from "svelte";
   
+  /* Import Components */
   import ActorHeader from "../components/actor/ActorHeader.svelte";
   import AttributesRow from "../components/actor/AttributesRow.svelte";
   import TabNavigation from "../components/shared/TabNavigation.svelte";
   import ViolenceTab from "../components/actor/ViolenceTab.svelte";
   import EquipmentTab from "../components/actor/EquipmentTab.svelte";
+  import SpecialTab from "../components/actor/SpecialTab.svelte";
   import BackgroundTab from "../components/actor/BackgroundTab.svelte";
 
   let { actor, context } = $props<{
@@ -20,6 +22,7 @@
   let armors = $derived(actor.items.filter(i => i.type === "armor"));
   let runes = $derived(actor.items.filter(i => i.type === "rune"));
   let gear = $derived(actor.items.filter(i => i.type === "gear"));
+  let feats = $derived(actor.items.filter(i => i.type === "feat"));
 
   let inventoryLimit = $derived(system.abilities.might.mod + 8);
   let currentLoad = $derived(actor.items.reduce((acc, i) => {
@@ -67,6 +70,17 @@
       }
     }
   };
+
+  const createItem = async (type: string) => {
+    saveScroll();
+    const data = {
+      name: `New ${type.charAt(0).toUpperCase() + type.slice(1)}`,
+      type: type,
+      img: `icons/svg/item-bag.svg`
+    };
+    // @ts-ignore
+    await actor.createEmbeddedDocuments("Item", [data]);
+  };
 </script>
 
 <div class="berserkr-sheet-v2">
@@ -87,9 +101,7 @@
         {saveScroll}
       />
     {:else if activeTab === "special"}
-      <div class="special-placeholder">
-        <p>Special abilities coming soon...</p>
-      </div>
+      <SpecialTab {actor} {system} {runes} {feats} {createItem} />
     {:else if activeTab === "background"}
       <BackgroundTab {system} {updateField} />
     {/if}

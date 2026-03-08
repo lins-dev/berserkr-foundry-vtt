@@ -1,15 +1,7 @@
 {
   "Actor": {
     "types": ["character"],
-    "templates": {
-      "base": {
-        "description": "",
-        "hp": { "value": 1, "max": 1 },
-        "silver": 0
-      }
-    },
     "character": {
-      "templates": ["base"],
       "abilities": {
         "fortitude": { "value": 0 },
         "might": { "value": 0 },
@@ -17,11 +9,14 @@
         "swift": { "value": 0 },
         "wits": { "value": 0 }
       },
+      "hp": { "value": 1, "max": 1 },
+      "silver": 0,
+      "runeUses": { "value": 0, "max": 0 },
       "fates": { "value": 0, "max": 0 }
     }
   },
   "Item": {
-    "types": ["weapon", "armor", "rune", "gear"],
+    "types": ["weapon", "armor", "rune", "gear", "feat"],
     "templates": {
       "base": {
         "description": "",
@@ -30,18 +25,23 @@
         "cost": 0
       }
     },
+    "feat": {
+      "templates": ["base"]
+    },
     "weapon": {
       "templates": ["base"],
-      "damage": "d4",
-      "damageType": "physical",
+      "damages": [
+        { "dieCount": 1, "dieType": "d4", "modifier": 0, "type": "physical" }
+      ],
       "isRanged": false,
       "range": 0
     },
     "armor": {
       "templates": ["base"],
       "tier": 1,
-      "reduction": "0",
-      "isShield": false
+      "reduction": { "dieCount": 1, "dieType": "d2" },
+      "isShield": false,
+      "equipped": false
     },
     "rune": {
       "templates": ["base"],
