@@ -48,7 +48,7 @@
 - [x] Implementar suporte a múltiplos perfis de dano nas Armas (até 5 tipos).
 - [x] Estruturar redução de armadura como dados de dados (dieCount/dieType).
 - [x] Adicionar validação de limites, sincronização de inputs e acessibilidade (A11y).
-- [x] Garantir conformidade com API v13 do Foundry (Math.clamp, modern FilePicker).
+- [x] Garantir conformidade com API v13 do Foundry (Math.clamp, modern FilePicker, namespaced `renderTemplate`).
 
 ### [x] Task 2: Interactive Features
 - [x] Adicionar botões de ataque e dano na aba Violence.
@@ -56,6 +56,7 @@
 - [x] Criar templates Handlebars (`test-card.hbs`, `damage-card.hbs`, `item-card.hbs`) para o chat.
 - [x] Integrar expansão nativa de rolagens (dice-tooltip) no chat.
 - [x] Transformar nomes de atributos no cabeçalho em botões de rolagem clicáveis.
+- [x] Tornar Defense DR e Armor Reduction clicáveis com lógica automática de teste e resultado.
 - [x] Implementar gestão de inventário categorizada (Weapons, Armor, Runes, Gear).
 - [x] Implementar criação rápida de itens (botão +) por categoria no inventário.
 - [x] Implementar rastreador de carga (Might + 8) com penalidades automáticas.
@@ -83,8 +84,23 @@
 - [x] Implementar Compêndios profissionais (LevelDB) com suporte a build automatizado.
 - [x] Criar script macro orientado a manifesto para importação absoluta e limpa de dados.
 - [x] Implementar organização nativa de pastas via código no hook `ready` (zero setup para o usuário).
-- [x] Organizar itens em packs granulares: Basic Weapons, Special Weapons, Armors, Gear e Runes.
+- [x] Organizar itens em packs granulares: Basic Weapons, Special Weapons, Armors, Gear, Runes e Legendary Artifacts.
 - [x] Criar compêndios individuais de Feats para cada uma das 10 classes do sistema.
 - [x] Reorganizar Tabelas de Rolagem por categorias (Creation, Rules, Divine) e por Reinos (Midgard, Alfheim, etc.).
 - [x] Implementar localização completa (EN/PT-BR) para todos os itens dos compêndios.
+- [x] Organizar documentação de referência em categorias e subpastas para facilitar manutenção.
 - [x] Gerar lista de ativos visuais necessários em `docs/IMAGES_NEEDED.md`.
+
+# Sprint 4: NPCs & World Building
+
+## Status: 🏗️ In Progress
+
+### [ ] Task 1: NPC Sheets
+- [ ] Implementar `BerserkrNPCSheet` (Ficha simplificada para monstros).
+- [ ] Adicionar suporte a estatísticas básicas (HP, Morale, Armour).
+- [ ] Implementar lista de ataques e habilidades especiais para monstros.
+- [ ] Adicionar funcionalidade de "Insta-Roll" para ataques de NPC.
+
+### [ ] Task 2: Adventure & Bestiary Data
+- [ ] Criar compêndio de Monstros básicos.
+- [ ] Implementar automação de Tabelas de Encontro na ficha de NPC.
