@@ -9,7 +9,8 @@
       "range": [
         1,
         1
-      ]
+      ],
+      "_id": "BTjhE4BB5ZlVaAGu"
     },
     {
       "type": 0,
@@ -17,7 +18,8 @@
       "range": [
         2,
         2
-      ]
+      ],
+      "_id": "s6qKryBsEElmoImb"
     },
     {
       "type": 0,
@@ -25,7 +27,8 @@
       "range": [
         3,
         3
-      ]
+      ],
+      "_id": "9CGTnu6JAfVD8TVH"
     },
     {
       "type": 0,
@@ -33,7 +36,8 @@
       "range": [
         4,
         4
-      ]
+      ],
+      "_id": "nUtcVBDHVoj6rMlh"
     },
     {
       "type": 0,
@@ -41,7 +45,8 @@
       "range": [
         5,
         5
-      ]
+      ],
+      "_id": "xOKpQvJqaAtEFmtB"
     },
     {
       "type": 0,
@@ -49,8 +54,10 @@
       "range": [
         6,
         6
-      ]
+      ],
+      "_id": "wBoalN4aArQVNqXi"
     }
   ],
-  "formula": "1d6"
+  "formula": "1d6",
+  "_id": "7N4cC5LDHYNcnKrI"
 }

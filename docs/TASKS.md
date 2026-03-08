@@ -82,6 +82,7 @@
 ### [x] Task 4: Compendiums & Tables
 - [x] Implementar Compêndios profissionais (LevelDB) com suporte a build automatizado.
 - [x] Criar script macro orientado a manifesto para importação absoluta e limpa de dados.
+- [x] Implementar organização nativa de pastas via código no hook `ready` (zero setup para o usuário).
 - [x] Organizar itens em packs granulares: Basic Weapons, Special Weapons, Armors, Gear e Runes.
 - [x] Criar compêndios individuais de Feats para cada uma das 10 classes do sistema.
 - [x] Reorganizar Tabelas de Rolagem por categorias (Creation, Rules, Divine) e por Reinos (Midgard, Alfheim, etc.).

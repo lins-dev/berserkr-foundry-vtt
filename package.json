@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "vite",
     "watch": "vite build --watch",
-    "build": "vite build && npm run build:packs",
-    "build:packs": "node scripts/compile-packs.js",
+    "build": "vite build",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "author": "Lucas Lins",

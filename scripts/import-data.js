@@ -1,62 +1,70 @@
 /**
- * Berserkr FULL RESTORATION Macro (V12 - Manifest Driven)
+ * Berserkr FULL RESTORATION Macro (V13 - Sidebar & Content)
  * 
- * This macro reads the manifest and imports EVERY item/table 
- * from the src/packs/ folders into your system compendiums.
+ * This macro:
+ * 1. Creates Sidebar Folders.
+ * 2. Reads the manifest.
+ * 3. Imports EVERY item/table from src/packs/.
  */
 
-async function fullRestore() {
-  ui.notifications.info("BERSERKR | Starting Deep Restoration...");
+const packGroups = {
+  "Berserkr: Items": ["berserkr-basic-weapons", "berserkr-special-weapons", "berserkr-armors", "berserkr-gear", "berserkr-runes"],
+  "Berserkr: Feats": [
+    "berserkr-feats-berserkr", "berserkr-feats-valkyrie", "berserkr-feats-vanir-warden",
+    "berserkr-feats-frost-jotunn", "berserkr-feats-light-elf", "berserkr-feats-master-smith",
+    "berserkr-feats-wraith", "berserkr-feats-flame-construct", "berserkr-feats-soul-shepherd",
+    "berserkr-feats-realmbreaker"
+  ],
+  "Berserkr: Tables": ["berserkr-tables-creation", "berserkr-tables-rules", "berserkr-tables-divine"],
+  "Berserkr: Realms": [
+    "berserkr-tables-midgard", "berserkr-tables-asgard", "berserkr-tables-vanaheim",
+    "berserkr-tables-jotunheim", "berserkr-tables-alfheim", "berserkr-tables-svartalfheim",
+    "berserkr-tables-niflheim", "berserkr-tables-muspelheim", "berserkr-tables-helheim"
+  ]
+};
+
+async function masterSetup() {
+  ui.notifications.info("BERSERKR | Starting Deep Setup...");
 
   try {
-    // 1. Load the manifest
     const manifestResponse = await fetch('systems/berserkr/packs-manifest.json');
-    if (!manifestResponse.ok) throw new Error("Manifest file not found!");
+    if (!manifestResponse.ok) throw new Error("Manifest not found!");
     const manifest = await manifestResponse.json();
 
-    const packs = game.packs.filter(p => p.metadata.packageName === "berserkr");
-    
-    for (let pack of packs) {
-      const packKey = pack.metadata.name;
-      const fileList = manifest[packKey];
-
-      if (!fileList || fileList.length === 0) {
-        console.warn(`BERSERKR | No source files found for pack: ${packKey}`);
-        continue;
+    for (const [folderName, packNames] of Object.entries(packGroups)) {
+      let folder = game.folders.find(f => f.name === folderName && f.type === "Compendium");
+      if (!folder) {
+        folder = await Folder.create({ name: folderName, type: "Compendium", color: "#004D56" });
       }
 
-      ui.notifications.info(`Importing ${fileList.length} items into ${packKey}...`);
+      for (const packName of packNames) {
+        const pack = game.packs.get(`berserkr.${packName}`);
+        if (!pack) continue;
 
-      // Unlock
-      await pack.configure({ locked: false });
+        await pack.configure({ folder: folder.id, locked: false });
+        
+        const docs = await pack.getDocuments();
+        for (let d of docs) await d.delete();
 
-      // Clear existing to avoid duplicates
-      const docs = await pack.getDocuments();
-      for (let d of docs) await d.delete();
-
-      // Import each file
-      for (const fileName of fileList) {
-        try {
-          const itemResponse = await fetch(`systems/berserkr/src/packs/${packKey}/${fileName}`);
-          const itemData = await itemResponse.json();
-          
-          if (!itemData._id) itemData._id = foundry.utils.randomID();
-          await pack.documentClass.create(itemData, { pack: pack.collection });
-        } catch (err) {
-          console.error(`BERSERKR | Error importing ${fileName} into ${packKey}:`, err);
+        const fileList = manifest[packName] || [];
+        for (const fileName of fileList) {
+          try {
+            const response = await fetch(`systems/berserkr/src/packs/${packName}/${fileName}`);
+            const itemData = await response.json();
+            if (!itemData._id) itemData._id = foundry.utils.randomID();
+            await pack.documentClass.create(itemData, { pack: pack.collection });
+          } catch (e) { console.error(e); }
         }
+        
+        await pack.configure({ locked: true });
+        console.log(`BERSERKR | Setup complete for ${packName}`);
       }
-
-      // Relock
-      await pack.configure({ locked: true });
-      console.log(`BERSERKR | Restored pack: ${packKey}`);
     }
-
-    ui.notifications.info("BERSERKR | Restoration Complete! All items and tables loaded.");
+    ui.notifications.info("BERSERKR | Master Setup Complete!");
   } catch (err) {
-    ui.notifications.error("BERSERKR | Restoration failed. See console for details.");
+    ui.notifications.error("BERSERKR | Setup failed.");
     console.error(err);
   }
 }
 
-fullRestore();
+masterSetup();

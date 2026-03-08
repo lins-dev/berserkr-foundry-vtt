@@ -9,7 +9,8 @@
       "range": [
         1,
         1
-      ]
+      ],
+      "_id": "q6HH5GtE7EEq39So"
     },
     {
       "type": 0,
@@ -17,7 +18,8 @@
       "range": [
         2,
         2
-      ]
+      ],
+      "_id": "B6O8s3DDI8tszenK"
     },
     {
       "type": 0,
@@ -25,7 +27,8 @@
       "range": [
         3,
         3
-      ]
+      ],
+      "_id": "rPnzeOeSLTuKBa7T"
     },
     {
       "type": 0,
@@ -33,7 +36,8 @@
       "range": [
         4,
         4
-      ]
+      ],
+      "_id": "U5YXBD1M3cH4RC5q"
     },
     {
       "type": 0,
@@ -41,7 +45,8 @@
       "range": [
         5,
         5
-      ]
+      ],
+      "_id": "n6XdvE3xddnjGb9y"
     },
     {
       "type": 0,
@@ -49,8 +54,10 @@
       "range": [
         6,
         6
-      ]
+      ],
+      "_id": "YhlOuACOYP8wjPkn"
     }
   ],
-  "formula": "1d6"
+  "formula": "1d6",
+  "_id": "dSe2a9aKDl9oKo68"
 }
